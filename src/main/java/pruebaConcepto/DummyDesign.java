@@ -13,4 +13,8 @@ public class DummyDesign {
 	public static int integrante3() {
 		return 3;
 	}
+
+	public static int integrante2(){
+		return 2;
+	}
 }
