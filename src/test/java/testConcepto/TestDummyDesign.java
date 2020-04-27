@@ -15,6 +15,11 @@ public class TestDummyDesign {
 	public void testIntegrante1() {
 		Assert.assertEquals(DummyDesign.integrante1(), 1);
 	}
+	
+	@Test
+	public void testIntegrante3() {
+		Assert.assertEquals(DummyDesign.integrante3(), 3);
+	}
 
 	@Test
 	public void testIntegrante5() {

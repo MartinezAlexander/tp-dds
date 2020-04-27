@@ -10,4 +10,7 @@ public class DummyDesign {
 	public static int integrante5() {
 		return 5;
 	}
+	public static int integrante3() {
+		return 3;
+	}
 }
