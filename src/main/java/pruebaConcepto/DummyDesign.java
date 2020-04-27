@@ -7,5 +7,7 @@ public class DummyDesign {
 	public static int integrante1() {
 		return 1;
 	}
-	
+	public static int integrante5() {
+		return 5;
+	}
 }
