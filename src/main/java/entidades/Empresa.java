@@ -1,11 +1,4 @@
-package GeSoc;
-
-enum CategoriaEmpresa{
-	MICRO,
-	PEQUENA,
-	MEDIANA_TRAMO_1,
-	MEDIA_TRAMO_2
-}
+package entidades;
 
 public class Empresa implements CategoriaEntidadJuridica {
 	private String nombreCategoria;

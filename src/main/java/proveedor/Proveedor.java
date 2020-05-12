@@ -1,4 +1,4 @@
-package GeSoc;
+package proveedor;
 
 public abstract class Proveedor {
 	private String direccionPostal;

@@ -1,4 +1,4 @@
-package GeSoc;
+package operaciones;
 
 import java.math.BigDecimal;
 

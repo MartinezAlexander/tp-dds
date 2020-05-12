@@ -1,9 +1,4 @@
-package GeSoc;
-
-enum TipoUsuario{
-    ADMIN,
-    USUARIO
-        }
+package usuarios;
 
 public class Usuario {
     private String nombre;

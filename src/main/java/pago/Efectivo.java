@@ -1,6 +1,6 @@
-package GeSoc;
+package pago;
 
-public class CajeroAutomatico implements MedioDePago{
+public class Efectivo implements MedioDePago{
 
 	@Override
 	public void realizarPago() {

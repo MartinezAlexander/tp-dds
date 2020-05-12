@@ -1,4 +1,4 @@
-package GeSoc;
+package proveedor;
 
 public class ProveedorJuridico extends Proveedor {
 	

@@ -1,4 +1,4 @@
-package GeSoc;
+package entidades;
 
 public abstract class Entidad {
 	private String nombreFicticio;

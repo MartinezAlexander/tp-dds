@@ -1,6 +1,6 @@
-package GeSoc;
+package entidades;
 
-public class entidadBase extends Entidad {
+public class EntidadBase extends Entidad {
 	private String descripcion;
 	private EntidadJuridica entidadJuridica;
 }

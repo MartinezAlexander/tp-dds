@@ -1,4 +1,4 @@
-package GeSoc;
+package entidades;
 
 public class EntidadJuridica extends Entidad {
 	private String razonSocial;

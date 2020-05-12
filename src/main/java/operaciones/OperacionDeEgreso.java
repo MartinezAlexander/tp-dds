@@ -1,4 +1,8 @@
-package GeSoc;
+package operaciones;
+
+import entidades.Entidad;
+import pago.MedioDePago;
+import proveedor.Proveedor;
 
 import java.util.Date;
 import java.util.List;

@@ -1,4 +1,4 @@
-package GeSoc;
+package entidades;
 
 public interface CategoriaEntidadJuridica {
 	String categoria();

@@ -1,4 +1,6 @@
-package GeSoc;
+package entidades;
+
+import entidades.CategoriaEntidadJuridica;
 
 public class OSC implements CategoriaEntidadJuridica {
 	private String nombreCategoria;

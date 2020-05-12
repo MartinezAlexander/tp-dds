@@ -1,4 +1,4 @@
-package GeSoc;
+package pago;
 
 public class DineroEnCuenta implements MedioDePago {
 
