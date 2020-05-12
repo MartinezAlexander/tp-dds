@@ -5,5 +5,13 @@ public abstract class Proveedor {
 	
 	public abstract String nombre();
 	public abstract int identificacion();
+
+	public Proveedor(String direccionPostal) {
+		this.direccionPostal = direccionPostal;
+	}
+
+	public String getDireccionPostal() {
+		return direccionPostal;
+	}
 }
 

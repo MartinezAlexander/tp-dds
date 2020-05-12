@@ -1,12 +1,17 @@
 package entidades;
 
 public class Empresa implements CategoriaEntidadJuridica {
-	private String nombreCategoria;
+	private static final String NOMBRE_CATEGORIA = "Empresa";
+
 	private CategoriaEmpresa categoria;
-	
+
+	public Empresa(CategoriaEmpresa categoria) {
+		this.categoria = categoria;
+	}
+
 	@Override
 	public String categoria() {
-		return nombreCategoria + " " + categoria.toString();
+		return NOMBRE_CATEGORIA + " " + categoria.toString();
 	}
 	
 }

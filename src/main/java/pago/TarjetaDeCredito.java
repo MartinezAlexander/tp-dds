@@ -6,11 +6,6 @@ public class TarjetaDeCredito implements MedioDePago{
 	
 	@Override
 	public void realizarPago() {
-		
+		// TODO Auto-generated method stub
 	}
-
-	public int getNumero() {
-		return numero;
-	}
-	
 }

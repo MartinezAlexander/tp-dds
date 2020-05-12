@@ -1,14 +1,14 @@
 package entidades;
 
 public abstract class Entidad {
-	private String nombreFicticio;
+	protected String nombreFicticio;
+
+	public Entidad(String nombreFicticio) {
+		this.nombreFicticio = nombreFicticio;
+	}
 
 	public String getNombreFicticio() {
 		return nombreFicticio;
-	}
-
-	public void setNombreFicticio(String nombreFicticio) {
-		this.nombreFicticio = nombreFicticio;
 	}
 }
 

@@ -5,19 +5,17 @@ import java.math.BigDecimal;
 public class ItemOperacion {
 	private String descripcion;
 	private BigDecimal valor;
-	
-	public BigDecimal getValor() {
-		return valor;
-	}
-	public void setValor(BigDecimal valor) {
+
+	public ItemOperacion(String descripcion, BigDecimal valor) {
+		this.descripcion = descripcion;
 		this.valor = valor;
 	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+
+	public BigDecimal getValor() {
+		return valor;
 	}
-	
-	
 }

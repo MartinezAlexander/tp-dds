@@ -3,11 +3,11 @@ package entidades;
 import entidades.CategoriaEntidadJuridica;
 
 public class OSC implements CategoriaEntidadJuridica {
-	private String nombreCategoria;
+	private static final String NOMBRE_CATEGORIA = "Organizaciones del sector social";
 
 	@Override
 	public String categoria() {
-		return nombreCategoria;
+		return NOMBRE_CATEGORIA;
 	}
 	
 }

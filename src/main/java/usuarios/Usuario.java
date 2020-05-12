@@ -6,7 +6,7 @@ public class Usuario {
     private TipoUsuario tipo;
 
     private void validarContrasena(){
-
+        //TODO
     }
 
 }
