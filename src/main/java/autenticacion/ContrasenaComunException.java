@@ -1,4 +1,4 @@
-package usuarios;
+package autenticacion;
 
 public class ContrasenaComunException extends RuntimeException{
     public ContrasenaComunException(String s) {
