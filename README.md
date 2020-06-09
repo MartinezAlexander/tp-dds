@@ -1,4 +1,4 @@
 # 2020-ju-ma-group-05
 
-Diagrama (no terminado)
-https://www.lucidchart.com/documents/edit/e532fb89-006d-43fa-9e2e-f96ade9ddaa3/0_0?shared=true
+Diagrama 
+https://app.lucidchart.com/invitations/accept/9d0f2687-11c5-401c-9e5f-5a6fd19b4d22
