@@ -1,11 +1,12 @@
-package entidades;
+package organizaciones;
 
-public class EntidadBase extends Entidad {
+public class EntidadBase implements Entidad {
 	private String descripcion;
 	private EntidadJuridica entidadJuridica;
+	protected String nombreFicticio;
 
 	public EntidadBase(String nombreFicticio, String descripcion) {
-		super(nombreFicticio);
+		this.nombreFicticio = nombreFicticio;
 		this.descripcion = descripcion;
 	}
 
@@ -20,5 +21,8 @@ public class EntidadBase extends Entidad {
 
 	public EntidadJuridica getEntidadJuridica() {
 		return entidadJuridica;
+	}
+	public String getNombreFicticio() {
+		return nombreFicticio;
 	}
 }

@@ -1,11 +1,13 @@
 package operaciones;
 
-import entidades.Entidad;
 import pago.MedioDePago;
 import proveedor.Proveedor;
 
 import java.util.Date;
 import java.util.List;
+
+import organizaciones.Organizacion;
+
 import java.math.BigDecimal;
 
 
@@ -15,17 +17,17 @@ public class OperacionDeEgreso {
 	private Date fecha;
 	private MedioDePago medioDePago;
 	private BigDecimal valorTotal;
-	private Entidad entidad;
+	private Organizacion organizacion;
 	private List<ItemOperacion> items;
 
 	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, Date fecha, MedioDePago medioDePago,
-							 BigDecimal valorTotal, Entidad entidad, List<ItemOperacion> items) {
+							 BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items) {
 		this.documentoComercial = documentoComercial;
 		this.proveedor = proveedor;
 		this.fecha = fecha;
 		this.medioDePago = medioDePago;
 		this.valorTotal = valorTotal;
-		this.entidad = entidad;
+		this.organizacion = organizacion;
 		this.items = items;
 	}
 
@@ -49,8 +51,8 @@ public class OperacionDeEgreso {
 		return valorTotal;
 	}
 
-	public Entidad getEntidad() {
-		return entidad;
+	public Organizacion getOrganizacion() {
+		return organizacion;
 	}
 
 	public List<ItemOperacion> getItems() {
