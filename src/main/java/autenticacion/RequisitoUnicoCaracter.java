@@ -19,12 +19,9 @@ public class RequisitoUnicoCaracter implements RequisitoContrasena {
     }
 
     private boolean unicoCaracter(String password){
-        for (int i = 1 ; i < password.length() ; i++){
-
-            char anterior = password.charAt(i - 1);
-            char actual = password.charAt(i);
-
-            if(anterior != actual) return false;
+        char unicoCaracter = password.charAt(0);
+        for(char caracter : password.toCharArray()){
+            if(caracter != unicoCaracter) return false;
         }
         return true;
     }

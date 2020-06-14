@@ -19,7 +19,6 @@ public class RequisitoSecuencias implements RequisitoContrasena {
     }
 
     private boolean esSecuencia(String string){
-
         for (int i = 1 ; i < string.length() ; i++){
             char anterior = string.charAt(i - 1);
             char actual = string.charAt(i);
