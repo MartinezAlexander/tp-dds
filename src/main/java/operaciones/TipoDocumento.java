@@ -1,5 +1,5 @@
 package operaciones;
 
 public enum TipoDocumento {
-    TICKET,FACTURA
+    TICKET,FACTURA,COTIZACION
 }
