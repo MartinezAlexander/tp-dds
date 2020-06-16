@@ -23,11 +23,12 @@ public class OperacionDeEgreso {
 	private Organizacion organizacion;
 	private List<ItemOperacion> items;
 	private List<Presupuesto> presupuestos;
+	private int presupuestosNecesarios;
+	private Presupuesto presupuestoElegido;
 	private CriterioDeSeleccion criterioDeSeleccionDePresupuesto;
 
-	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, Date fecha, MedioDePago medioDePago,
-							 BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items, List<Presupuesto> presupuestos,
-							 CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
+	//TODO resolver long param?
+	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, Date fecha, MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items, List<Presupuesto> presupuestos, int presupuestosNecesarios, Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
 		this.documentoComercial = documentoComercial;
 		this.proveedor = proveedor;
 		this.fecha = fecha;
@@ -36,6 +37,8 @@ public class OperacionDeEgreso {
 		this.organizacion = organizacion;
 		this.items = items;
 		this.presupuestos = presupuestos;
+		this.presupuestosNecesarios = presupuestosNecesarios;
+		this.presupuestoElegido = presupuestoElegido;
 		this.criterioDeSeleccionDePresupuesto = criterioDeSeleccionDePresupuesto;
 	}
 
@@ -75,5 +78,21 @@ public class OperacionDeEgreso {
 
 	public List<ItemOperacion> getItems() {
 		return items;
+	}
+
+	public List<Presupuesto> getPresupuestos() {
+		return presupuestos;
+	}
+
+	public int getPresupuestosNecesarios() {
+		return presupuestosNecesarios;
+	}
+
+	public Presupuesto getPresupuestoElegido() {
+		return presupuestoElegido;
+	}
+
+	public CriterioDeSeleccion getCriterioDeSeleccionDePresupuesto() {
+		return criterioDeSeleccionDePresupuesto;
 	}
 }

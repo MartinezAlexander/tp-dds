@@ -20,4 +20,8 @@ public class Usuario {
         Autenticador.getInstance().validarContrasena(contrasena);
         this.contrasena = contrasena;
     }
+
+    public void recibirMensajeRevision(boolean operacionValidada){
+        //TODO ver que hacer con el resultado, o modelar un objeto para manejar el resultado
+    }
 }

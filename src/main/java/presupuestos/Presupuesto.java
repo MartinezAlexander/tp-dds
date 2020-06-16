@@ -11,12 +11,12 @@ import proveedor.Proveedor;
 
 public class Presupuesto {
 	private Proveedor proveedor;
-	private ArrayList<ItemOperacion> items;
+	private List<ItemOperacion> items;
 	private BigDecimal cotizacion;
 	private DocumentoComercial documentoComercial;
 	private Date fecha;
 	
-	public Presupuesto(Proveedor proveedor, ArrayList<ItemOperacion> items, DocumentoComercial documentoComercial, Date fecha) {
+	public Presupuesto(Proveedor proveedor, List<ItemOperacion> items, DocumentoComercial documentoComercial, Date fecha) {
 		this.proveedor = proveedor;
 		this.items = items;
 		this.documentoComercial = documentoComercial;
@@ -28,6 +28,14 @@ public class Presupuesto {
 			      .map(i -> i.getValor())
 			      .sum();
 	}
-	
-	
+
+	public boolean equals(Proveedor proveedor, List<ItemOperacion> items){
+		return this.proveedor.equals(proveedor) && this.items.equals(items);
+	}
+
+	public boolean equals(Presupuesto presupuesto){
+		return equals(presupuesto.proveedor, presupuesto.items)
+				&& documentoComercial.equals(presupuesto.documentoComercial)
+				&& fecha.equals(presupuesto.fecha);
+	}
 }
