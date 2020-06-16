@@ -5,6 +5,7 @@ import presupuestos.CriterioDeSeleccion;
 import presupuestos.Presupuesto;
 import presupuestos.PresupuestoNoExistenteException;
 import proveedor.Proveedor;
+import usuarios.Usuario;
 
 import java.util.Date;
 import java.util.List;
@@ -23,11 +24,13 @@ public class OperacionDeEgreso {
 	private Organizacion organizacion;
 	private List<ItemOperacion> items;
 	private List<Presupuesto> presupuestos;
+    private List<Usuario> usuariosRevisores;
 	private int presupuestosNecesarios;
 	private Presupuesto presupuestoElegido;
 	private CriterioDeSeleccion criterioDeSeleccionDePresupuesto;
 
 	//TODO resolver long param?
+	//TODO inicializar OperacionDeEgreso con usuariosRevisores?
 	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, Date fecha, MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items, List<Presupuesto> presupuestos, int presupuestosNecesarios, Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
 		this.documentoComercial = documentoComercial;
 		this.proveedor = proveedor;
@@ -95,4 +98,47 @@ public class OperacionDeEgreso {
 	public CriterioDeSeleccion getCriterioDeSeleccionDePresupuesto() {
 		return criterioDeSeleccionDePresupuesto;
 	}
+
+	//Validación
+	public void realizarValidacion(){
+        notifyRevisores(validar());
+    }
+
+    private boolean validar(){
+        //1. Se valida la cantidad correcta de presupuestos
+        //2. Se valida que la compra se hizo en base a alguno de sus presupuestos
+        //3. Se valida que el presupuesto elegido se eligio correctamente segun el criterio de seleccion
+        return cantidadPresupuestosCorrecta() && compraEnBaseAPresupuesto() && eleccionDePresupuestoCorrecta();
+    }
+
+    private boolean cantidadPresupuestosCorrecta(){
+        return getPresupuestos().size() == getPresupuestosNecesarios();
+    }
+
+    private boolean compraEnBaseAPresupuesto(){
+        return getPresupuestos().stream().anyMatch(
+                presupuesto -> presupuesto.equals(getProveedor(), getItems())
+        );
+    }
+
+    private boolean eleccionDePresupuestoCorrecta(){
+        Presupuesto presupuestoSupuestamenteElegido = getCriterioDeSeleccionDePresupuesto().
+                elegirPresupuesto(getPresupuestos());
+
+        return presupuestoSupuestamenteElegido.equals(getPresupuestoElegido());
+    }
+
+    private void notifyRevisores(boolean resultadoValidacion){
+        usuariosRevisores.forEach( usuario -> usuario.recibirMensajeRevision(resultadoValidacion, this));
+    }
+
+    public void agregarRevisor(Usuario usuario){
+        usuariosRevisores.add(usuario);
+    }
+
+    public void quitarRevisor(Usuario usuario){
+        usuariosRevisores.remove(usuario);
+    }
+	
+	
 }
