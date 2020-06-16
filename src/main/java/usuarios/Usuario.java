@@ -1,6 +1,7 @@
 package usuarios;
 
 import autenticacion.Autenticador;
+import operaciones.OperacionDeEgreso;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,7 +22,8 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public void recibirMensajeRevision(boolean operacionValidada){
+    public void recibirMensajeRevision(boolean operacionValidada, OperacionDeEgreso operacion){
         //TODO ver que hacer con el resultado, o modelar un objeto para manejar el resultado
+    	//TODO tenes que tener la operacion tambien, no?
     }
 }

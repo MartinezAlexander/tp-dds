@@ -12,7 +12,6 @@ import proveedor.Proveedor;
 public class Presupuesto {
 	private Proveedor proveedor;
 	private List<ItemOperacion> items;
-	private BigDecimal cotizacion;
 	private DocumentoComercial documentoComercial;
 	private Date fecha;
 	
@@ -26,7 +25,7 @@ public class Presupuesto {
 	public BigDecimal getCotizacion() {
 		return this.items.stream()
 			      .map(i -> i.getValor())
-			      .sum();
+			      .reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 
 	public boolean equals(Proveedor proveedor, List<ItemOperacion> items){

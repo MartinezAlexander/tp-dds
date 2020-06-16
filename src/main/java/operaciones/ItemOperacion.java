@@ -1,12 +1,13 @@
 package operaciones;
 
+
 import java.math.BigDecimal;
 
 public class ItemOperacion {
 	private String descripcion;
-	private BigDecimal valor;
+	private ValorMonetario valor;
 
-	public ItemOperacion(String descripcion, BigDecimal valor) {
+	public ItemOperacion(String descripcion, ValorMonetario valor) {
 		this.descripcion = descripcion;
 		this.valor = valor;
 	}
@@ -15,7 +16,7 @@ public class ItemOperacion {
 		return descripcion;
 	}
 
-	public BigDecimal getValor() {
+	public ValorMonetario getValorMonetario() {
 		return valor;
 	}
 }

@@ -53,7 +53,7 @@ public class ValidacionEgreso {
     }
 
     private void notifyRevisores(){
-        usuariosRevisores.forEach( usuario -> usuario.recibirMensajeRevision(resultadoValidacion));
+        usuariosRevisores.forEach( usuario -> usuario.recibirMensajeRevision(resultadoValidacion, operacionAValidar));
     }
 
     public void agregarRevisor(Usuario usuario){

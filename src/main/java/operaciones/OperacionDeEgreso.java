@@ -46,7 +46,7 @@ public class OperacionDeEgreso {
 		this.presupuestos.add(presupuesto);
 	}
 	
-	public void eliminarPresupuesto(Presupuesto presupuesto) {
+	public void eliminarPresupuesto(Presupuesto presupuesto) throws PresupuestoNoExistenteException {
 		if(!this.presupuestos.remove(presupuesto)) {
 			throw new PresupuestoNoExistenteException("El presupuesto a eliminar no existe en la lista de presupuestos");
 		}
