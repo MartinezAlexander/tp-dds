@@ -4,10 +4,10 @@ public class DireccionPostal {
 	private String calle;
 	private int altura;
 	private int piso;
-	private int departamento;
+	private Departamento departamento;
 	private UbicacionML ubicacionML;
 	
-	public DireccionPostal(String calle, int altura, int piso, int departamento, String codigoPostal) {
+	public DireccionPostal(String calle, int altura, int piso, Departamento departamento, String codigoPostal) {
 		this.calle = calle;
 		this.altura = altura;
 		this.piso = piso;
@@ -27,13 +27,19 @@ public class DireccionPostal {
 		return piso;
 	}
 
-	public int getDepartamento() {
+	public Departamento getDepartamento() {
 		return departamento;
 	}
-
-	public UbicacionML getUbicacionML() {
-		return ubicacionML;
+	
+	public String getProvincia() {
+		return ubicacionML.getState().getName();
 	}
 	
+	public String getPais() {
+		return ubicacionML.getCountry().getName();
+	}
 	
+	public String getCodigoPostal() {
+		return ubicacionML.getZipCode();
+	}
 }

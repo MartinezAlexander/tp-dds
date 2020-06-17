@@ -1,20 +1,25 @@
 package testDirecciones;
 
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import Direcciones.ApiMercadoLibre;
-import Direcciones.UbicacionML;
+import Direcciones.DireccionPostal;
+import Direcciones.Departamento;
 
 public class testDireccionPostal {
 	
 	@Test
-	public void testGson() {
-		UbicacionML ubicacionML = ApiMercadoLibre.obtenerUbicacionML("5000");
-		assertEquals("Argentina", ubicacionML.getCountry().getName());
-		assertEquals("Córdoba", ubicacionML.getState().getName());
+	public void testCrearDireccion() {
+		DireccionPostal direccion = new DireccionPostal("Av. Hipolito Irigoyen", 4005, 5, Departamento.A, "1824");
+		assertEquals("Av. Hipolito Irigoyen",direccion.getCalle());
+		assertEquals(4005,direccion.getAltura());
+		assertEquals(Departamento.A,direccion.getDepartamento());
+		assertEquals("Argentina",direccion.getPais());
+		assertEquals("Buenos Aires",direccion.getProvincia());
+		assertEquals("1824",direccion.getCodigoPostal());
+		
 	}
-	
 	
 }
