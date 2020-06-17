@@ -1,10 +1,10 @@
-package Direcciones;
+package direcciones;
 
-public class City {
+public class State {
 	private String id;
 	private String name;
 	
-	public City(String id, String name) {
+	public State(String id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -16,5 +16,6 @@ public class City {
 	public String getName() {
 		return name;
 	}
+	
 	
 }

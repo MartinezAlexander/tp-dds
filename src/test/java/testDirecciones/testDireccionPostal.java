@@ -4,9 +4,9 @@ package testDirecciones;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import direcciones.DireccionPostal;
+import direcciones.Departamento;
 
-import Direcciones.DireccionPostal;
-import Direcciones.Departamento;
 
 public class testDireccionPostal {
 	

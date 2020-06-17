@@ -1,4 +1,4 @@
-package Direcciones;
+package direcciones;
 
 public class Country {
 	private String id;
