@@ -24,7 +24,7 @@ public class Presupuesto {
 	
 	public BigDecimal getCotizacion() {
 		return this.items.stream()
-			      .map(i -> i.getValor())
+			      .map(i -> i.getValorMonetario().getValor())
 			      .reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 
