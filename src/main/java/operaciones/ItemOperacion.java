@@ -1,8 +1,5 @@
 package operaciones;
 
-
-import java.math.BigDecimal;
-
 public class ItemOperacion {
 	private String descripcion;
 	private ValorMonetario valor;
