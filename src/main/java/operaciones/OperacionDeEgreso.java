@@ -8,6 +8,8 @@ import proveedor.Proveedor;
 import usuarios.MensajeRevision;
 import usuarios.Usuario;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +21,7 @@ import java.math.BigDecimal;
 public class OperacionDeEgreso {
 	private DocumentoComercial documentoComercial;
 	private Proveedor proveedor;
-	private Date fecha;
+	private LocalDate fecha;
 	private MedioDePago medioDePago;
 	private BigDecimal valorTotal;
 	private Organizacion organizacion;
@@ -32,7 +34,7 @@ public class OperacionDeEgreso {
 
 	//TODO resolver long param?
 	//TODO inicializar OperacionDeEgreso con usuariosRevisores?
-	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, Date fecha, MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items, List<Presupuesto> presupuestos, int presupuestosNecesarios, Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
+	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, LocalDate fecha, MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items, List<Presupuesto> presupuestos, int presupuestosNecesarios, Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
 		this.documentoComercial = documentoComercial;
 		this.proveedor = proveedor;
 		this.fecha = fecha;
@@ -44,6 +46,8 @@ public class OperacionDeEgreso {
 		this.presupuestosNecesarios = presupuestosNecesarios;
 		this.presupuestoElegido = presupuestoElegido;
 		this.criterioDeSeleccionDePresupuesto = criterioDeSeleccionDePresupuesto;
+
+		usuariosRevisores = new ArrayList<>();
 	}
 
 	public void agregarPresupuesto(Presupuesto presupuesto) {
@@ -64,7 +68,7 @@ public class OperacionDeEgreso {
 		return proveedor;
 	}
 
-	public Date getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 

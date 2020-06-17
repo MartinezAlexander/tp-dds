@@ -3,6 +3,7 @@ package testPresupuesto;
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,12 +34,12 @@ public class testPresupuesto {
     	items1.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20),"ARS")));
     	items1.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(30),"ARS")));
     	this.proveedor1 = new Proveedor(new DireccionPostal("Av. Hipolito Irigoyen", 4005, 5, Departamento.A, "1824"), "Proovedor", "DePrueba", 33333333);
-        this.presupuesto1 = new Presupuesto(this.proveedor1, items1, new DocumentoComercial(TipoDocumento.TICKET, 22), new Date());
+        this.presupuesto1 = new Presupuesto(this.proveedor1, items1, new DocumentoComercial(TipoDocumento.TICKET, 22), LocalDate.now());
         List<ItemOperacion> items2 = new ArrayList<ItemOperacion>();
     	items2.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(40),"ARS")));
     	items2.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(60),"ARS")));
     	this.proveedor2 = new Proveedor(new DireccionPostal("Av. Hipolito Irigoyen", 4005, 5, Departamento.A, "1824"),"RazonSocialTest", 204444444);
-        this.presupuesto2 = new Presupuesto(this.proveedor2, items2, new DocumentoComercial(TipoDocumento.FACTURA, 33), new Date());
+        this.presupuesto2 = new Presupuesto(this.proveedor2, items2, new DocumentoComercial(TipoDocumento.FACTURA, 33), LocalDate.now());
     }
 	
 	@Test

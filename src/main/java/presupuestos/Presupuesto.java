@@ -1,6 +1,7 @@
 package presupuestos;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,9 +14,9 @@ public class Presupuesto {
 	private Proveedor proveedor;
 	private List<ItemOperacion> items;
 	private DocumentoComercial documentoComercial;
-	private Date fecha;
+	private LocalDate fecha;
 	
-	public Presupuesto(Proveedor proveedor, List<ItemOperacion> items, DocumentoComercial documentoComercial, Date fecha) {
+	public Presupuesto(Proveedor proveedor, List<ItemOperacion> items, DocumentoComercial documentoComercial, LocalDate fecha) {
 		this.proveedor = proveedor;
 		this.items = items;
 		this.documentoComercial = documentoComercial;
@@ -36,5 +37,21 @@ public class Presupuesto {
 		return equals(presupuesto.proveedor, presupuesto.items)
 				&& documentoComercial.equals(presupuesto.documentoComercial)
 				&& fecha.equals(presupuesto.fecha);
+	}
+
+	public Proveedor getProveedor() {
+		return proveedor;
+	}
+
+	public List<ItemOperacion> getItems() {
+		return items;
+	}
+
+	public DocumentoComercial getDocumentoComercial() {
+		return documentoComercial;
+	}
+
+	public LocalDate getFecha() {
+		return fecha;
 	}
 }
