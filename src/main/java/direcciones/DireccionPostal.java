@@ -1,4 +1,4 @@
-package Direcciones;
+package direcciones;
 
 public class DireccionPostal {
 	private String calle;

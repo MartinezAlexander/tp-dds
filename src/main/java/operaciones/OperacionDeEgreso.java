@@ -100,8 +100,10 @@ public class OperacionDeEgreso {
 	}
 
 	//Validación
-	public void realizarValidacion(){
-        notifyRevisores(validar());
+	public boolean realizarValidacion(){
+		boolean resultado = validar();
+        notifyRevisores(resultado);
+        return resultado;
     }
 
     private boolean validar(){

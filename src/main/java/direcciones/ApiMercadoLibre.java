@@ -1,4 +1,4 @@
-package Direcciones;
+package direcciones;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
