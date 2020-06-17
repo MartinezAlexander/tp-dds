@@ -13,6 +13,7 @@ public class Usuario {
     private String nombre;
     private String contrasena;
     private TipoUsuario tipo;
+    private List<MensajeRevision> bandejaMensajes;
 
     public Usuario(String nombre, String contrasena, TipoUsuario tipo) {
         this.nombre = nombre;
@@ -20,10 +21,10 @@ public class Usuario {
 
         Autenticador.getInstance().validarContrasena(contrasena);
         this.contrasena = contrasena;
+        this.bandejaMensajes = new ArrayList<MensajeRevision>();
     }
 
-    public void recibirMensajeRevision(boolean operacionValidada, OperacionDeEgreso operacion){
-        //TODO ver que hacer con el resultado, o modelar un objeto para manejar el resultado
-    	//TODO tenes que tener la operacion tambien, no?
+    public void recibirMensajeRevision(MensajeRevision mensajeOperacion){
+        this.bandejaMensajes.add(mensajeOperacion);
     }
 }

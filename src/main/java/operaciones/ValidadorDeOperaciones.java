@@ -25,7 +25,7 @@ public class ValidadorDeOperaciones {
                 .collect(Collectors.toList());
     }
 
-    public ValidadorDeOperaciones getInstance(){
+    public static ValidadorDeOperaciones getInstance(){
         if (instance == null) return new ValidadorDeOperaciones();
         else return instance;
     }

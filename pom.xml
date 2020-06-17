@@ -1,7 +1,7 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>prueba-de-concepto</groupId>
-	<artifactId>prueba-de-concepto</artifactId>
+	<groupId>gesoc</groupId>
+	<artifactId>gesoc</artifactId>
 	<version>1.0</version>
 	<build>
 		<plugins>
@@ -29,7 +29,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>ar.edu.frba.dds.gesoc.Main</mainClass>
+							<mainClass>main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

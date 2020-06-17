@@ -5,6 +5,7 @@ import presupuestos.CriterioDeSeleccion;
 import presupuestos.Presupuesto;
 import presupuestos.PresupuestoNoExistenteException;
 import proveedor.Proveedor;
+import usuarios.MensajeRevision;
 import usuarios.Usuario;
 
 import java.util.Date;
@@ -131,7 +132,7 @@ public class OperacionDeEgreso {
     }
 
     private void notifyRevisores(boolean resultadoValidacion){
-        usuariosRevisores.forEach( usuario -> usuario.recibirMensajeRevision(resultadoValidacion, this));
+        usuariosRevisores.forEach( usuario -> usuario.recibirMensajeRevision(new MensajeRevision(this, resultadoValidacion)));
     }
 
     public void agregarRevisor(Usuario usuario){
