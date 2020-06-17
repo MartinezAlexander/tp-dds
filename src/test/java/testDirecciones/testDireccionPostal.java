@@ -5,14 +5,16 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import Direcciones.ApiMercadoLibre;
+import Direcciones.UbicacionML;
 
 public class testDireccionPostal {
-
+	
 	@Test
-	public void test() {
-		String json = ApiMercadoLibre.Instance().obtenerJson("5000");
-		assertTrue(json.contains("state"));
-		assertTrue(json.contains("country"));
+	public void testGson() {
+		UbicacionML ubicacionML = ApiMercadoLibre.obtenerUbicacionML("5000");
+		assertEquals("Argentina", ubicacionML.getCountry().getName());
+		assertEquals("Córdoba", ubicacionML.getState().getName());
 	}
-
+	
+	
 }
