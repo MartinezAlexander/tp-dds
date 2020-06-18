@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 public class ValorMonetario {
 	private BigDecimal valor;
 	private String currencyId;
+	//private IdsMonetarios currencyId;
 	
 	public ValorMonetario(BigDecimal valor, String currencyId) {
 		this.valor = valor;
