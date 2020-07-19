@@ -7,3 +7,5 @@ Enunciado Parte 1:
 https://drive.google.com/file/d/19Sxl0lQzNHfpQoWqvuYzOl_YQdCwZXy4/view?usp=sharing
 Enunciado Parte 2:
 https://docs.google.com/document/d/1kyp7tWioN97UBATva0LFa-5kYsiIqOMAO4Lyphjs0ws/edit
+Enunciado Parte 3:
+https://docs.google.com/document/d/1mtYaUC0X5NH-vHnJxd1mKQrZOiyMTVpM0VnbK05cD3g/edit#
