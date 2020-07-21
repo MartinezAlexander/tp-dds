@@ -137,7 +137,7 @@ public class OperacionDeEgreso {
         Presupuesto presupuestoSupuestamenteElegido = getCriterioDeSeleccionDePresupuesto().
                 elegirPresupuesto(getPresupuestos());
 
-        return presupuestoSupuestamenteElegido.equals(getPresupuestoElegido());
+        return presupuestoSupuestamenteElegido == getPresupuestoElegido();
     }
 
     private void notifyRevisores(boolean resultadoValidacion){
