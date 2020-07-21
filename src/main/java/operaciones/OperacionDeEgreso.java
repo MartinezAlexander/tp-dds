@@ -32,6 +32,8 @@ public class OperacionDeEgreso {
 	private Presupuesto presupuestoElegido;
 	private CriterioDeSeleccion criterioDeSeleccionDePresupuesto;
 
+	private boolean validada;
+
 	//TODO resolver long param?
 	//TODO inicializar OperacionDeEgreso con usuariosRevisores?
 	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, LocalDate fecha, MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items, List<Presupuesto> presupuestos, int presupuestosNecesarios, Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
@@ -48,6 +50,8 @@ public class OperacionDeEgreso {
 		this.criterioDeSeleccionDePresupuesto = criterioDeSeleccionDePresupuesto;
 
 		usuariosRevisores = new ArrayList<>();
+
+		this.validada = false;
 	}
 
 	public void agregarPresupuesto(Presupuesto presupuesto) {
@@ -104,11 +108,12 @@ public class OperacionDeEgreso {
 		return criterioDeSeleccionDePresupuesto;
 	}
 
+	public boolean getValidada(){ return validada; }
+
 	//Validación
-	public boolean realizarValidacion(){
-		boolean resultado = validar();
-        notifyRevisores(resultado);
-        return resultado;
+	public void realizarValidacion(){
+		validada = validar();
+        notifyRevisores(validada);
     }
 
     private boolean validar(){

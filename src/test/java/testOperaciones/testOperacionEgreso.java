@@ -80,7 +80,8 @@ public class testOperacionEgreso {
                 null, null, valorTotal, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestoElegido, criterio);
 
-        Assert.assertTrue(operacion.realizarValidacion());
+        operacion.realizarValidacion();
+        Assert.assertTrue(operacion.getValidada());
     }
 
     @Test
@@ -98,7 +99,8 @@ public class testOperacionEgreso {
                 null, null, valorTotal, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestoElegido, criterio);
 
-        Assert.assertFalse(operacion.realizarValidacion());
+        operacion.realizarValidacion();
+        Assert.assertFalse(operacion.getValidada());
     }
 
     @Test
@@ -119,7 +121,8 @@ public class testOperacionEgreso {
                 null, null, valorTotal, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestoElegido, criterio);
 
-        Assert.assertFalse(operacion.realizarValidacion());
+        operacion.realizarValidacion();
+        Assert.assertFalse(operacion.getValidada());
     }
 
     @Test
@@ -137,6 +140,7 @@ public class testOperacionEgreso {
                 null, null, valorTotal, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestos.get(1), criterio);
 
-        Assert.assertFalse(operacion.realizarValidacion());
+        operacion.realizarValidacion();
+        Assert.assertFalse(operacion.getValidada());
     }
 }

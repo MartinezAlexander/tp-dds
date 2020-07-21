@@ -9,6 +9,5 @@ public class MenorValor implements CriterioDeSeleccion{
 	public Presupuesto elegirPresupuesto(List<Presupuesto> presupuestos) {
 		
 		return presupuestos.stream().min(Comparator.comparing(Presupuesto::getCotizacion)).get();
-		//return presupuestos.stream().map(p -> p.getCotizacion()).min());
 	}	
 }
