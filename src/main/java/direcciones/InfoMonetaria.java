@@ -1,18 +1,20 @@
 package direcciones;
 
+import operaciones.IdsMonetarios;
+
 public class InfoMonetaria {
-	private String id;
+	private IdsMonetarios id;
 	private String description;
 	private String symbol;
 	private int decimal_places;
 	
-	public InfoMonetaria(String id, String description, String symbol, int decimal_places) {
+	public InfoMonetaria(IdsMonetarios id, String description, String symbol, int decimal_places) {
 		this.id = id;
 		this.description = description;
 		this.symbol = symbol;
 		this.decimal_places = decimal_places;
 	}
-	public String getId() {
+	public IdsMonetarios getId() {
 		return id;
 	}
 	public String getDescription() {

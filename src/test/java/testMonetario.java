@@ -12,7 +12,7 @@ public class testMonetario {
 	public void test() {
 		
 		InfoMonetaria moneda = ApiMercadoLibre.obtenerInfoMonetariaPorId(IdsMonetarios.ARS.toString());
-		assertEquals("ARS",moneda.getId());
+		assertEquals(IdsMonetarios.ARS,moneda.getId());
 		assertEquals("$",moneda.getSymbol());
 		assertEquals("Peso argentino",moneda.getDescription());
 		assertEquals(2,moneda.getDecimal_places());
