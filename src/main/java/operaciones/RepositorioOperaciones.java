@@ -25,4 +25,8 @@ public class RepositorioOperaciones {
     public static List<OperacionDeEgreso> obtenerOperacionesPorEntidad(Entidad entidad){
         return operaciones.stream().filter(operacionDeEgreso -> operacionDeEgreso.getEntidad() == entidad).collect(Collectors.toList());
     }
+    
+    public static List<OperacionDeEgreso> obtenerOperacionesPorEtiqueta(String etiqueta){
+        return operaciones.stream().filter(operacionDeEgreso -> operacionDeEgreso.tieneEtiqueta(etiqueta)).collect(Collectors.toList());
+    }
 }

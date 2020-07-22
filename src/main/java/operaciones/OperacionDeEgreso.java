@@ -39,6 +39,8 @@ public class OperacionDeEgreso {
 	private List<Usuario> usuariosRevisores;
 
 	private boolean validada;
+	
+	private List<String> etiquetas;
 
 	//TODO resolver long param?
 	//TODO inicializar OperacionDeEgreso con usuariosRevisores?
@@ -57,6 +59,8 @@ public class OperacionDeEgreso {
 		this.criterioDeSeleccionDePresupuesto = criterioDeSeleccionDePresupuesto;
 
 		usuariosRevisores = new ArrayList<>();
+		
+		etiquetas = new ArrayList<>();
 
 		this.validada = false;
 	}
@@ -163,5 +167,16 @@ public class OperacionDeEgreso {
         usuariosRevisores.remove(usuario);
     }
 	
+    public void agregarEtiqueta(String etiqueta){
+        etiquetas.add(etiqueta);
+    }
+
+    public void quitarEtiqueta(String etiqueta){
+    	etiquetas.remove(etiqueta);
+    }
+    
+    public boolean tieneEtiqueta(String etiqueta){
+    	return etiquetas.contains(etiqueta);
+    }
 	
 }

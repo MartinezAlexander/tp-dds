@@ -77,7 +77,7 @@ public class testOperacionEgreso {
         Proveedor proveedor = presupuestoElegido.getProveedor();
 
         OperacionDeEgreso operacion = new OperacionDeEgreso(null, proveedor,
-                null, null, valorTotal, null, itemsComprados, presupuestos,
+                null, null, valorTotal, null, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestoElegido, criterio);
 
         operacion.realizarValidacion();
@@ -96,7 +96,7 @@ public class testOperacionEgreso {
         Proveedor proveedor = presupuestoElegido.getProveedor();
 
         OperacionDeEgreso operacion = new OperacionDeEgreso(null, proveedor,
-                null, null, valorTotal, null, itemsComprados, presupuestos,
+                null, null, valorTotal, null, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestoElegido, criterio);
 
         operacion.realizarValidacion();
@@ -118,7 +118,7 @@ public class testOperacionEgreso {
         Proveedor proveedor = presupuestoElegido.getProveedor();
 
         OperacionDeEgreso operacion = new OperacionDeEgreso(null, proveedor,
-                null, null, valorTotal, null, itemsComprados, presupuestos,
+                null, null, valorTotal, null, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestoElegido, criterio);
 
         operacion.realizarValidacion();
@@ -137,7 +137,7 @@ public class testOperacionEgreso {
         Proveedor proveedor = presupuestoElegido.getProveedor();
 
         OperacionDeEgreso operacion = new OperacionDeEgreso(null, proveedor,
-                null, null, valorTotal, null, itemsComprados, presupuestos,
+                null, null, valorTotal, null, null, itemsComprados, presupuestos,
                 cantidadPresupuestos, presupuestos.get(1), criterio);
 
         operacion.realizarValidacion();
