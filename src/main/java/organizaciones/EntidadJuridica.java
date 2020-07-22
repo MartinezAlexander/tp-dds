@@ -1,26 +1,31 @@
 package organizaciones;
 
-public class EntidadJuridica implements Entidad {
+public class EntidadJuridica extends Entidad {
 	private String razonSocial;
 	private int cuit;
 	private String direccionPostal;
 	private int codigoInscripcionIGJ;
-	private CategoriaEntidadJuridica categoria;
-	protected String nombreFicticio;
+	private CategoriaEntidadJuridica categoriaEntidadJuridica;
 
-	public EntidadJuridica(String nombreFicticio, String razonSocial, int cuit, String direccionPostal,
-						   CategoriaEntidadJuridica categoria) {
-		this.nombreFicticio = nombreFicticio;
+	public EntidadJuridica(String nombreFicticio, CategoriaEntidad categoria, String razonSocial, int cuit, String direccionPostal,
+						   CategoriaEntidadJuridica categoriaEntidadJuridica) {
+		super(nombreFicticio, categoria);
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
 		this.direccionPostal = direccionPostal;
-		this.categoria = categoria;
+		this.categoriaEntidadJuridica = categoriaEntidadJuridica;
 	}
 
-	public EntidadJuridica(String nombreFicticio, String razonSocial, int cuit, String direccionPostal,
-						   int codigoInscripcionIGJ, CategoriaEntidadJuridica categoria) {
-		this(nombreFicticio, razonSocial, cuit, direccionPostal, categoria);
+	public EntidadJuridica(String nombreFicticio, CategoriaEntidad categoria, String razonSocial, int cuit, String direccionPostal,
+						   int codigoInscripcionIGJ, CategoriaEntidadJuridica categoriaEntidadJuridica) {
+		this(nombreFicticio, categoria, razonSocial, cuit, direccionPostal, categoriaEntidadJuridica);
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
+	}
+
+	public void agregarEntidadBase(EntidadBase entidadBase){
+		if (categoria.puedoAgregarEntidadBase()){
+			entidadBase.setEntidadJuridica(this);
+		}
 	}
 
 	public String getRazonSocial() {
@@ -39,11 +44,7 @@ public class EntidadJuridica implements Entidad {
 		return codigoInscripcionIGJ;
 	}
 
-	public CategoriaEntidadJuridica getCategoria() {
-		return categoria;
-	}
-	
-	public String getNombreFicticio() {
-		return nombreFicticio;
+	public CategoriaEntidadJuridica getCategoriaEntidadJuridica() {
+		return categoriaEntidadJuridica;
 	}
 }

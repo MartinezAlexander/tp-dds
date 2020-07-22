@@ -1,17 +1,16 @@
 package organizaciones;
 
-public class EntidadBase implements Entidad {
+public class EntidadBase extends Entidad {
 	private String descripcion;
 	private EntidadJuridica entidadJuridica;
-	protected String nombreFicticio;
 
-	public EntidadBase(String nombreFicticio, String descripcion) {
-		this.nombreFicticio = nombreFicticio;
+	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion) {
+		super(nombreFicticio, categoria);
 		this.descripcion = descripcion;
 	}
 
-	public EntidadBase(String nombreFicticio, String descripcion, EntidadJuridica entidadJuridica) {
-		this(nombreFicticio, descripcion);
+	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion, EntidadJuridica entidadJuridica) {
+		this(nombreFicticio, categoria, descripcion);
 		this.entidadJuridica = entidadJuridica;
 	}
 
@@ -22,7 +21,9 @@ public class EntidadBase implements Entidad {
 	public EntidadJuridica getEntidadJuridica() {
 		return entidadJuridica;
 	}
-	public String getNombreFicticio() {
-		return nombreFicticio;
+
+	public void setEntidadJuridica(EntidadJuridica entidadJuridica) {
+		if (categoria.puedoSerParteDeEntidadJuridica())
+			this.entidadJuridica = entidadJuridica;
 	}
 }

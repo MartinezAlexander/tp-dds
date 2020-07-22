@@ -1,5 +1,6 @@
 package operaciones;
 
+import organizaciones.Entidad;
 import pago.MedioDePago;
 import presupuestos.CriterioDeSeleccion;
 import presupuestos.Presupuesto;
@@ -24,25 +25,31 @@ public class OperacionDeEgreso {
 	private LocalDate fecha;
 	private MedioDePago medioDePago;
 	private BigDecimal valorTotal;
+
 	private Organizacion organizacion;
+	private Entidad entidad;
+
 	private List<ItemOperacion> items;
+
 	private List<Presupuesto> presupuestos;
-    private List<Usuario> usuariosRevisores;
 	private int presupuestosNecesarios;
 	private Presupuesto presupuestoElegido;
 	private CriterioDeSeleccion criterioDeSeleccionDePresupuesto;
+
+	private List<Usuario> usuariosRevisores;
 
 	private boolean validada;
 
 	//TODO resolver long param?
 	//TODO inicializar OperacionDeEgreso con usuariosRevisores?
-	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, LocalDate fecha, MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, List<ItemOperacion> items, List<Presupuesto> presupuestos, int presupuestosNecesarios, Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
+	public OperacionDeEgreso(DocumentoComercial documentoComercial, Proveedor proveedor, LocalDate fecha, MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, Entidad entidad, List<ItemOperacion> items, List<Presupuesto> presupuestos, int presupuestosNecesarios, Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto) {
 		this.documentoComercial = documentoComercial;
 		this.proveedor = proveedor;
 		this.fecha = fecha;
 		this.medioDePago = medioDePago;
 		this.valorTotal = valorTotal;
 		this.organizacion = organizacion;
+		this.entidad = entidad;
 		this.items = items;
 		this.presupuestos = presupuestos;
 		this.presupuestosNecesarios = presupuestosNecesarios;
@@ -86,6 +93,10 @@ public class OperacionDeEgreso {
 
 	public Organizacion getOrganizacion() {
 		return organizacion;
+	}
+
+	public Entidad getEntidad() {
+		return entidad;
 	}
 
 	public List<ItemOperacion> getItems() {

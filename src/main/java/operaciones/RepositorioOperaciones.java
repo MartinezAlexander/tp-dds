@@ -1,5 +1,7 @@
 package operaciones;
 
+import organizaciones.Entidad;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,5 +20,9 @@ public class RepositorioOperaciones {
 
     public static List<OperacionDeEgreso> obtenerOperacionesPendientesDeValidacion(){
         return operaciones.stream().filter(OperacionDeEgreso::getValidada).collect(Collectors.toList());
+    }
+
+    public static List<OperacionDeEgreso> obtenerOperacionesPorEntidad(Entidad entidad){
+        return operaciones.stream().filter(operacionDeEgreso -> operacionDeEgreso.getEntidad() == entidad).collect(Collectors.toList());
     }
 }

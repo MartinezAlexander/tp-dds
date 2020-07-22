@@ -10,7 +10,6 @@ public class testMonetario {
 
 	@Test
 	public void test() {
-		
 		InfoMonetaria moneda = ApiMercadoLibre.obtenerInfoMonetariaPorId(IdsMonetarios.ARS.toString());
 		assertEquals(IdsMonetarios.ARS,moneda.getId());
 		assertEquals("$",moneda.getSymbol());
