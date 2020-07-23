@@ -178,5 +178,9 @@ public class OperacionDeEgreso {
     public boolean tieneEtiqueta(String etiqueta){
     	return etiquetas.contains(etiqueta);
     }
-	
+    
+	public List<String> getEtiquetas() {
+		return etiquetas;
+	}
+    
 }

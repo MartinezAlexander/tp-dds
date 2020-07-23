@@ -20,9 +20,8 @@ public abstract class Entidad {
         }
     }
 
-    public void generarReporteMensual(){
-        List<OperacionDeEgreso> egresosDeLaEntidad = RepositorioOperaciones.obtenerOperacionesPorEntidad(this);
-        //TODO Agrupar por etiquetas y devolver 'reporte'
+    public Reporte generarReporteMensual(){
+        return new Reporte(RepositorioOperaciones.obtenerOperacionesPorEntidad(this));        
     }
 
     public String getNombreFicticio() {
