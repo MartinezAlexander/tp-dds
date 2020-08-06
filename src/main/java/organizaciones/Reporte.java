@@ -1,54 +1,57 @@
 package organizaciones;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import operaciones.OperacionDeEgreso;
 
 public class Reporte {
-	List<UnidadDeReporte> egresosPorEtiqueta;
+	/*
+		Antes agrupabamos por unica etiqueta, ahora se agrupa por el listado particular
+		de etiquetas. No estoy seguro cual es la forma ideal, pero lo que pasaba antes era que
+		por ejemplo:
+			Tengo una Operacion 'A' que tiene etiquetas => Amoblamiento, [Nombre Provedor]
+			Entonces en nuestro reporte apareceria dos veces la misma operacion
+
+			Reporte:
+				Amoblamiento
+					...
+					Operacion 'A'
+					...
+					Operacion 'X'
+					...
+
+				[Nombre Provedor]
+					...
+					Operacion 'A'
+					...
+			Fin reporte
+
+		No estoy seguro que es lo que nos conviene, si que aparezca una unica vez o que haya menos
+		agrupamiento. Como esta ahora quedaria algo asi:
+
+			Reporte:
+				Amoblamiento
+					...
+					Operacion 'X'
+					...
+
+				Amoblamiento-[Nombre Provedor]
+					...
+					Operacion 'A'
+					...
+			Fin reporte
+	 */
+	private Map<List<String>, List<OperacionDeEgreso>> egresosPorEtiqueta;
 	
 	public Reporte(List<OperacionDeEgreso> egresosDeLaEntidad) {
-		generarReporte(egresosDeLaEntidad);
-	}
-	
-	private void generarReporte(List<OperacionDeEgreso> egresosDeLaEntidad) {
-        for(OperacionDeEgreso egreso : egresosDeLaEntidad) {
-        	for(String etiqueta : egreso.getEtiquetas()) {
-        		if(reportePorEtiqueta(etiqueta) == null) {
-        			egresosPorEtiqueta.add(new UnidadDeReporte(etiqueta));
-        		}
-        		reportePorEtiqueta(etiqueta).agregarEgreso(egreso);
-        	}
-        }
-	}
-	
-	private UnidadDeReporte reportePorEtiqueta(String etiqueta) {
-		return egresosPorEtiqueta.stream()
-		.filter(unidadDeReporte -> etiqueta.equals(unidadDeReporte.getEtiqueta()))
-		.findAny()
-		.orElse(null);
+		egresosPorEtiqueta = egresosDeLaEntidad.stream()
+				.collect(Collectors.groupingBy(OperacionDeEgreso::getEtiquetas));
 	}
 
-	public List<UnidadDeReporte> getEgresosPorEtiqueta() {
+	public Map<List<String>, List<OperacionDeEgreso>> getEgresosPorEtiqueta() {
 		return egresosPorEtiqueta;
-	}	
-
-}
-
-class UnidadDeReporte{
-	String NombreEtiqueta;
-	List<OperacionDeEgreso> egresosDeLaEtiqueta;
-	
-	public UnidadDeReporte(String NombreEtiqueta) {
-		this.NombreEtiqueta = NombreEtiqueta;
 	}
-	
-	public void agregarEgreso(OperacionDeEgreso egreso){
-		egresosDeLaEtiqueta.add(egreso);
-	}
-	
-	String getEtiqueta() {
-		return NombreEtiqueta;
-	}
-	
 }
