@@ -6,6 +6,7 @@ import operaciones.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import organizaciones.Reporte;
 import presupuestos.CriterioDeSeleccion;
 import presupuestos.MenorValor;
 import presupuestos.Presupuesto;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Stream;
 
 public class testOperacionEgreso {
 
@@ -142,5 +144,32 @@ public class testOperacionEgreso {
 
         operacion.realizarValidacion();
         Assert.assertFalse(operacion.getValidada());
+    }
+
+    @Test
+    public void reportePorEtiquetas(){
+        OperacionDeEgreso egresoA = new OperacionDeEgreso(null, null, null, null,null, null, null, null, null, 0, null, null);
+
+        egresoA.agregarEtiqueta("Indumentaria");
+        egresoA.agregarEtiqueta("Adidas");
+
+        OperacionDeEgreso egresoB = new OperacionDeEgreso(null, null, null, null,null, null, null, null, null, 0, null, null);
+
+        egresoB.agregarEtiqueta("Indumentaria");
+        egresoB.agregarEtiqueta("Nike");
+
+        OperacionDeEgreso egresoC = new OperacionDeEgreso(null, null, null, null,null, null, null, null, null, 0, null, null);
+
+        egresoC.agregarEtiqueta("Amoblamiento");
+        egresoC.agregarEtiqueta("Oficina");
+
+        List<OperacionDeEgreso> misEgresos = new ArrayList<>();
+        misEgresos.add(egresoA);
+        misEgresos.add(egresoB);
+        misEgresos.add(egresoC);
+
+        Reporte reporte = new Reporte(misEgresos);
+        Assert.assertEquals(5, reporte.getEgresosPorEtiqueta().size());
+        Assert.assertEquals(2, reporte.getEgresosPorEtiqueta().get("Indumentaria").size());
     }
 }
