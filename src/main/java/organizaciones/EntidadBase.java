@@ -1,5 +1,7 @@
 package organizaciones;
 
+import organizaciones.reglasEntidades.CategoriaEntidad;
+
 public class EntidadBase extends Entidad {
 	private String descripcion;
 	private EntidadJuridica entidadJuridica;
@@ -23,7 +25,8 @@ public class EntidadBase extends Entidad {
 	}
 
 	public void setEntidadJuridica(EntidadJuridica entidadJuridica) {
-		if (categoria.puedoSerParteDeEntidadJuridica())
-			this.entidadJuridica = entidadJuridica;
+
+		categoria.ejecutarReglasAsignacionAEntidadJuridica(entidadJuridica);
+		this.entidadJuridica = entidadJuridica;
 	}
 }

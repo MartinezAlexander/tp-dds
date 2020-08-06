@@ -2,6 +2,7 @@ package organizaciones;
 
 import operaciones.OperacionDeEgreso;
 import operaciones.RepositorioOperaciones;
+import organizaciones.reglasEntidades.CategoriaEntidad;
 
 import java.util.List;
 
@@ -15,9 +16,9 @@ public abstract class Entidad {
     }
 
     public void aceptarNuevoEgreso(OperacionDeEgreso operacionDeEgreso){
-        if (categoria.egresoPermitido(operacionDeEgreso)){
-            RepositorioOperaciones.agregarOperacion(operacionDeEgreso);
-        }
+
+        categoria.ejecutarReglasNuevoEgreso(this, operacionDeEgreso);
+        RepositorioOperaciones.agregarOperacion(operacionDeEgreso);
     }
 
     public Reporte generarReporteMensual(){

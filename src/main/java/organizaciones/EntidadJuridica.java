@@ -1,5 +1,7 @@
 package organizaciones;
 
+import organizaciones.reglasEntidades.CategoriaEntidad;
+
 public class EntidadJuridica extends Entidad {
 	private String razonSocial;
 	private int cuit;
@@ -23,9 +25,8 @@ public class EntidadJuridica extends Entidad {
 	}
 
 	public void agregarEntidadBase(EntidadBase entidadBase){
-		if (categoria.puedoAgregarEntidadBase()){
-			entidadBase.setEntidadJuridica(this);
-		}
+		categoria.ejecutarReglasNuevaEntidadBase();
+		entidadBase.setEntidadJuridica(this);
 	}
 
 	public String getRazonSocial() {
