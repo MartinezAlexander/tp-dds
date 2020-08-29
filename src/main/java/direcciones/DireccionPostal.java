@@ -12,7 +12,7 @@ public class DireccionPostal {
 		this.altura = altura;
 		this.piso = piso;
 		this.departamento = departamento;
-		this.ubicacionML = ApiMercadoLibre.obtenerUbicacionML(codigoPostal);
+		this.ubicacionML = ApiMercadoLibre.getInstance().obtenerUbicacionML(codigoPostal);
 	}
 
 	public String getCalle() {
