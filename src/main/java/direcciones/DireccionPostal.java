@@ -1,13 +1,27 @@
 package direcciones;
 
-public class DireccionPostal {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import persistencia.EntidadPersistente;
+
+@Entity
+public class DireccionPostal extends EntidadPersistente{
+	
+	@Column
 	private String calle;
+	@Column
 	private int altura;
+	@Column
 	private int piso;
-	private Departamento departamento;
+	@Column
+	private String departamento;
+	@ManyToOne
 	private UbicacionML ubicacionML;
 	
-	public DireccionPostal(String calle, int altura, int piso, Departamento departamento, String codigoPostal) {
+	public DireccionPostal(String calle, int altura, int piso, String departamento, String codigoPostal) {
 		this.calle = calle;
 		this.altura = altura;
 		this.piso = piso;
@@ -27,7 +41,7 @@ public class DireccionPostal {
 		return piso;
 	}
 
-	public Departamento getDepartamento() {
+	public String getDepartamento() {
 		return departamento;
 	}
 	

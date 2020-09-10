@@ -1,7 +1,16 @@
 package operaciones;
 
-public class DocumentoComercial {
+import persistencia.EntidadPersistente;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class DocumentoComercial extends EntidadPersistente{
+	
+	@Column
 	private TipoDocumento tipo;
+	@Column
 	private int numero;
 
 	public DocumentoComercial(TipoDocumento tipo, int numero) {

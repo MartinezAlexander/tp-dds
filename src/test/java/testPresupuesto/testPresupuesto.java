@@ -11,7 +11,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import direcciones.Departamento;
 import direcciones.DireccionPostal;
 import presupuestos.MenorValor;
 import presupuestos.Presupuesto;
@@ -33,12 +32,12 @@ public class testPresupuesto {
     	List<ItemOperacion> items1 = new ArrayList<ItemOperacion>();
     	items1.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20),"ARS")));
     	items1.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(30),"ARS")));
-    	this.proveedor1 = new Proveedor(new DireccionPostal("Av. Hipolito Irigoyen", 4005, 5, Departamento.A, "1824"), "Proovedor", "DePrueba", 33333333);
+    	this.proveedor1 = new Proveedor(new DireccionPostal("Av. Hipolito Irigoyen", 4005, 5, "A", "1824"), "Proovedor", "DePrueba", 33333333);
         this.presupuesto1 = new Presupuesto(this.proveedor1, items1, new DocumentoComercial(TipoDocumento.TICKET, 22), LocalDate.now());
         List<ItemOperacion> items2 = new ArrayList<ItemOperacion>();
     	items2.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(40),"ARS")));
     	items2.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(60),"ARS")));
-    	this.proveedor2 = new Proveedor(new DireccionPostal("Av. Hipolito Irigoyen", 4005, 5, Departamento.A, "1824"),"RazonSocialTest", 204444444);
+    	this.proveedor2 = new Proveedor(new DireccionPostal("Av. Hipolito Irigoyen", 4005, 5, "A", "1824"),"RazonSocialTest", 204444444);
         this.presupuesto2 = new Presupuesto(this.proveedor2, items2, new DocumentoComercial(TipoDocumento.FACTURA, 33), LocalDate.now());
     }
 	
