@@ -1,10 +1,20 @@
 package direcciones;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class UbicacionML {
 
+	@Id
 	private String zip_code;
+	@ManyToOne
 	private City city;
+	@ManyToOne
 	private State state;
+	@ManyToOne
 	private Country country;
 	
 	public UbicacionML(String zipCode, City city, State state, Country country) {
@@ -31,3 +41,9 @@ public class UbicacionML {
 	}
 
 }
+
+/*
+TODO
+Duda:
+Guardamos la UbicacionML o guardamos el codigo y vamos a la API ????
+ */

@@ -26,5 +26,5 @@ public enum Departamento {
 	W,
 	X,
 	Y,
-	Z
+	Z;
 }

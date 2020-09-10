@@ -1,12 +1,13 @@
 package operaciones;
 
+import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import organizaciones.Entidad;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RepositorioOperaciones {
+public class RepositorioOperaciones implements WithGlobalEntityManager {
 
     private static List<OperacionDeEgreso> operaciones = new ArrayList<>();
 
