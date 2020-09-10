@@ -1,6 +1,5 @@
 package testOperaciones;
 
-import direcciones.Departamento;
 import direcciones.DireccionPostal;
 import operaciones.*;
 import org.junit.Assert;
@@ -34,7 +33,7 @@ public class testOperacionEgreso {
         itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20), "ARS")));
         itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20), "ARS")));
 
-        Proveedor proveedorUno = new Proveedor(new DireccionPostal("Calle", 1520, 5, Departamento.A, "5000"), "Nombre", "Apellido", 1);
+        Proveedor proveedorUno = new Proveedor(new DireccionPostal("Calle", 1520, 5, "A", "5000"), "Nombre", "Apellido", 1);
         DocumentoComercial documentoComercialUno = new DocumentoComercial(TipoDocumento.COTIZACION, 1);
         LocalDate fechaUno = LocalDate.of(2019, 6, 20);
 
@@ -45,7 +44,7 @@ public class testOperacionEgreso {
         itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20), "ARS")));
         itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(140), "ARS")));
 
-        Proveedor proveedorDos = new Proveedor(new DireccionPostal("Calle", 2075, 1, Departamento.A, "1478"), "Nombre", "Apellido", 2);
+        Proveedor proveedorDos = new Proveedor(new DireccionPostal("Calle", 2075, 1, "A", "1478"), "Nombre", "Apellido", 2);
         DocumentoComercial documentoComercialDos = new DocumentoComercial(TipoDocumento.COTIZACION, 2);
         LocalDate fechaDos = LocalDate.of(2019, 6, 21);
 
@@ -56,7 +55,7 @@ public class testOperacionEgreso {
         itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(30), "ARS")));
         itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(10), "ARS")));
 
-        Proveedor proveedorTres = new Proveedor(new DireccionPostal("Calle", 1032, 15, Departamento.C, "2116"), "Nombre", "Apellido", 3);
+        Proveedor proveedorTres = new Proveedor(new DireccionPostal("Calle", 1032, 15, "C", "2116"), "Nombre", "Apellido", 3);
         DocumentoComercial documentoComercialTres = new DocumentoComercial(TipoDocumento.COTIZACION, 3);
         LocalDate fechaTres = LocalDate.of(2015, 1, 5);
 

@@ -12,6 +12,10 @@
         <class>direcciones.City</class>
         <class>direcciones.Country</class>
         <class>direcciones.State</class>
+        <class>direcciones.DireccionPostal</class>
+        <class>direcciones.InfoMonetaria</class>
+        <class>direcciones.ItemOperacion</class>
+        <class>direcciones.DocumentoComercial</class>
 
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
