@@ -10,7 +10,9 @@ public class City {
 	private String id;
 	@Column
 	private String name;
-	
+
+	public City() { }
+
 	public City(String id, String name) {
 		this.id = id;
 		this.name = name;

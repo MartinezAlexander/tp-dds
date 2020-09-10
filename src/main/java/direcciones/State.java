@@ -10,7 +10,10 @@ public class State {
 	private String id;
 	@Column
 	private String name;
-	
+
+	public State() {
+	}
+
 	public State(String id, String name) {
 		this.id = id;
 		this.name = name;

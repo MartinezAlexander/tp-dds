@@ -16,7 +16,10 @@ public class UbicacionML {
 	private State state;
 	@ManyToOne
 	private Country country;
-	
+
+	public UbicacionML() {
+	}
+
 	public UbicacionML(String zipCode, City city, State state, Country country) {
 		this.zip_code = zipCode;
 		this.city = city;
