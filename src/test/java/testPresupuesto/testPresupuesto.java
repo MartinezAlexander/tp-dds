@@ -18,7 +18,6 @@ import proveedor.Proveedor;
 import operaciones.DocumentoComercial;
 import operaciones.ItemOperacion;
 import operaciones.TipoDocumento;
-import operaciones.ValorMonetario;
 
 public class testPresupuesto {
 	
