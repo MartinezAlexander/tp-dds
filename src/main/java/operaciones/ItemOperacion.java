@@ -20,20 +20,23 @@ public class ItemOperacion extends EntidadPersistente{
 	private String currencyId;
 	//private IdsMonetarios currencyId;
 
+
 	public ItemOperacion(String descripcion, BigDecimal valor, String currencyId) {
 		this.descripcion = descripcion;
 		this.valor = valor;
 		this.currencyId = currencyId;
 	}
 
+
 	public String getDescripcion() {
 		return descripcion;
 	}
-	
 	public BigDecimal getValor() {
 		return valor;
 	}
 	public String getCurrencyId() {
 		return currencyId;
 	}
+
+
 }

@@ -29,9 +29,9 @@ public class testOperacionEgreso {
         presupuestos = new ArrayList<>();
 
         List<ItemOperacion> itemsPresupuestoUno = new ArrayList<>();
-        itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20), "ARS")));
-        itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20), "ARS")));
-        itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20), "ARS")));
+        itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemOperacion("Descripcion", new BigDecimal(20), "ARS"));
 
         Proveedor proveedorUno = new Proveedor(new DireccionPostal("Calle", 1520, 5, "A", "5000"), "Nombre", "Apellido", 1);
         DocumentoComercial documentoComercialUno = new DocumentoComercial(TipoDocumento.COTIZACION, 1);
@@ -40,9 +40,9 @@ public class testOperacionEgreso {
         Presupuesto presupuestoUno = new Presupuesto(proveedorUno, itemsPresupuestoUno, documentoComercialUno, fechaUno);
 
         List<ItemOperacion> itemsPresupuestoDos = new ArrayList<>();
-        itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(60), "ARS")));
-        itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(20), "ARS")));
-        itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(140), "ARS")));
+        itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new BigDecimal(60), "ARS"));
+        itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new BigDecimal(20), "ARS"));
+        itemsPresupuestoDos.add(new ItemOperacion("Descripcion", new BigDecimal(140), "ARS"));
 
         Proveedor proveedorDos = new Proveedor(new DireccionPostal("Calle", 2075, 1, "A", "1478"), "Nombre", "Apellido", 2);
         DocumentoComercial documentoComercialDos = new DocumentoComercial(TipoDocumento.COTIZACION, 2);
@@ -51,9 +51,9 @@ public class testOperacionEgreso {
         Presupuesto presupuestoDos = new Presupuesto(proveedorDos, itemsPresupuestoDos, documentoComercialDos, fechaDos);
 
         List<ItemOperacion> itemsPresupuestoTres = new ArrayList<>();
-        itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(30), "ARS")));
-        itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(30), "ARS")));
-        itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(10), "ARS")));
+        itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemOperacion("Descripcion", new BigDecimal(10), "ARS"));
 
         Proveedor proveedorTres = new Proveedor(new DireccionPostal("Calle", 1032, 15, "C", "2116"), "Nombre", "Apellido", 3);
         DocumentoComercial documentoComercialTres = new DocumentoComercial(TipoDocumento.COTIZACION, 3);
@@ -112,8 +112,8 @@ public class testOperacionEgreso {
         Presupuesto presupuestoElegido = criterio.elegirPresupuesto(presupuestos);
 
         List<ItemOperacion> itemsComprados = new ArrayList<>();
-        itemsComprados.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(1500), "ARS")));
-        itemsComprados.add(new ItemOperacion("Descripcion", new ValorMonetario(new BigDecimal(50), "ARS")));
+        itemsComprados.add(new ItemOperacion("Descripcion", new BigDecimal(1500), "ARS"));
+        itemsComprados.add(new ItemOperacion("Descripcion", new BigDecimal(50), "ARS"));
 
         BigDecimal valorTotal = presupuestoElegido.getCotizacion();
         Proveedor proveedor = presupuestoElegido.getProveedor();

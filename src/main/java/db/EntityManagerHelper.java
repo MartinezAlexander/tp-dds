@@ -8,6 +8,11 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+/*
+TODO: Llevar esto a algo entendible, y con lo que nos dijeron de la interfaz que te da el EntityManager
+    creo que aca hacen muchas cosas de mas que por ahi no hacen falta
+ */
+
 public class EntityManagerHelper {
 
     private static EntityManagerFactory emf;
