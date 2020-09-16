@@ -1,9 +1,18 @@
 package usuarios;
 
-import operaciones.OperacionDeEgreso;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-public class MensajeRevision {
+import operaciones.OperacionDeEgreso;
+import persistencia.EntidadPersistente;
+
+@Entity
+public class MensajeRevision extends EntidadPersistente{
+	@OneToOne(targetEntity = OperacionDeEgreso.class)
 	private OperacionDeEgreso operacion;
+	@Column
 	private boolean resultadoValidacion;
 	
 	public MensajeRevision(OperacionDeEgreso operacion, boolean resultadoValidacion) {

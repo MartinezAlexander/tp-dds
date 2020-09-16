@@ -2,6 +2,7 @@ package operaciones;
 
 import organizaciones.Entidad;
 import pago.MedioDePago;
+import persistencia.EntidadPersistente;
 import presupuestos.CriterioDeSeleccion;
 import presupuestos.Presupuesto;
 import presupuestos.PresupuestoNoExistenteException;
@@ -14,12 +15,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import organizaciones.Organizacion;
 
 import java.math.BigDecimal;
 
-
-public class OperacionDeEgreso {
+@Entity
+public class OperacionDeEgreso extends EntidadPersistente {
 	private DocumentoComercial documentoComercial;
 	private Proveedor proveedor;
 	private LocalDate fecha;
