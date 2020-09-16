@@ -17,9 +17,12 @@
         <class>direcciones.ItemOperacion</class>
         <class>direcciones.DocumentoComercial</class>
         <class>proveedor.Proveedor</class>
+
+        <!--
         <class>usuarios.Usuario</class>
         <class>usuarios.MensajeRevision</class>
-        <class>operacion.OperacionesDeEgreso</class>
+        <class>operaciones.OperacionDeEgreso</class>
+        /-->
         
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        
