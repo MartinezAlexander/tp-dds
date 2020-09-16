@@ -2,8 +2,12 @@ package organizaciones.reglasEntidades;
 
 import organizaciones.EntidadJuridica;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.util.List;
 
+@Entity
+@DiscriminatorValue("AsignacionAEntidadJuridica")
 public class ReglaAsignacionAEntidadJuridica extends ReglaCategoriaEntidad {
 
     private List<EntidadJuridica> entidadJuridicasProhibidas;

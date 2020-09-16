@@ -23,6 +23,14 @@
         <class>usuarios.MensajeRevision</class>
         <class>operaciones.OperacionDeEgreso</class>
         /-->
+
+        <class>organizaciones.reglasEntidades.CategoriaEntidad</class>
+        <class>organizaciones.reglasEntidades.ReglaCategoriaEntidad</class>
+        <class>organizaciones.reglasEntidades.ReglaNuevaEntidadBase</class>
+        <!--
+        <class>organizaciones.reglasEntidades.ReglaAsignacionAEntidadJuridica</class>
+        /-->
+        <class>organizaciones.reglasEntidades.ReglaNuevoEgreso</class>
         
         <properties> 
 	    <property name="hibernate.archive.autodetection" value="class"/>        

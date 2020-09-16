@@ -1,7 +1,14 @@
 package organizaciones.reglasEntidades;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("NuevaEntidadBase")
 public class ReglaNuevaEntidadBase extends ReglaCategoriaEntidad {
 
+    @Column
     private boolean permiteEntidadesBase;
 
     public ReglaNuevaEntidadBase(boolean permiteEntidadesBase) {

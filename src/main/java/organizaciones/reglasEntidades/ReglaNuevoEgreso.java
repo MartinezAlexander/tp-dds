@@ -4,10 +4,17 @@ import operaciones.OperacionDeEgreso;
 import operaciones.RepositorioOperaciones;
 import organizaciones.Entidad;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.util.List;
 
+@Entity
+@DiscriminatorValue("NuevoEgreso")
 public class ReglaNuevoEgreso extends ReglaCategoriaEntidad{
+
+    @Column
     private BigDecimal montoMaximo;
 
     public ReglaNuevoEgreso(BigDecimal montoMaximo) {
