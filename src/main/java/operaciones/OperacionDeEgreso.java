@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 
 import organizaciones.Organizacion;
 
@@ -23,26 +24,35 @@ import java.math.BigDecimal;
 
 @Entity
 public class OperacionDeEgreso extends EntidadPersistente {
+	@Transient
 	private DocumentoComercial documentoComercial;
+	@Transient
 	private Proveedor proveedor;
+	@Transient
 	private LocalDate fecha;
+	@Transient
 	private MedioDePago medioDePago;
+	@Transient
 	private BigDecimal valorTotal;
-
+	@Transient
 	private Organizacion organizacion;
+	@Transient
 	private Entidad entidad;
-
+	@Transient
 	private List<ItemOperacion> items;
-
+	@Transient
 	private List<Presupuesto> presupuestos;
+	@Transient
 	private int presupuestosNecesarios;
+	@Transient
 	private Presupuesto presupuestoElegido;
+	@Transient
 	private CriterioDeSeleccion criterioDeSeleccionDePresupuesto;
-
+	@Transient
 	private List<Usuario> usuariosRevisores;
-
+	@Transient
 	private boolean validada;
-	
+	@Transient
 	private List<String> etiquetas;
 
 	//TODO resolver long param?

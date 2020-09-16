@@ -18,11 +18,11 @@
         <class>direcciones.DocumentoComercial</class>
         <class>proveedor.Proveedor</class>
 
-        <!--
+        
         <class>usuarios.Usuario</class>
         <class>usuarios.MensajeRevision</class>
         <class>operaciones.OperacionDeEgreso</class>
-        /-->
+        
 
         <class>organizaciones.reglasEntidades.CategoriaEntidad</class>
         <class>organizaciones.reglasEntidades.ReglaCategoriaEntidad</class>

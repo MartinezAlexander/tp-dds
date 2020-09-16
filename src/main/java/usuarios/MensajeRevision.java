@@ -10,7 +10,7 @@ import persistencia.EntidadPersistente;
 
 @Entity
 public class MensajeRevision extends EntidadPersistente{
-	@OneToOne(targetEntity = OperacionDeEgreso.class)
+	@OneToOne
 	private OperacionDeEgreso operacion;
 	@Column
 	private boolean resultadoValidacion;
