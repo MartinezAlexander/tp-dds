@@ -1,9 +1,20 @@
 package pago;
 
-public class TarjetaDeCredito implements MedioDePago{
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
-	private int numero;
-	
+@Entity
+@DiscriminatorValue("TarjetaDeCredito")
+public class TarjetaDeCredito extends MedioDePago{
+
+	@Column
+	private int numeroDeTarjetaCredito;
+
+	public TarjetaDeCredito(int numeroDeTarjetaCredito) {
+		this.numeroDeTarjetaCredito = numeroDeTarjetaCredito;
+	}
+
 	@Override
 	public void realizarPago() {
 		// TODO Auto-generated method stub

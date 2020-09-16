@@ -25,13 +25,14 @@ public class testCargarCiudadDB implements WithGlobalEntityManager {
         EntityManagerHelper.closeEntityManager();
         */
 
+        /*
         EntityTransaction transaction = entityManager().getTransaction();
         transaction.begin();
         entityManager().persist(buenosAires);
         transaction.commit();
 
         assertEquals(buenosAires,buenosAires);
-
+        */
 
     }
 

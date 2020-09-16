@@ -1,7 +1,15 @@
 package pago;
 
-public class DineroEnCuenta implements MedioDePago {
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("DineroEnCuenta")
+public class DineroEnCuenta extends MedioDePago {
+
+	@Column
 	private int numeroDeCuenta;
 
 	@Override
