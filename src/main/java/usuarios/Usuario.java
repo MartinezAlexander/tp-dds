@@ -14,8 +14,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 
 @Entity
 public class Usuario extends EntidadPersistente{
@@ -25,6 +27,8 @@ public class Usuario extends EntidadPersistente{
     @Enumerated(EnumType.STRING)
     private TipoUsuario tipo;
     @OneToMany
+    @JoinColumn(name = "usuario_id")
+    @OrderColumn(name = "posicion")
     private List<MensajeRevision> bandejaMensajes;
 
     public Usuario(String nombre, String contrasena, TipoUsuario tipo) {
