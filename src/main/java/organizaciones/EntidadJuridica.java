@@ -2,11 +2,19 @@ package organizaciones;
 
 import organizaciones.reglasEntidades.CategoriaEntidad;
 
+import javax.persistence.*;
+
+@Entity
 public class EntidadJuridica extends Entidad {
+	@Column
 	private String razonSocial;
+	@Column
 	private int cuit;
+	@Column
 	private String direccionPostal;
+	@Column
 	private int codigoInscripcionIGJ;
+	@Enumerated(EnumType.STRING)
 	private CategoriaEntidadJuridica categoriaEntidadJuridica;
 
 	public EntidadJuridica(String nombreFicticio, CategoriaEntidad categoria, String razonSocial, int cuit, String direccionPostal,

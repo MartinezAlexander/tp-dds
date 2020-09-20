@@ -2,8 +2,16 @@ package organizaciones;
 
 import organizaciones.reglasEntidades.CategoriaEntidad;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
 public class EntidadBase extends Entidad {
+	@Column
 	private String descripcion;
+	@Transient
 	private EntidadJuridica entidadJuridica;
 
 	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion) {

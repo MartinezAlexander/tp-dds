@@ -27,6 +27,7 @@ public class CategoriaEntidad {
         Por ahora queda como que es de uno a muchos
      */
     @OneToMany
+    @JoinColumn(name = "categoria_id")
     private List<ReglaCategoriaEntidad> reglas;
 
     public CategoriaEntidad() {

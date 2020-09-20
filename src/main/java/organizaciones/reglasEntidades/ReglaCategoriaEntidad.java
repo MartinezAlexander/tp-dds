@@ -2,7 +2,6 @@ package organizaciones.reglasEntidades;
 
 import javax.persistence.*;
 
-//TODO: que la discriminator column sea el atributo TipoDeRegla
 @Entity
 @DiscriminatorColumn(name = "tipo")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -12,7 +11,7 @@ public abstract class ReglaCategoriaEntidad {
     @GeneratedValue
     private int id;
 
-    @Column
+    @Transient //No guardamos el tipo de regla, esta hardcodeado, y siempre coincide con la clase
     private TipoDeRegla tipoDeRegla;
 
     public ReglaCategoriaEntidad(TipoDeRegla tipoDeRegla) {

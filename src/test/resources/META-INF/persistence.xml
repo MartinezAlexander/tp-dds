@@ -18,19 +18,20 @@
         <class>direcciones.DocumentoComercial</class>
         <class>proveedor.Proveedor</class>
 
-        
         <class>usuarios.Usuario</class>
         <class>usuarios.MensajeRevision</class>
         <class>operaciones.OperacionDeEgreso</class>
-        
 
         <class>organizaciones.reglasEntidades.CategoriaEntidad</class>
         <class>organizaciones.reglasEntidades.ReglaCategoriaEntidad</class>
         <class>organizaciones.reglasEntidades.ReglaNuevaEntidadBase</class>
-        <!--
         <class>organizaciones.reglasEntidades.ReglaAsignacionAEntidadJuridica</class>
-        /-->
         <class>organizaciones.reglasEntidades.ReglaNuevoEgreso</class>
+
+        <class>organizaciones.Entidad</class>
+        <class>organizaciones.EntidadBase</class>
+        <class>organizaciones.EntidadJuridica</class>
+        <class>organizaciones.Organizacion</class>
 
         <class>pago.MedioDePago</class>
         <class>pago.CajeroAutomatico</class>

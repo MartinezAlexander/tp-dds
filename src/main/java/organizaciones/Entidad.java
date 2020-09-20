@@ -4,10 +4,20 @@ import operaciones.OperacionDeEgreso;
 import operaciones.RepositorioOperaciones;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Entidad {
+
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @Column
     protected String nombreFicticio;
+    @Column
     protected CategoriaEntidad categoria;
 
     public Entidad(String nombreFicticio, CategoriaEntidad categoria) {
