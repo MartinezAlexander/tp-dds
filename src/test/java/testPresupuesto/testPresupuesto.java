@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import direcciones.DireccionPostal;
-import presupuestos.MenorValor;
+import presupuestos.CriterioDeSeleccion;
 import presupuestos.Presupuesto;
 import proveedor.Proveedor;
 import operaciones.DocumentoComercial;
@@ -49,7 +49,7 @@ public class testPresupuesto {
 		List<Presupuesto> lista = new ArrayList<Presupuesto>();
 		lista.add(presupuesto1);
 		lista.add(presupuesto2);
-		assertEquals(presupuesto1, new MenorValor().elegirPresupuesto(lista));
+		assertEquals(presupuesto1, CriterioDeSeleccion.MENOR_VALOR.elegirPresupuesto(lista));
 	}
 
 }
