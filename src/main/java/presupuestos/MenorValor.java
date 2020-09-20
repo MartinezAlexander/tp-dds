@@ -3,7 +3,7 @@ package presupuestos;
 import java.util.Comparator;
 import java.util.List;
 
-public class MenorValor implements CriterioDeSeleccion{
+public class MenorValor extends CriterioDeSeleccion{
 
 	@Override
 	public Presupuesto elegirPresupuesto(List<Presupuesto> presupuestos) {

@@ -11,15 +11,10 @@ import persistencia.EntidadPersistente;
 public class Proveedor extends EntidadPersistente {
 	@OneToOne
 	private DireccionPostal direccionPostal;
-	@Column
 	private String razonSocial;
-	@Column
 	private int cuitCuil;
-	@Column
 	private String nombre;
-	@Column
 	private String apellido;
-	@Column
 	private int dni;
 
 	public Proveedor(DireccionPostal direccionPostal, String razonSocial, int cuitCuil) {

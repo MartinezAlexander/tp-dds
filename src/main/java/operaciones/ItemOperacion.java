@@ -1,6 +1,7 @@
 package operaciones;
 
 import persistencia.EntidadPersistente;
+import presupuestos.Presupuesto;
 
 import java.math.BigDecimal;
 
@@ -14,29 +15,18 @@ public class ItemOperacion extends EntidadPersistente{
 	
 	@Column
 	private String descripcion;
-	@Column
-	private BigDecimal valor;
-	@Column
-	private String currencyId;
-	//private IdsMonetarios currencyId;
 
 
-	public ItemOperacion(String descripcion, BigDecimal valor, String currencyId) {
+	public ItemOperacion(String descripcion) {
 		this.descripcion = descripcion;
-		this.valor = valor;
-		this.currencyId = currencyId;
 	}
 
+	public BigDecimal getValorSegunPresupuesto(Presupuesto presupuesto){
+		return new BigDecimal(0); //TODO: habria que hacer esto
+	}
 
 	public String getDescripcion() {
 		return descripcion;
 	}
-	public BigDecimal getValor() {
-		return valor;
-	}
-	public String getCurrencyId() {
-		return currencyId;
-	}
-
 
 }

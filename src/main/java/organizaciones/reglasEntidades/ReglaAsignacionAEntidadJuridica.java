@@ -4,12 +4,14 @@ import organizaciones.EntidadJuridica;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
 @DiscriminatorValue("AsignacionAEntidadJuridica")
 public class ReglaAsignacionAEntidadJuridica extends ReglaCategoriaEntidad {
 
+    @ManyToMany
     private List<EntidadJuridica> entidadJuridicasProhibidas;
 
     public ReglaAsignacionAEntidadJuridica(List<EntidadJuridica> entidadJuridicasProhibidas) {
