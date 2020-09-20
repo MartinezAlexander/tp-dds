@@ -115,10 +115,6 @@ public class OperacionDeEgreso extends EntidadPersistente {
 		return entidad;
 	}
 
-	public List<ItemOperacion> getItems() {
-		return items;
-	}
-
 	public List<Presupuesto> getPresupuestos() {
 		return presupuestos;
 	}
@@ -156,7 +152,7 @@ public class OperacionDeEgreso extends EntidadPersistente {
 
     private boolean compraEnBaseAPresupuesto(){
         return getPresupuestos().stream().anyMatch(
-                presupuesto -> presupuesto.equals(getProveedor(), getItems())
+                presupuesto -> presupuesto.equals(getProveedor(), presupuesto.getItemsConValor())
         );
     }
 

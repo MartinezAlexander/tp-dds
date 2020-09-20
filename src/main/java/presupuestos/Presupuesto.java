@@ -3,20 +3,33 @@ package presupuestos;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import operaciones.DocumentoComercial;
-import operaciones.ItemOperacion;
+import persistencia.EntidadPersistente;
 import proveedor.Proveedor;
 
-public class Presupuesto {
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import operaciones.ItemOperacion;
+
+
+@Entity
+public class Presupuesto extends EntidadPersistente {
+
+	@ManyToOne
 	private Proveedor proveedor;
-	private List<ItemOperacion> items;
+	@OneToMany
+	@JoinColumn(name = "presupuesto_id")
+	private List<ItemPresupuesto> items;
+	@ManyToOne
 	private DocumentoComercial documentoComercial;
 	private LocalDate fecha;
 	
-	public Presupuesto(Proveedor proveedor, List<ItemOperacion> items, DocumentoComercial documentoComercial, LocalDate fecha) {
+	public Presupuesto(Proveedor proveedor, List<ItemPresupuesto> items, DocumentoComercial documentoComercial, LocalDate fecha) {
 		this.proveedor = proveedor;
 		this.items = items;
 		this.documentoComercial = documentoComercial;
@@ -25,11 +38,11 @@ public class Presupuesto {
 	
 	public BigDecimal getCotizacion() {
 		return this.items.stream()
-			      .map(ItemOperacion::getValor)
+			      .map(ItemPresupuesto::getValor)
 			      .reduce(BigDecimal.ZERO, BigDecimal::add);
 	}
 
-	public boolean equals(Proveedor proveedor, List<ItemOperacion> items){
+	public boolean equals(Proveedor proveedor, List<ItemPresupuesto> items){
 		return this.proveedor.equals(proveedor) && this.items.equals(items);
 	}
 
@@ -43,8 +56,12 @@ public class Presupuesto {
 		return proveedor;
 	}
 
-	public List<ItemOperacion> getItems() {
+	public List<ItemPresupuesto> getItemsConValor() {
 		return items;
+	}
+	
+	public List<ItemOperacion> getItems(){
+		return new ArrayList<ItemOperacion>(); //TODO: hay que lograr obtener de la base solo los items
 	}
 
 	public DocumentoComercial getDocumentoComercial() {
