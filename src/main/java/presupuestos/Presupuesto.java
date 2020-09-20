@@ -2,10 +2,10 @@ package presupuestos;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import operaciones.DocumentoComercial;
-import organizaciones.Entidad;
 import persistencia.EntidadPersistente;
 import proveedor.Proveedor;
 
@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import operaciones.ItemOperacion;
 
 
 @Entity
@@ -54,8 +56,12 @@ public class Presupuesto extends EntidadPersistente {
 		return proveedor;
 	}
 
-	public List<ItemPresupuesto> getItems() {
+	public List<ItemPresupuesto> getItemsConValor() {
 		return items;
+	}
+	
+	public List<ItemOperacion> getItems(){
+		return new ArrayList<ItemOperacion>(); //TODO: hay que lograr obtener de la base solo los items
 	}
 
 	public DocumentoComercial getDocumentoComercial() {

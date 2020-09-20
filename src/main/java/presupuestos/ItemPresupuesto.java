@@ -23,10 +23,3 @@ public class ItemPresupuesto extends EntidadPersistente{
         return valor;
     }
 }
-
-
-
-
-
-
-

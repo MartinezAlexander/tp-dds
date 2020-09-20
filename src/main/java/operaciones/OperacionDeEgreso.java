@@ -4,7 +4,6 @@ import organizaciones.Entidad;
 import pago.MedioDePago;
 import persistencia.EntidadPersistente;
 import presupuestos.CriterioDeSeleccion;
-import presupuestos.ItemPresupuesto;
 import presupuestos.Presupuesto;
 import presupuestos.PresupuestoNoExistenteException;
 import proveedor.Proveedor;
@@ -13,7 +12,6 @@ import usuarios.Usuario;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -154,7 +152,7 @@ public class OperacionDeEgreso extends EntidadPersistente {
 
     private boolean compraEnBaseAPresupuesto(){
         return getPresupuestos().stream().anyMatch(
-                presupuesto -> presupuesto.equals(getProveedor(), presupuesto.getItems())
+                presupuesto -> presupuesto.equals(getProveedor(), presupuesto.getItemsConValor())
         );
     }
 

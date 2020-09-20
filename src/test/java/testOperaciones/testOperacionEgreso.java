@@ -67,10 +67,9 @@ public class testOperacionEgreso {
         presupuestos.add(presupuestoTres);
     }
 
-    //TODO arreglar estos test
     @Test
     public void testValidacionPositivo(){
-/*
+
         int cantidadPresupuestos = 3;
         CriterioDeSeleccion criterio = new MenorValor();
         Presupuesto presupuestoElegido = criterio.elegirPresupuesto(presupuestos);
@@ -85,11 +84,11 @@ public class testOperacionEgreso {
 
         operacion.realizarValidacion();
         Assert.assertTrue(operacion.getValidada());
-    */}
+    }
 
     @Test
     public void testValidacionNegativoPorCantidadIncorrecta(){
-/*
+
         int cantidadPresupuestos = 5;
         CriterioDeSeleccion criterio = new MenorValor();
         Presupuesto presupuestoElegido = criterio.elegirPresupuesto(presupuestos);
@@ -104,11 +103,11 @@ public class testOperacionEgreso {
 
         operacion.realizarValidacion();
         Assert.assertFalse(operacion.getValidada());
-   */ }
+    }
 
     @Test
     public void testValidacionNegativoPorCompraNoPresupuesto(){
-/*
+
         int cantidadPresupuestos = 3;
         CriterioDeSeleccion criterio = new MenorValor();
         Presupuesto presupuestoElegido = criterio.elegirPresupuesto(presupuestos);
@@ -126,11 +125,11 @@ public class testOperacionEgreso {
 
         operacion.realizarValidacion();
         Assert.assertFalse(operacion.getValidada());
-    */}
+    }
 
     @Test
     public void testValidacionNegativoPorEleccionIncorrecta(){
-/*
+
         int cantidadPresupuestos = 3;
         CriterioDeSeleccion criterio = new MenorValor();
         Presupuesto presupuestoElegido = criterio.elegirPresupuesto(presupuestos);
@@ -145,7 +144,7 @@ public class testOperacionEgreso {
 
         operacion.realizarValidacion();
         Assert.assertFalse(operacion.getValidada());
-    */}
+    }
 
     @Test
     public void reportePorEtiquetas(){
