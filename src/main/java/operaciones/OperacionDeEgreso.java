@@ -14,8 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import organizaciones.Organizacion;
 
@@ -23,35 +22,53 @@ import java.math.BigDecimal;
 
 @Entity
 public class OperacionDeEgreso extends EntidadPersistente {
-	@Transient
+	
+	@OneToOne
 	private DocumentoComercial documentoComercial;
-	@Transient
+	
+	@ManyToOne
 	private Proveedor proveedor;
-	@Transient
+	
+	@Column //TODO: creo que no es tan simple persistir una fecha
 	private LocalDate fecha;
-	@Transient
+	
+	@OneToOne //TODO: puede ser many to one
 	private MedioDePago medioDePago;
-	@Transient
+	
+	@Column
 	private BigDecimal valorTotal;
-	@Transient
+	
+	@Transient //TODO: Hay que sacar organizacion
 	private Organizacion organizacion;
-	@Transient
+	
+	@ManyToOne
 	private Entidad entidad;
-	@Transient
+	
+	@OneToMany
+	@JoinColumn
 	private List<ItemOperacion> items;
-	@Transient
+	
+	@OneToMany
+	@JoinColumn
 	private List<Presupuesto> presupuestos;
-	@Transient
+	
+	@Column
 	private int presupuestosNecesarios;
-	@Transient
+	
+	@OneToOne
 	private Presupuesto presupuestoElegido;
-	@Transient
+	
+	@Enumerated(EnumType.STRING)
 	private CriterioDeSeleccion criterioDeSeleccionDePresupuesto;
-	@Transient
+	
+	@ManyToMany
+	@JoinColumn(name="UsuarioRevisor")
 	private List<Usuario> usuariosRevisores;
-	@Transient
+	
+	@Column
 	private boolean validada;
-	@Transient
+	
+	@ElementCollection
 	private List<String> etiquetas;
 
 	//TODO resolver long param?

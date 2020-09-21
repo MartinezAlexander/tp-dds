@@ -3,13 +3,15 @@ package operaciones;
 import persistencia.EntidadPersistente;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 @Entity
 public class DocumentoComercial extends EntidadPersistente{
 	
-	@Column
+	@Enumerated(EnumType.STRING)
 	private TipoDocumento tipo;
+	
 	@Column
 	private int numero;
 

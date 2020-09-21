@@ -15,12 +15,15 @@
         <class>direcciones.DireccionPostal</class>
         <class>direcciones.InfoMonetaria</class>
         <class>direcciones.ItemOperacion</class>
-        <class>direcciones.DocumentoComercial</class>
+        
         <class>proveedor.Proveedor</class>
 
         <class>usuarios.Usuario</class>
         <class>usuarios.MensajeRevision</class>
+        
         <class>operaciones.OperacionDeEgreso</class>
+        <class>operaciones.ItemOperacion</class>
+        <class>operaciones.DocumentoComercial</class>
 
         <class>pago.MedioDePago</class>
         <class>pago.CajeroAutomatico</class>
@@ -40,11 +43,9 @@
         <class>organizaciones.EntidadBase</class>
         <class>organizaciones.EntidadJuridica</class>
         <class>organizaciones.Organizacion</class>
-
-<!--
-
--->
-
+        <class>presupuestos.CriterioDeSeleccion</class>
+        <class>presupuestos.ItemPresupuesto</class>
+        <class>presupuestos.Presupuesto</class>
 
         <properties>
 	    <property name="hibernate.archive.autodetection" value="class"/>
