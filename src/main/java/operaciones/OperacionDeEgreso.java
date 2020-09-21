@@ -76,6 +76,32 @@ public class OperacionDeEgreso extends EntidadPersistente {
 
 		this.validada = false;
 	}
+	
+	public OperacionDeEgreso(DocumentoComercial documentoComercial,Proveedor proveedor, LocalDate fecha, 
+			MedioDePago medioDePago, BigDecimal valorTotal, Organizacion organizacion, 
+			Entidad entidad, List<ItemOperacion> items,int presupuestosNecesarios, 
+			Presupuesto presupuestoElegido, CriterioDeSeleccion criterioDeSeleccionDePresupuesto){
+		
+		this.documentoComercial = documentoComercial;
+		this.proveedor = proveedor;
+		this.fecha = fecha;
+		this.medioDePago = medioDePago;
+		this.valorTotal = valorTotal;
+		this.organizacion = organizacion;
+		this.entidad = entidad;
+		this.items = items;
+		this.presupuestosNecesarios = presupuestosNecesarios;
+		this.presupuestoElegido = presupuestoElegido; // TODO: podriamos crear el presupuesto aca en base a los demas datos
+		this.criterioDeSeleccionDePresupuesto = criterioDeSeleccionDePresupuesto;
+
+		usuariosRevisores = new ArrayList<>();
+		this.presupuestos = new ArrayList<Presupuesto>();
+		presupuestos.add(presupuestoElegido);
+		
+		etiquetas = new ArrayList<>();
+
+		this.validada = false;
+	}
 
 	public void agregarPresupuesto(Presupuesto presupuesto) {
 		this.presupuestos.add(presupuesto);
