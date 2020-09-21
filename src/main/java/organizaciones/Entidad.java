@@ -12,12 +12,14 @@ import java.util.List;
 public abstract class Entidad {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
+    //Como estoy usando TABLE_PER_CLASS, tengo que ponerle la strategry TABLE para que
+    //cada tabla tenga su propio id
 
     @Column
     protected String nombreFicticio;
-    @Column
+    @ManyToOne
     protected CategoriaEntidad categoria;
 
     public Entidad(String nombreFicticio, CategoriaEntidad categoria) {

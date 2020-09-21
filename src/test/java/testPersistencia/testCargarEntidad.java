@@ -23,7 +23,6 @@ import static org.junit.Assert.assertEquals;
 
 public class testCargarEntidad implements WithGlobalEntityManager {
 
-
     @Test
     public void testCargarEntidades(){
         ReglaNuevaEntidadBase regla1 = new ReglaNuevaEntidadBase(false);
