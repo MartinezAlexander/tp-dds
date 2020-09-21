@@ -1,14 +1,13 @@
 package direcciones;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public class State {
-	@Id
+	@Column(name = "idEstado")
 	private String id;
-	@Column
+	@Column(name = "nombreEstado")
 	private String name;
 
 	public State() {
