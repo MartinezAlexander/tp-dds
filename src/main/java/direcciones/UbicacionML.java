@@ -1,5 +1,6 @@
 package direcciones;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -10,11 +11,11 @@ public class UbicacionML {
 
 	@Id
 	private String zip_code;
-	@ManyToOne
+	@Embedded
 	private City city;
-	@ManyToOne
+	@Embedded
 	private State state;
-	@ManyToOne
+	@Embedded
 	private Country country;
 
 	public UbicacionML() {
