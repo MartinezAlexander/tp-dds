@@ -1,9 +1,6 @@
 package direcciones;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import persistencia.EntidadPersistente;
 
@@ -18,7 +15,7 @@ public class DireccionPostal extends EntidadPersistente{
 	private int piso;
 	@Column
 	private String departamento;
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	private UbicacionML ubicacionML;
 	
 	public DireccionPostal(String calle, int altura, int piso, String departamento, String codigoPostal) {

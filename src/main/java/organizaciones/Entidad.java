@@ -40,4 +40,10 @@ public abstract class Entidad {
     public String getNombreFicticio() {
         return nombreFicticio;
     }
+
+
+    public int getId() {
+        return id;
+    }
+
 }

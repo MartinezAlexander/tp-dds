@@ -9,10 +9,7 @@ import operaciones.DocumentoComercial;
 import persistencia.EntidadPersistente;
 import proveedor.Proveedor;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import operaciones.ItemOperacion;
 
@@ -27,6 +24,7 @@ public class Presupuesto extends EntidadPersistente {
 	private List<ItemPresupuesto> items;
 	@ManyToOne
 	private DocumentoComercial documentoComercial;
+	@Column
 	private LocalDate fecha;
 	
 	public Presupuesto(Proveedor proveedor, List<ItemPresupuesto> items, DocumentoComercial documentoComercial, LocalDate fecha) {

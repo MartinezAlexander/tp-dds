@@ -29,7 +29,7 @@ public class OperacionDeEgreso extends EntidadPersistente {
 	@ManyToOne
 	private Proveedor proveedor;
 	
-	@Column //TODO: creo que no es tan simple persistir una fecha
+	@Column
 	private LocalDate fecha;
 	
 	@OneToOne //TODO: puede ser many to one
@@ -41,7 +41,8 @@ public class OperacionDeEgreso extends EntidadPersistente {
 	@Transient //TODO: Hay que sacar organizacion
 	private Organizacion organizacion;
 	
-	@ManyToOne
+	@Transient
+	//@ManyToOne //TODO: rompe el runner cuando queremos persistir esto (entidad no existe, solo e base y juridica)
 	private Entidad entidad;
 	
 	@OneToMany
