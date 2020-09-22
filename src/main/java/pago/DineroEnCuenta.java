@@ -12,6 +12,9 @@ public class DineroEnCuenta extends MedioDePago {
 	@Column
 	private int numeroDeCuenta;
 
+	public DineroEnCuenta() {
+	}
+
 	@Override
 	public void realizarPago() {
 		// TODO Auto-generated method stub

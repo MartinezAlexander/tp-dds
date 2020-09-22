@@ -23,6 +23,10 @@ public class InfoMonetaria {
 		this.symbol = symbol;
 		this.decimal_places = decimal_places;
 	}
+
+	public InfoMonetaria() {
+	}
+
 	public IdsMonetarios getId() {
 		return id;
 	}

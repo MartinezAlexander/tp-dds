@@ -16,6 +16,8 @@ public class ItemOperacion extends EntidadPersistente{
 	@Column
 	private String descripcion;
 
+	public ItemOperacion() {
+	}
 
 	public ItemOperacion(String descripcion) {
 		this.descripcion = descripcion;

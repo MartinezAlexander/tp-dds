@@ -16,5 +16,8 @@ public abstract class MedioDePago{
 	@GeneratedValue
 	private int id;
 
+	public MedioDePago() {
+	}
+
 	public abstract void realizarPago();
 }

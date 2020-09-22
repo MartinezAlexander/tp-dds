@@ -11,6 +11,9 @@ public class TarjetaDeDebito extends MedioDePago{
 	@Column
 	private int numeroDeTarjetaDeDebito;
 
+	public TarjetaDeDebito() {
+	}
+
 	@Override
 	public void realizarPago() {
 		// TODO Auto-generated method stub

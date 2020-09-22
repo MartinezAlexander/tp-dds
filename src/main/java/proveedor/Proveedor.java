@@ -17,6 +17,9 @@ public class Proveedor extends EntidadPersistente {
 	private String apellido;
 	private int dni;
 
+	public Proveedor() {
+	}
+
 	public Proveedor(DireccionPostal direccionPostal, String razonSocial, int cuitCuil) {
 		this.direccionPostal = direccionPostal;
 		this.cuitCuil = cuitCuil;

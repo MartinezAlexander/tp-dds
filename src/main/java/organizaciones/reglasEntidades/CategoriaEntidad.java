@@ -30,6 +30,8 @@ public class CategoriaEntidad {
     @JoinColumn(name = "categoria_id")
     private List<ReglaCategoriaEntidad> reglas;
 
+    
+
     public CategoriaEntidad() {
         this.reglas = new ArrayList<>();
     }

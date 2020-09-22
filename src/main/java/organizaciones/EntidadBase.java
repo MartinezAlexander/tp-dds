@@ -11,6 +11,9 @@ public class EntidadBase extends Entidad {
 	@ManyToOne
 	private EntidadJuridica entidadJuridica;
 
+	public EntidadBase() {
+	}
+
 	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion) {
 		super(nombreFicticio, categoria);
 		this.descripcion = descripcion;

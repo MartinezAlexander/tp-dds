@@ -14,7 +14,10 @@ public class MensajeRevision extends EntidadPersistente{
 	private OperacionDeEgreso operacion;
 	@Column
 	private boolean resultadoValidacion;
-	
+
+	public MensajeRevision() {
+	}
+
 	public MensajeRevision(OperacionDeEgreso operacion, boolean resultadoValidacion) {
 		this.operacion = operacion;
 		this.resultadoValidacion = resultadoValidacion;

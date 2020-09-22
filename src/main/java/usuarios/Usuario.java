@@ -31,6 +31,9 @@ public class Usuario extends EntidadPersistente{
     @OrderColumn(name = "posicion")
     private List<MensajeRevision> bandejaMensajes;
 
+    public Usuario() {
+    }
+
     public Usuario(String nombre, String contrasena, TipoUsuario tipo) {
         this.nombre = nombre;
         this.tipo = tipo;

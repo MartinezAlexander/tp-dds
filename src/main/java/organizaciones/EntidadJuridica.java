@@ -17,6 +17,9 @@ public class EntidadJuridica extends Entidad {
 	@Enumerated(EnumType.STRING)
 	private CategoriaEntidadJuridica categoriaEntidadJuridica;
 
+	public EntidadJuridica() {
+	}
+
 	public EntidadJuridica(String nombreFicticio, CategoriaEntidad categoria, String razonSocial, int cuit, String direccionPostal,
 						   CategoriaEntidadJuridica categoriaEntidadJuridica) {
 		super(nombreFicticio, categoria);

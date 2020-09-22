@@ -19,6 +19,9 @@ public class ItemPresupuesto extends EntidadPersistente{
         this.currencyId = currencyId;
     }
 
+    public ItemPresupuesto() {
+    }
+
     public BigDecimal getValor() {
         return valor;
     }

@@ -13,7 +13,10 @@ public class Organizacion {
 	@OneToMany
 	@JoinColumn(name = "organizacion_id")
 	private List<Entidad> entidades;
-	
+
+	public Organizacion() {
+	}
+
 	public Organizacion(List<Entidad> entidades) {
 		this.entidades = entidades;
 	}

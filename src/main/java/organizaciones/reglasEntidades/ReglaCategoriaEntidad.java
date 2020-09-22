@@ -14,6 +14,9 @@ public abstract class ReglaCategoriaEntidad {
     @Transient //No guardamos el tipo de regla, esta hardcodeado, y siempre coincide con la clase
     private TipoDeRegla tipoDeRegla;
 
+    public ReglaCategoriaEntidad() {
+    }
+
     public ReglaCategoriaEntidad(TipoDeRegla tipoDeRegla) {
         this.tipoDeRegla = tipoDeRegla;
     }

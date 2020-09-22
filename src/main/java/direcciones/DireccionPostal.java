@@ -26,6 +26,9 @@ public class DireccionPostal extends EntidadPersistente{
 		this.ubicacionML = ApiMercadoLibre.getInstance().obtenerUbicacionML(codigoPostal);
 	}
 
+	public DireccionPostal() {
+	}
+
 	public String getCalle() {
 		return calle;
 	}

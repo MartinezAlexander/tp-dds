@@ -8,11 +8,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Entidad {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue//(strategy = GenerationType.TABLE)
     private int id;
     //Como estoy usando TABLE_PER_CLASS, tengo que ponerle la strategry TABLE para que
     //cada tabla tenga su propio id
@@ -21,6 +21,9 @@ public abstract class Entidad {
     protected String nombreFicticio;
     @ManyToOne
     protected CategoriaEntidad categoria;
+
+    public Entidad() {
+    }
 
     public Entidad(String nombreFicticio, CategoriaEntidad categoria) {
         this.nombreFicticio = nombreFicticio;
@@ -46,4 +49,7 @@ public abstract class Entidad {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }

@@ -11,6 +11,9 @@ public class TarjetaDeCredito extends MedioDePago{
 	@Column
 	private int numeroDeTarjetaCredito;
 
+	public TarjetaDeCredito() {
+	}
+
 	public TarjetaDeCredito(int numeroDeTarjetaCredito) {
 		this.numeroDeTarjetaCredito = numeroDeTarjetaCredito;
 	}

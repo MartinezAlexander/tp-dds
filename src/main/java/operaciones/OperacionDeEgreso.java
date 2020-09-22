@@ -41,8 +41,8 @@ public class OperacionDeEgreso extends EntidadPersistente {
 	@Transient //TODO: Hay que sacar organizacion
 	private Organizacion organizacion;
 	
-	@Transient
-	//@ManyToOne //TODO: rompe el runner cuando queremos persistir esto (entidad no existe, solo e base y juridica)
+	//@Transient
+	@ManyToOne //TODO: rompe el runner cuando queremos persistir esto (entidad no existe, solo e base y juridica)
 	private Entidad entidad;
 	
 	@OneToMany
@@ -71,6 +71,8 @@ public class OperacionDeEgreso extends EntidadPersistente {
 	
 	@ElementCollection
 	private List<String> etiquetas;
+
+	public OperacionDeEgreso() { }
 
 	//TODO resolver long param?
 	//TODO inicializar OperacionDeEgreso con usuariosRevisores?

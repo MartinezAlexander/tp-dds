@@ -28,7 +28,7 @@ public class RepositorioOperaciones implements WithGlobalEntityManager {
     public List<OperacionDeEgreso> obtenerOperacionesPendientesDeValidacion(){
         return entityManager()
 				.createQuery("from OperacionDeEgreso where validada = :validada")
-				.setParameter("validada", 0)
+				.setParameter("validada", false)
 				.getResultList();
     }
 
@@ -43,7 +43,7 @@ public class RepositorioOperaciones implements WithGlobalEntityManager {
     @SuppressWarnings("unchecked")
     public List<OperacionDeEgreso> obtenerOperacionesPorEtiqueta(String etiqueta){
 		return entityManager()
-				.createQuery("select operaciondeegreso from operaciondeegreso_etiquetas where etiqueta = :etiqueta")
+				.createQuery("select OperacionDeEgreso from OperacionDeEgreso_etiquetas where etiquetas = :etiqueta")
 				.setParameter("etiqueta", etiqueta)
 				.getResultList();
     }
