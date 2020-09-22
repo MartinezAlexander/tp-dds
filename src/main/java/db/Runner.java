@@ -29,6 +29,8 @@ public class Runner {
     private static ItemOperacion itemUno;
     private static ItemOperacion itemDos;
     private static OperacionDeEgreso opEgreso;
+    
+    private static List<ItemPresupuesto> itemsPresupuestos = new ArrayList<>();
 
     public static Presupuesto crearPresupuesto(int valorItemUno, int valorItemDos){
         ItemPresupuesto itemUnoPresupuesto = new ItemPresupuesto(itemUno,new BigDecimal(valorItemUno), IdsMonetarios.ARS.toString());
@@ -36,7 +38,8 @@ public class Runner {
         List<ItemPresupuesto> itemsPresupuesto = new ArrayList<>();
         itemsPresupuesto.add(itemUnoPresupuesto);
         itemsPresupuesto.add(itemDosPresupuesto);
-
+        itemsPresupuestos.add(itemUnoPresupuesto);
+        itemsPresupuestos.add(itemDosPresupuesto);
         return new Presupuesto(proveedor,itemsPresupuesto,docComercial,fecha);
     }
     public static void main(String[] args) {
@@ -81,10 +84,10 @@ public class Runner {
 
         em.persist(medioPago);
         em.persist(categoria);
-        //em.persist(entidad);
-        em.persist(organizacion);
+        em.persist(entidad);
+        itemsPresupuestos.forEach(item->em.persist(item));
         em.persist(presupuestoElegido);
-        //em.persist(opEgreso);
+        em.persist(opEgreso);
 
         trans.commit();
 

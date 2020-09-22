@@ -13,7 +13,7 @@
         <class>direcciones.Country</class>
         <class>direcciones.State</class>
         <class>direcciones.DireccionPostal</class>
-        <class>direcciones.InfoMonetaria</class>
+        <!--  <class>direcciones.InfoMonetaria</class> -->
         
         <class>proveedor.Proveedor</class>
 
