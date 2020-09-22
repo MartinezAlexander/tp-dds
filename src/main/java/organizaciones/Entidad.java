@@ -30,11 +30,11 @@ public abstract class Entidad {
     public void aceptarNuevoEgreso(OperacionDeEgreso operacionDeEgreso){
 
         categoria.ejecutarReglasNuevoEgreso(this, operacionDeEgreso);
-        RepositorioOperaciones.agregarOperacion(operacionDeEgreso);
+        RepositorioOperaciones.getInstance().agregarOperacion(operacionDeEgreso);
     }
 
     public Reporte generarReporteMensual(){
-        return new Reporte(RepositorioOperaciones.obtenerOperacionesPorEntidad(this));        
+        return new Reporte(RepositorioOperaciones.getInstance().obtenerOperacionesPorEntidad(this));        
     }
 
     public String getNombreFicticio() {
