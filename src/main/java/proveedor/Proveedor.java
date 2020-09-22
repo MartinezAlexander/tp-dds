@@ -1,6 +1,5 @@
 package proveedor;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -16,6 +15,8 @@ public class Proveedor extends EntidadPersistente {
 	private String nombre;
 	private String apellido;
 	private int dni;
+	
+	public Proveedor(){}
 
 	public Proveedor(DireccionPostal direccionPostal, String razonSocial, int cuitCuil) {
 		this.direccionPostal = direccionPostal;

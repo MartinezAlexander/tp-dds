@@ -14,6 +14,8 @@ public class Organizacion {
 	@JoinColumn(name = "organizacion_id")
 	private List<Entidad> entidades;
 	
+	public Organizacion(){}
+	
 	public Organizacion(List<Entidad> entidades) {
 		this.entidades = entidades;
 	}

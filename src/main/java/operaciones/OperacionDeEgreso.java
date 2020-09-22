@@ -70,6 +70,8 @@ public class OperacionDeEgreso extends EntidadPersistente {
 	
 	@ElementCollection
 	private List<String> etiquetas;
+	
+	public OperacionDeEgreso(){}
 
 	//TODO resolver long param?
 	//TODO inicializar OperacionDeEgreso con usuariosRevisores?

@@ -5,7 +5,6 @@ import operaciones.RepositorioOperaciones;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -21,6 +20,8 @@ public abstract class Entidad {
     protected String nombreFicticio;
     @ManyToOne
     protected CategoriaEntidad categoria;
+    
+    public Entidad(){}
 
     public Entidad(String nombreFicticio, CategoriaEntidad categoria) {
         this.nombreFicticio = nombreFicticio;

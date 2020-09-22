@@ -2,14 +2,12 @@ package organizaciones.reglasEntidades;
 
 import operaciones.OperacionDeEgreso;
 import organizaciones.Entidad;
-import organizaciones.EntidadBase;
 import organizaciones.EntidadJuridica;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
 
 @Entity
 public class CategoriaEntidad {

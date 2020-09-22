@@ -7,15 +7,14 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class ItemOperacion extends EntidadPersistente{
 	
 	@Column
 	private String descripcion;
-
+	
+	public ItemOperacion(){}
 
 	public ItemOperacion(String descripcion) {
 		this.descripcion = descripcion;

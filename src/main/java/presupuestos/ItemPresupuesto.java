@@ -13,6 +13,8 @@ public class ItemPresupuesto extends EntidadPersistente{
     private BigDecimal valor;
     private String currencyId;
 
+    public ItemPresupuesto(){}
+    
     public ItemPresupuesto(ItemOperacion item, BigDecimal valor, String currencyId) {
         this.item = item;
         this.valor = valor;
@@ -21,5 +23,9 @@ public class ItemPresupuesto extends EntidadPersistente{
 
     public BigDecimal getValor() {
         return valor;
+    }
+    
+    public String getCurrencyId(){
+    	return currencyId;
     }
 }

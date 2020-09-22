@@ -14,6 +14,8 @@ public class DocumentoComercial extends EntidadPersistente{
 	
 	@Column
 	private int numero;
+	
+	public DocumentoComercial(){}
 
 	public DocumentoComercial(TipoDocumento tipo, int numero) {
 		this.tipo = tipo;

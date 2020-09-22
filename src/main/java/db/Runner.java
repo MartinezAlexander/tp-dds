@@ -43,7 +43,7 @@ public class Runner {
         return new Presupuesto(proveedor,itemsPresupuesto,docComercial,fecha);
     }
     public static void main(String[] args) {
-
+    	// Prueba para persistir una operacion de egreso en la bd
         docComercial = new DocumentoComercial(TipoDocumento.FACTURA,123456);
         DireccionPostal direccion = new DireccionPostal("UnaCalle",1234,4,"B","1824");
         proveedor = new Proveedor(direccion,"mi_razon_social",22147852);
@@ -90,6 +90,11 @@ public class Runner {
         em.persist(opEgreso);
 
         trans.commit();
-
+    	
+    	/*
+    	 * Prueba del repositorio de operaciones 
+    	 * List<OperacionDeEgreso> opPendientes = RepositorioOperaciones.getInstance().obtenerOperacionesPendientesDeValidacion();
+    	 * opPendientes.forEach(opEgreso -> System.out.println(opEgreso.getFecha()));
+    	*/
     }
 }

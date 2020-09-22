@@ -27,6 +27,8 @@ public class Presupuesto extends EntidadPersistente {
 	@Column
 	private LocalDate fecha;
 	
+	public Presupuesto(){}
+	
 	public Presupuesto(Proveedor proveedor, List<ItemPresupuesto> items, DocumentoComercial documentoComercial, LocalDate fecha) {
 		this.proveedor = proveedor;
 		this.items = items;

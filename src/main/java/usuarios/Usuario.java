@@ -1,21 +1,13 @@
 package usuarios;
 
 import autenticacion.Autenticador;
-import operaciones.OperacionDeEgreso;
 import persistencia.EntidadPersistente;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 
@@ -30,6 +22,8 @@ public class Usuario extends EntidadPersistente{
     @JoinColumn(name = "usuario_id")
     @OrderColumn(name = "posicion")
     private List<MensajeRevision> bandejaMensajes;
+    
+    public Usuario(){}
 
     public Usuario(String nombre, String contrasena, TipoUsuario tipo) {
         this.nombre = nombre;
@@ -42,5 +36,13 @@ public class Usuario extends EntidadPersistente{
 
     public void recibirMensajeRevision(MensajeRevision mensajeOperacion){
         this.bandejaMensajes.add(mensajeOperacion);
+    }
+    
+    public String getUserName(){
+    	return nombre;
+    }
+    
+    public String getPassword(){
+    	return contrasena;
     }
 }

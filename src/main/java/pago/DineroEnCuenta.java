@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 @DiscriminatorValue("DineroEnCuenta")
 public class DineroEnCuenta extends MedioDePago {
 
+	public DineroEnCuenta(){}
+	
 	@Column
 	private int numeroDeCuenta;
 

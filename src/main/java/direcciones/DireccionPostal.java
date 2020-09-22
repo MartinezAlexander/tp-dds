@@ -18,6 +18,8 @@ public class DireccionPostal extends EntidadPersistente{
 	@ManyToOne(cascade = {CascadeType.ALL})
 	private UbicacionML ubicacionML;
 	
+	public DireccionPostal(){}
+	
 	public DireccionPostal(String calle, int altura, int piso, String departamento, String codigoPostal) {
 		this.calle = calle;
 		this.altura = altura;

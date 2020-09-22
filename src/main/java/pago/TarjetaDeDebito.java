@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 @DiscriminatorValue("TarjetaDeDebito")
 public class TarjetaDeDebito extends MedioDePago{
 
+	public TarjetaDeDebito(){}
+	
 	@Column
 	private int numeroDeTarjetaDeDebito;
 
