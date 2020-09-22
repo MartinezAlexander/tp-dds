@@ -14,6 +14,7 @@ import operaciones.DocumentoComercial;
 import operaciones.IdsMonetarios;
 import operaciones.ItemOperacion;
 import operaciones.OperacionDeEgreso;
+import operaciones.RepositorioOperaciones;
 import operaciones.TipoDocumento;
 import organizaciones.Entidad;
 import organizaciones.EntidadBase;
@@ -35,6 +36,7 @@ public class testOperacionEgreso2
 	private ItemOperacion itemUno;
 	private ItemOperacion itemDos;
 	OperacionDeEgreso opEgreso;
+	//RepositorioOperaciones repo;
 	
 	public Presupuesto crearPresupuesto(int valorItemUno, int valorItemDos){
 		ItemPresupuesto itemUnoPresupuesto = new ItemPresupuesto(itemUno,new BigDecimal(valorItemUno),IdsMonetarios.ARS.toString());
@@ -73,6 +75,8 @@ public class testOperacionEgreso2
 		valorTotal = presupuestoElegido.getCotizacion();
 		
 		opEgreso = new OperacionDeEgreso(docComercial,proveedor,fecha,medioPago,valorTotal,organizacion,entidad,items,presupuestosNecesarios,presupuestoElegido,CriterioDeSeleccion.MENOR_VALOR);
+		
+		//repo = new RepositorioOperaciones();
 	}
 	
 	@Test
@@ -124,4 +128,10 @@ public class testOperacionEgreso2
         Assert.assertEquals(5, reporte.getEgresosPorEtiqueta().size());
         Assert.assertEquals(2, reporte.getEgresosPorEtiqueta().get("Indumentaria").size());
     }
+    
+    /*@Test
+    public void testRepositorioOperaciones() {
+    	repo.agregarOperacion(opEgreso);
+    	
+    }*/
 }

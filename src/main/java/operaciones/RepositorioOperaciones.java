@@ -3,31 +3,48 @@ package operaciones;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import organizaciones.Entidad;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RepositorioOperaciones implements WithGlobalEntityManager {
 
-    private static List<OperacionDeEgreso> operaciones = new ArrayList<>();
-
-    public static void agregarOperacion(OperacionDeEgreso operacionDeEgreso){
-        operaciones.add(operacionDeEgreso);
+	private static RepositorioOperaciones instance = null;
+	
+    public static RepositorioOperaciones getInstance(){
+        if (instance == null) instance = new RepositorioOperaciones();
+        return instance;
+    }
+	
+	public void agregarOperacion(OperacionDeEgreso operacionDeEgreso){
+    	entityManager().persist(operacionDeEgreso);
     }
 
-    public static void quitarOperacion(OperacionDeEgreso operacionDeEgreso){
-        operaciones.remove(operacionDeEgreso);
+    public void quitarOperacion(OperacionDeEgreso operacionDeEgreso){
+        entityManager()
+		.createQuery("delete from OperacionDeEgreso where id = :id")
+		.setParameter("id", operacionDeEgreso.getId());
     }
 
-    public static List<OperacionDeEgreso> obtenerOperacionesPendientesDeValidacion(){
-        return operaciones.stream().filter(OperacionDeEgreso::getValidada).collect(Collectors.toList());
+    @SuppressWarnings("unchecked")
+    public List<OperacionDeEgreso> obtenerOperacionesPendientesDeValidacion(){
+        return entityManager()
+				.createQuery("from OperacionDeEgreso where validada = :validada")
+				.setParameter("validada", 0)
+				.getResultList();
     }
 
-    public static List<OperacionDeEgreso> obtenerOperacionesPorEntidad(Entidad entidad){
-        return operaciones.stream().filter(operacionDeEgreso -> operacionDeEgreso.getEntidad() == entidad).collect(Collectors.toList());
+    @SuppressWarnings("unchecked")
+    public List<OperacionDeEgreso> obtenerOperacionesPorEntidad(Entidad entidad){
+        return entityManager()
+				.createQuery("from OperacionDeEgreso where entidad = :entidad")
+				.setParameter("entidad", entidad)
+				.getResultList();
     }
     
-    public static List<OperacionDeEgreso> obtenerOperacionesPorEtiqueta(String etiqueta){
-        return operaciones.stream().filter(operacionDeEgreso -> operacionDeEgreso.tieneEtiqueta(etiqueta)).collect(Collectors.toList());
+    @SuppressWarnings("unchecked")
+    public List<OperacionDeEgreso> obtenerOperacionesPorEtiqueta(String etiqueta){
+		return entityManager()
+				.createQuery("select operaciondeegreso from operaciondeegreso_etiquetas where etiqueta = :etiqueta")
+				.setParameter("etiqueta", etiqueta)
+				.getResultList();
     }
 }

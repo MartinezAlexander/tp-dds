@@ -23,7 +23,7 @@ public class ReglaNuevoEgreso extends ReglaCategoriaEntidad{
     }
 
     public void ejecutarRegla(Entidad entidad, OperacionDeEgreso nuevaOperacionEgreso){
-        BigDecimal total = montoTotalDeEgresos(RepositorioOperaciones.obtenerOperacionesPorEntidad(entidad));
+        BigDecimal total = montoTotalDeEgresos(RepositorioOperaciones.getInstance().obtenerOperacionesPorEntidad(entidad));
 
         if (total.add(nuevaOperacionEgreso.getValorTotal()).compareTo(montoMaximo) > 0){
             throw new EgresoAEntidadNoPermitidoException();

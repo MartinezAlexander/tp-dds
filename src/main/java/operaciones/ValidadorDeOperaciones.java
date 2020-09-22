@@ -16,7 +16,7 @@ public class ValidadorDeOperaciones {
 		timerTask = new TimerTask() {
 			@Override
 			public void run() {
-				RepositorioOperaciones.obtenerOperacionesPendientesDeValidacion()
+				RepositorioOperaciones.getInstance().obtenerOperacionesPendientesDeValidacion()
 						.forEach(OperacionDeEgreso::realizarValidacion);
 			}
 		};
