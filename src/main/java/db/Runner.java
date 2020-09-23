@@ -42,6 +42,7 @@ public class Runner {
         itemsPresupuestos.add(itemDosPresupuesto);
         return new Presupuesto(proveedor,itemsPresupuesto,docComercial,fecha);
     }
+    
     public static void main(String[] args) {
     	// Prueba para persistir una operacion de egreso en la bd
         docComercial = new DocumentoComercial(TipoDocumento.FACTURA,123456);
@@ -92,9 +93,28 @@ public class Runner {
         trans.commit();
     	
     	/*
-    	 * Prueba del repositorio de operaciones 
-    	 * List<OperacionDeEgreso> opPendientes = RepositorioOperaciones.getInstance().obtenerOperacionesPendientesDeValidacion();
-    	 * opPendientes.forEach(opEgreso -> System.out.println(opEgreso.getFecha()));
+    	Prueba del repositorio de operaciones: traigo operaciones pendientes de validacion
+    	List<OperacionDeEgreso> opPendientes = RepositorioOperaciones.getInstance().obtenerOperacionesPendientesDeValidacion();
+     	opPendientes.forEach(opEgreso -> System.out.println(opEgreso.getFecha()));
     	*/
+    	
+    	/*
+    	Prueba de traerme la operaciones asociadas a una entidad
+    	Entidad entidad = PerThreadEntityManagers.getEntityManager()
+    						.createQuery("from EntidadBase",EntidadBase.class)
+    						.setMaxResults(1).getResultList().get(0);
+    	System.out.println(entidad.getId());
+    	List<OperacionDeEgreso> opPendientes = RepositorioOperaciones.getInstance().obtenerOperacionesPorEntidad(entidad);
+    	opPendientes.forEach(opEgreso -> System.out.println(opEgreso.getFecha())); 
+    	*/
+    	
+    	/*OperacionDeEgreso opEgreso = PerThreadEntityManagers.getEntityManager()
+				.createQuery("from OperacionDeEgreso",OperacionDeEgreso.class)
+				.setMaxResults(1).getResultList().get(0);
+				
+    	opEgreso.agregarEtiqueta("NuevaEtiquetaDePrueba");
+    	
+    	RepositorioOperaciones.getInstance().agregarOperacion(opEgreso);*/
+    	
     }
 }

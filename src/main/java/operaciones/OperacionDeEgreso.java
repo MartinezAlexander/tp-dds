@@ -45,11 +45,11 @@ public class OperacionDeEgreso extends EntidadPersistente {
 	private Entidad entidad;
 	
 	@OneToMany
-	@JoinColumn
+	@JoinColumn(name="op_egreso_id")
 	private List<ItemOperacion> items;
 	
 	@OneToMany
-	@JoinColumn
+	@JoinColumn(name="op_egreso_id")
 	private List<Presupuesto> presupuestos;
 	
 	@Column

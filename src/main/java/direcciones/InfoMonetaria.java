@@ -1,20 +1,15 @@
 package direcciones;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 import operaciones.IdsMonetarios;
 
-@Entity
 public class InfoMonetaria {
-	@Id
+
 	private IdsMonetarios id;
-	@Column
+
 	private String description;
-	@Column
+
 	private String symbol;
-	@Column
+
 	private int decimal_places;
 	
 	public InfoMonetaria(IdsMonetarios id, String description, String symbol, int decimal_places) {
@@ -34,7 +29,5 @@ public class InfoMonetaria {
 	}
 	public int getDecimal_places() {
 		return decimal_places;
-	}
-	
-	
+	}	
 }
