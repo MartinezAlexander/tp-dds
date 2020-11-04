@@ -1,0 +1,28 @@
+<html>
+<body>
+<form action="/home" method="get">
+    <p>home</p>
+</form>
+
+<label for="categorias">Filtrar por categoria:</label>
+<select id="seleccionar" name="categoria">
+    {{#each categorias}}
+            <option value="volvo">{{ nombre }}</option>
+    {{/each}}
+</select>
+
+<table class="table table-stripped">
+    <tr>
+        <th>Nombre</th>
+        <th></th>
+    </tr>
+
+    {{#each entidades}}
+        <tr>
+            <td>{{nombreFicticio}}</td>
+        </tr>
+    {{/each}}
+</table>
+
+</body>
+</html>

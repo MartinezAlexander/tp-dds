@@ -1,5 +1,6 @@
-package operaciones;
+package repositories;
 
+import operaciones.OperacionDeEgreso;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import organizaciones.Entidad;
 

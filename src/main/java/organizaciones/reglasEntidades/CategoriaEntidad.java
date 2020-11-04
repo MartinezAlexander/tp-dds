@@ -28,8 +28,15 @@ public class CategoriaEntidad {
     @JoinColumn(name = "categoria_id")
     private List<ReglaCategoriaEntidad> reglas;
 
+    @Column
+    private String nombre;
+
     public CategoriaEntidad() {
+    }
+
+    public CategoriaEntidad(String nombre) {
         this.reglas = new ArrayList<>();
+        this.nombre = nombre;
     }
 
     private void ejecutarReglasPorTipo(TipoDeRegla tipo, Consumer<ReglaCategoriaEntidad> consumer){
@@ -57,4 +64,12 @@ public class CategoriaEntidad {
     public void agregarNuevaRegla(ReglaCategoriaEntidad regla){ reglas.add(regla); }
 
     public void quitarRegla(ReglaCategoriaEntidad regla){ reglas.remove(regla); }
+
+    public int getId(){
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
 }

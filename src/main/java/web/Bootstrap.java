@@ -1,8 +1,5 @@
-package testPersistencia;
+package web;
 
-import db.EntityManagerHelper;
-import org.junit.Before;
-import org.junit.Test;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import organizaciones.CategoriaEntidadJuridica;
 import organizaciones.EntidadBase;
@@ -11,25 +8,21 @@ import organizaciones.reglasEntidades.CategoriaEntidad;
 import organizaciones.reglasEntidades.ReglaAsignacionAEntidadJuridica;
 import organizaciones.reglasEntidades.ReglaNuevaEntidadBase;
 import organizaciones.reglasEntidades.ReglaNuevoEgreso;
+import repositories.RepositorioCategoriaEntidad;
+import repositories.RepositorioEntidades;
 
 import javax.persistence.EntityTransaction;
-import javax.transaction.Transaction;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
-public class testCargarEntidad implements WithGlobalEntityManager {
-
-    @Test
-    public void testCargarEntidades(){
+public class Bootstrap implements WithGlobalEntityManager {
+    public void init(){
         ReglaNuevaEntidadBase regla1 = new ReglaNuevaEntidadBase(false);
         ReglaNuevoEgreso regla2 = new ReglaNuevoEgreso(new BigDecimal(1000));
 
 
-        CategoriaEntidad otraCategoriaParaEntidadJuridica = new CategoriaEntidad("pirullo");
+        CategoriaEntidad otraCategoriaParaEntidadJuridica = new CategoriaEntidad("una categoria juridica");
         otraCategoriaParaEntidadJuridica.agregarNuevaRegla(regla1);
         otraCategoriaParaEntidadJuridica.agregarNuevaRegla(regla2);
 
@@ -41,7 +34,7 @@ public class testCargarEntidad implements WithGlobalEntityManager {
         entidadesProhibidas.add(entidadJuridica);
         ReglaAsignacionAEntidadJuridica regla3 = new ReglaAsignacionAEntidadJuridica(entidadesProhibidas);
 
-        CategoriaEntidad unaCategoriaParaEntidadBase = new CategoriaEntidad("pirulin");
+        CategoriaEntidad unaCategoriaParaEntidadBase = new CategoriaEntidad("una categoria base");
         unaCategoriaParaEntidadBase.agregarNuevaRegla(regla3);
         unaCategoriaParaEntidadBase.agregarNuevaRegla(regla2);
 
@@ -51,16 +44,16 @@ public class testCargarEntidad implements WithGlobalEntityManager {
         EntityTransaction transaction = entityManager().getTransaction();
         transaction.begin();
 
-        entityManager().persist(regla1);
-        entityManager().persist(regla2);
-        entityManager().persist(otraCategoriaParaEntidadJuridica);
+        RepositorioCategoriaEntidad.getInstance().agregarRegla(regla1);
+        RepositorioCategoriaEntidad.getInstance().agregarRegla(regla2);
+        RepositorioCategoriaEntidad.getInstance().agregarCategoriaEntidad(otraCategoriaParaEntidadJuridica);
 
-        entityManager().persist(entidadJuridica);
+        RepositorioEntidades.getInstance().agregarEntidad(entidadJuridica);
 
-        entityManager().persist(regla3);
-        entityManager().persist(unaCategoriaParaEntidadBase);
+        RepositorioCategoriaEntidad.getInstance().agregarRegla(regla3);
+        RepositorioCategoriaEntidad.getInstance().agregarCategoriaEntidad(unaCategoriaParaEntidadBase);
 
-        entityManager().persist(entidadBase);
+        RepositorioEntidades.getInstance().agregarEntidad(entidadBase);
 
         transaction.commit();
 

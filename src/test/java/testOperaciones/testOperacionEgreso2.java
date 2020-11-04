@@ -14,7 +14,6 @@ import operaciones.DocumentoComercial;
 import operaciones.IdsMonetarios;
 import operaciones.ItemOperacion;
 import operaciones.OperacionDeEgreso;
-import operaciones.RepositorioOperaciones;
 import operaciones.TipoDocumento;
 import organizaciones.Entidad;
 import organizaciones.EntidadBase;
@@ -56,7 +55,7 @@ public class testOperacionEgreso2
 		fecha = LocalDate.of(2015, 1, 5);
 		MedioDePago medioPago = new TarjetaDeCredito(456789321);
 		BigDecimal valorTotal = new BigDecimal(5000);
-		CategoriaEntidad categoria = new CategoriaEntidad();
+		CategoriaEntidad categoria = new CategoriaEntidad("cateee");
 		Entidad entidad = new EntidadBase("nombre_ficticio",categoria,"soy_una_descripcion");
 		
 		List<Entidad> entidades = new ArrayList<Entidad>();

@@ -1,7 +1,7 @@
 package organizaciones.reglasEntidades;
 
 import operaciones.OperacionDeEgreso;
-import operaciones.RepositorioOperaciones;
+import repositories.RepositorioOperaciones;
 import organizaciones.Entidad;
 
 import javax.persistence.Column;

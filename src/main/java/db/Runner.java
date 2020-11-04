@@ -51,7 +51,7 @@ public class Runner {
         fecha = LocalDate.of(2015, 1, 5);
         MedioDePago medioPago = new TarjetaDeCredito(456789321);
         BigDecimal valorTotal = new BigDecimal(5000);
-        CategoriaEntidad categoria = new CategoriaEntidad();
+        CategoriaEntidad categoria = new CategoriaEntidad("dadasd");
         EntidadBase entidad = new EntidadBase("nombre_ficticio",categoria,"soy_una_descripcion");
 
         List<Entidad> entidades = new ArrayList<>();

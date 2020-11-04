@@ -1,17 +1,17 @@
 package organizaciones;
 
 import operaciones.OperacionDeEgreso;
-import operaciones.RepositorioOperaciones;
+import repositories.RepositorioOperaciones;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Entidad {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue//(strategy = GenerationType.TABLE)
     private int id;
     //Como estoy usando TABLE_PER_CLASS, tengo que ponerle la strategry TABLE para que
     //cada tabla tenga su propio id
