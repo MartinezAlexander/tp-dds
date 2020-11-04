@@ -12,3 +12,5 @@ Enunciado Parte 2:
 https://docs.google.com/document/d/1kyp7tWioN97UBATva0LFa-5kYsiIqOMAO4Lyphjs0ws/edit
 Enunciado Parte 3:
 https://docs.google.com/document/d/1mtYaUC0X5NH-vHnJxd1mKQrZOiyMTVpM0VnbK05cD3g/edit#
+Enunciado Parte 5:
+https://docs.google.com/document/d/1_PWZduzAN-C1fsrlG1qLui_hnKKSNFlt5J8MHolGixI/edit
