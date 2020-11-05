@@ -1,0 +1,36 @@
+{{#partial "contenido"}}
+    <form action="/entidades" method="get" class="form-inline">
+        <div class="input-group mb-2 mr-sm-2">
+            <select class="form-control form-control" id="seleccionar" name="categoria"> <!-- onchange="this.form.submit()" para que filtre sin boton -->
+
+                <option value="0"> todas las categorias </option>
+
+                {{#each categorias}}
+                    <option value={{ id }}>{{ nombre }}</option>
+                {{/each}}
+            </select>
+        </div>
+        <input type="submit" value="Filtrar" class="btn btn-primary mb-2">
+    </form>
+
+    <table class="table table-stripped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each entidades}}
+            <tr>
+                <td>{{nombreFicticio}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="carga_entidad_base">Nueva Entidad Base</a>
+    <a class="btn btn-primary" href="carga_entidad_juridica">Nueva Entidad Juridica</a>
+{{/partial}}
+
+{{>layout.hbs}}

@@ -13,22 +13,39 @@ import java.util.HashMap;
 import java.util.List;
 
 public class HomeController {
-    public static ModelAndView home(Request req, Response res) {
+
+
+    public static ModelAndView home(Request req, Response res){
+        return new ModelAndView(null, "home.hbs");
+    }
+
+    public static ModelAndView login(Request req, Response res){
+        return new ModelAndView(null, "login.hbs");
+    }
+
+    public static ModelAndView cargaEntidades(Request req, Response res){
+        return new ModelAndView(null, "carga_entidad_base.hbs");
+    }
+
+    public static ModelAndView entidades(Request req, Response res) {
 
         List<CategoriaEntidad> categorias = RepositorioCategoriaEntidad.getInstance().getCategoriasEntidades();
         List<Entidad> entidades;
 
         String categoria_id = req.queryParams("categoria");
+        if (categoria_id == null) categoria_id = "0";
 
-        if(categoria_id == null || Integer.valueOf(categoria_id) == 0){
+        int id = Integer.valueOf(categoria_id);
+
+        if(id == 0){
             entidades = RepositorioEntidades.getInstance().getEntidades();
         }else {
-            int id = Integer.valueOf(categoria_id);
             //TODO dejo esto asi de momento despues habria que buscar directamente por id.
             CategoriaEntidad cat = categorias.stream()
                     .filter(categoriaEntidad -> categoriaEntidad.getId() == id)
                     .findFirst()
                     .get();
+
             entidades = RepositorioEntidades.getInstance().getEntidadesSegun(cat);
         }
 
@@ -38,6 +55,7 @@ public class HomeController {
 
         return new ModelAndView(
                 viewModel,
-                "home.hbs");
+                "entidades.hbs");
     }
+
 }
