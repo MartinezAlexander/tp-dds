@@ -10,6 +10,5 @@ public class Router {
 
         HandlebarsTemplateEngine transformer = new HandlebarsTemplateEngine();
         Spark.get("/home", HomeController::home, transformer);
-//        Spark.get("/capturas",HomeController::index, transformer);
     }
 }

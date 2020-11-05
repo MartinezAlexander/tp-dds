@@ -1,15 +1,21 @@
 <html>
 <body>
-<form action="/home" method="get">
-    <p>home</p>
-</form>
 
 <label for="categorias">Filtrar por categoria:</label>
-<select id="seleccionar" name="categoria">
-    {{#each categorias}}
-            <option value="volvo">{{ nombre }}</option>
-    {{/each}}
-</select>
+
+<form action="/home" method="get">
+    <select id="seleccionar" name="categoria"> <!-- onchange="this.form.submit()" para que filtre sin boton -->
+
+        <option value="0"> todas las categorias </option>
+
+        {{#each categorias}}
+            <option value={{ id }}>{{ nombre }}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit" value="Filtrar">
+</form>
+
 
 <table class="table table-stripped">
     <tr>
