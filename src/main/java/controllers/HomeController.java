@@ -17,17 +17,12 @@ import static db.EntityManagerHelper.withTransaction;
 
 public class HomeController {
 
-
     public static ModelAndView home(Request req, Response res){
         return new ModelAndView(null, "home.hbs");
     }
 
     public static ModelAndView login(Request req, Response res){
         return new ModelAndView(null, "login.hbs");
-    }
-
-    public static ModelAndView cargaEntidadJuridica(Request req, Response res){
-        return new ModelAndView(null, "carga_entidad_juridica.hbs");
     }
 
     public static ModelAndView usuario(Request req, Response res){

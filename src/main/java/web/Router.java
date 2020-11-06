@@ -19,12 +19,12 @@ public class Router {
         Spark.get("/home", HomeController::home, transformer);
 
         Spark.get("/carga_operacion", HomeController::cargaOperacion, transformer);
-        Spark.get("/carga_entidad_juridica", HomeController::cargaEntidadJuridica, transformer);
         Spark.get("/usuario", HomeController::usuario, transformer);
 
         Spark.get("/entidades", entidadesController::entidades, transformer);
         Spark.get("/carga_entidad_base", entidadesController::cargaEntidades, transformer);
         Spark.post("/carga_entidad_base", entidadesController::crearEntidadBase);
+        Spark.get("/carga_entidad_juridica", entidadesController::cargaEntidadJuridica, transformer);
 
     }
 }
