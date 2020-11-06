@@ -23,8 +23,20 @@ public class HomeController {
         return new ModelAndView(null, "login.hbs");
     }
 
-    public static ModelAndView cargaEntidades(Request req, Response res){
+    public static ModelAndView cargaEntidadBase(Request req, Response res){
         return new ModelAndView(null, "carga_entidad_base.hbs");
+    }
+
+    public static ModelAndView cargaEntidadJuridica(Request req, Response res){
+        return new ModelAndView(null, "carga_entidad_juridica.hbs");
+    }
+
+    public static ModelAndView usuario(Request req, Response res){
+        return new ModelAndView(null, "usuario.hbs");
+    }
+
+    public static ModelAndView cargaOperacion(Request req, Response res){
+        return new ModelAndView(null, "carga_operacion.hbs");
     }
 
     public static ModelAndView entidades(Request req, Response res) {

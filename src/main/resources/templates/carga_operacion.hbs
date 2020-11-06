@@ -1,0 +1,50 @@
+{{#partial "contenido"}}
+    <h1> Nueva Operacion de Egreso </h1>
+
+    <form action="carga_operacion" method="post">
+
+        <p> <br> Documento Comercial </p>
+        <select class="form-control form-control" id="sel-documento" name="doc-comercial">
+            <option> seleccione un documento </option>
+        </select>
+
+        <p> <br> Proveedor </p>
+        <select class="form-control form-control" id="sel-proveedor" name="proveedor">
+            <option> seleccione un proveedor </option>
+        </select>
+
+        <p> <br> Fecha </p>
+        <input type="date" id="input-fecha" name="fecha">
+
+        <p> <br> Medio de Pago </p>
+        <select class="form-control form-control" id="sel-medio-pago" name="medio-pago">
+            <option> seleccione un medio de pago </option>
+        </select>
+
+        <p> <br> Organizacion </p>
+        <select class="form-control form-control" id="sel-organizacion" name="organizacion">
+            <option> seleccione una orgnizacion </option>
+        </select>
+
+
+        <p> <br> Entidad </p>
+        <select class="form-control form-control" id="sel-entidad" name="entidad">
+            <option> seleccione una entidad </option>
+        </select>
+
+        <!--
+
+        TODO: Presupuestos Necesarios??
+               Presupuesto Elegido
+               Criterio de Seleccion
+               Items
+               Usuarios Revisores
+               Etiquetas
+
+        -->
+
+        <button type="submit" class="btn btn-primary">Cargar</button>
+    </form>
+{{/partial}}
+
+{{>layout.hbs}}

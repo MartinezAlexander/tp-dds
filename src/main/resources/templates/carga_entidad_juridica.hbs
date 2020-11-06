@@ -1,0 +1,51 @@
+{{#partial "contenido"}}
+
+    <h1> Nueva Entidad Juridica </h1>
+
+    <form action="carga_entidad_juridica" method="post">
+
+        <p> <br> Nombre Ficticio </p>
+        <input type="text" name="nombre_ficticio" placeholder="Nombre Ficticio" class="entradas">
+
+        <p> <br> Categoria </p>
+        <select class="form-control form-control" id="sel-categoria" name="categoria"> <!-- onchange="this.form.submit()" para que filtre sin boton -->
+
+            <option value="0"> seleccione una categoria </option>
+
+            {{#each categorias}}
+                <option value={{ id }}>{{ nombre }}</option>
+            {{/each}}
+        </select>
+
+        <p> <br> Razon Social </p>
+        <input type="text" name="razon_social" placeholder="Razon Social" class="entradas">
+
+        <p> <br> CUIT </p>
+        <input type="number" name="cuit" placeholder="CUIT" class="entradas">
+
+        <p> <br> Direccion Postal </p>
+        <input type="text" name="direccion_postal" placeholder="Direccion Postal" class="entradas">
+
+        <p> <br> Codigo de Inscripcion IGJ </p>
+        <input type="number" name="codigo_inscripcion" placeholder="Codigo IGJ" class="entradas">
+
+        <p> <br> Organizacion </p>
+        <select class="form-control form-control" id="sel-organizacion" name="organizacion">
+            <option> Una Organizacion </option>
+        </select>
+
+        <p> <br> Tipo de Entidad Juridica </p>
+        <select class="form-control form-control" id="sel-categoria-ent-juridica" name="categoria-ent-juridica">
+            <option> seleccione una categoria </option>
+
+            {{#each categorias_entidad_juridica}}
+                <option value={{ id }}>{{ nombre }}</option>
+            {{/each}}
+        </select>
+
+        <button type="submit" class="btn btn-primary">Cargar</button>
+    </form>
+
+{{/partial}}
+
+{{>layout.hbs}}
