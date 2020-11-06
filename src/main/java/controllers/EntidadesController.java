@@ -1,5 +1,7 @@
 package controllers;
 
+import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
+import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
 import organizaciones.Entidad;
 import organizaciones.EntidadBase;
 import organizaciones.reglasEntidades.CategoriaEntidad;
@@ -12,11 +14,9 @@ import spark.Response;
 import java.util.HashMap;
 import java.util.List;
 
-import static db.EntityManagerHelper.withTransaction;
+public class EntidadesController implements WithGlobalEntityManager, TransactionalOps {
 
-public class EntidadesController {
-
-    public static ModelAndView cargaEntidades(Request req, Response res){
+    public ModelAndView cargaEntidades(Request req, Response res){
         List<CategoriaEntidad> categorias = RepositorioCategoriaEntidad.getInstance().getCategoriasEntidades();
 
         HashMap<String, Object> viewModel = new HashMap<>();
@@ -25,7 +25,7 @@ public class EntidadesController {
         return new ModelAndView(viewModel, "carga_entidad_base.hbs");
     }
 
-    public static ModelAndView entidades(Request req, Response res) {
+    public ModelAndView entidades(Request req, Response res) {
 
         List<CategoriaEntidad> categorias = RepositorioCategoriaEntidad.getInstance().getCategoriasEntidades();
         List<Entidad> entidades;
@@ -56,13 +56,19 @@ public class EntidadesController {
                 "entidades.hbs");
     }
 
-    public static Void crearEntidadBase(Request req, Response res){
+    public Void crearEntidadBase(Request req, Response res){
         int id_categoria = Integer.valueOf(req.queryParams("categoria"));
+
         CategoriaEntidad categoria = RepositorioCategoriaEntidad.getInstance().getCategoria(id_categoria);
-        System.out.println(categoria.getNombre());
-        EntidadBase entidadBase = new EntidadBase(req.queryParams("nombre_ficticio"),categoria, req.queryParams("descripcion"));
-        System.out.println(entidadBase.getNombreFicticio());
-        withTransaction(() -> RepositorioEntidades.getInstance().agregarEntidadBase(entidadBase));
+        String nombre = req.queryParams("nombre_ficticio");
+        String descripcion = req.queryParams("descripcion");
+
+        EntidadBase entidadBase = new EntidadBase(nombre, categoria, descripcion);
+
+        withTransaction(() -> {
+            RepositorioEntidades.getInstance().agregarEntidadBase(entidadBase);
+        });
+
         res.redirect("/carga_entidad_base");
         return null;
     }

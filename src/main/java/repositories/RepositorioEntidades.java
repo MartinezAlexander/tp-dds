@@ -22,6 +22,10 @@ public class RepositorioEntidades implements WithGlobalEntityManager {
         entityManager().persist(entidad);
     }
 
+    public void agregarEntidadBase(EntidadBase entidad){
+        entityManager().persist(entidad);
+    }
+
     public void quitarEntidad(Entidad entidad){
         entityManager()
                 .createQuery("delete from Entidad where id = :id")

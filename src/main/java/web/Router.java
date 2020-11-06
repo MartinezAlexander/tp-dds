@@ -13,10 +13,12 @@ public class Router {
 
         Spark.staticFiles.location("/public");
 
+        EntidadesController entidadesController = new EntidadesController();
+
         Spark.get("/login", HomeController::login, transformer);
         Spark.get("/home", HomeController::home, transformer);
-        Spark.get("/entidades", EntidadesController::entidades, transformer);
-        Spark.get("/carga_entidad_base", EntidadesController::cargaEntidades, transformer);
-        Spark.post("/carga_entidad_base", EntidadesController::crearEntidadBase);
+        Spark.get("/entidades", entidadesController::entidades, transformer);
+        Spark.get("/carga_entidad_base", entidadesController::cargaEntidades, transformer);
+        Spark.post("/carga_entidad_base", entidadesController::crearEntidadBase);
     }
 }
