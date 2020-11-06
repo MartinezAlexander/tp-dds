@@ -6,6 +6,9 @@ https://app.lucidchart.com/invitations/accept/9d0f2687-11c5-401c-9e5f-5a6fd19b4d
 DER:
 https://app.lucidchart.com/invitations/accept/7b6843b8-b62a-4a8e-ae0d-4bc86e0e08ed
 
+Wireframe:
+https://lucid.app/invitations/accept/eff72eec-0435-4d5e-b859-83c88fab51f3
+
 Enunciado Parte 1:
 https://drive.google.com/file/d/19Sxl0lQzNHfpQoWqvuYzOl_YQdCwZXy4/view?usp=sharing
 
