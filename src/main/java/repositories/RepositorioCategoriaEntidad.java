@@ -35,4 +35,11 @@ public class RepositorioCategoriaEntidad implements WithGlobalEntityManager {
                 .createQuery("from CategoriaEntidad")
                 .getResultList();
     }
+
+    public CategoriaEntidad getCategoria(int id) {
+        return (CategoriaEntidad) entityManager()
+                .createQuery("from CategoriaEntidad where id = :id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 }

@@ -2,6 +2,7 @@ package controllers;
 
 import com.google.common.base.Optional;
 import organizaciones.Entidad;
+import organizaciones.EntidadBase;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 import repositories.RepositorioCategoriaEntidad;
 import repositories.RepositorioEntidades;
@@ -11,6 +12,8 @@ import spark.Response;
 
 import java.util.HashMap;
 import java.util.List;
+
+import static db.EntityManagerHelper.withTransaction;
 
 public class HomeController {
 
@@ -24,7 +27,12 @@ public class HomeController {
     }
 
     public static ModelAndView cargaEntidades(Request req, Response res){
-        return new ModelAndView(null, "carga_entidad_base.hbs");
+        List<CategoriaEntidad> categorias = RepositorioCategoriaEntidad.getInstance().getCategoriasEntidades();
+
+        HashMap<String, Object> viewModel = new HashMap<>();
+        viewModel.put("categorias",categorias);
+
+        return new ModelAndView(viewModel, "carga_entidad_base.hbs");
     }
 
     public static ModelAndView entidades(Request req, Response res) {
@@ -58,4 +66,14 @@ public class HomeController {
                 "entidades.hbs");
     }
 
+    public static Void crearEntidadBase(Request req, Response res){
+        int id_categoria = Integer.valueOf(req.queryParams("categoria"));
+        CategoriaEntidad categoria = RepositorioCategoriaEntidad.getInstance().getCategoria(id_categoria);
+        System.out.println(categoria.getNombre());
+        EntidadBase entidadBase = new EntidadBase(req.queryParams("nombre_ficticio"),categoria, req.queryParams("descripcion"));
+        System.out.println(entidadBase.getNombreFicticio());
+        withTransaction(() -> RepositorioEntidades.getInstance().agregarEntidad(entidadBase));
+        res.redirect("/carga_entidad_base");
+        return null;
+    }
 }

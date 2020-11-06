@@ -16,5 +16,6 @@ public class Router {
         Spark.get("/home", HomeController::home, transformer);
         Spark.get("/entidades", HomeController::entidades, transformer);
         Spark.get("/carga_entidad_base", HomeController::cargaEntidades, transformer);
+        Spark.post("/carga_entidad_base", HomeController::crearEntidadBase);
     }
 }
