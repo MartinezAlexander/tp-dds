@@ -1,5 +1,6 @@
 package web;
 
+import controllers.EntidadesController;
 import controllers.HomeController;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -14,8 +15,8 @@ public class Router {
 
         Spark.get("/login", HomeController::login, transformer);
         Spark.get("/home", HomeController::home, transformer);
-        Spark.get("/entidades", HomeController::entidades, transformer);
-        Spark.get("/carga_entidad_base", HomeController::cargaEntidades, transformer);
-        Spark.post("/carga_entidad_base", HomeController::crearEntidadBase);
+        Spark.get("/entidades", EntidadesController::entidades, transformer);
+        Spark.get("/carga_entidad_base", EntidadesController::cargaEntidades, transformer);
+        Spark.post("/carga_entidad_base", EntidadesController::crearEntidadBase);
     }
 }
