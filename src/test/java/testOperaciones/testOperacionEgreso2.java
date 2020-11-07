@@ -58,12 +58,12 @@ public class testOperacionEgreso2
 		CategoriaEntidad categoria = new CategoriaEntidad("cateee");
 		Entidad entidad = new EntidadBase("nombre_ficticio",categoria,"soy_una_descripcion");
 		
-		List<Entidad> entidades = new ArrayList<Entidad>();
+		List<Entidad> entidades = new ArrayList<>();
 		entidades.add(entidad);
+
+		Organizacion organizacion = new Organizacion(entidades, "JAVA");
 		
-		Organizacion organizacion = new Organizacion(entidades);
-		
-		List<ItemOperacion> items = new ArrayList<ItemOperacion>();
+		List<ItemOperacion> items = new ArrayList<>();
 		itemUno = new ItemOperacion("item_uno");
 		itemDos = new ItemOperacion("item_dos");
 		items.add(itemUno);

@@ -3,15 +3,14 @@ package web;
 import org.uqbarproject.jpa.java8.extras.EntityManagerOps;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
-import organizaciones.CategoriaEntidadJuridica;
-import organizaciones.EntidadBase;
-import organizaciones.EntidadJuridica;
+import organizaciones.*;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 import organizaciones.reglasEntidades.ReglaAsignacionAEntidadJuridica;
 import organizaciones.reglasEntidades.ReglaNuevaEntidadBase;
 import organizaciones.reglasEntidades.ReglaNuevoEgreso;
 import repositories.RepositorioCategoriaEntidad;
 import repositories.RepositorioEntidades;
+import repositories.RepositorioOrganizaciones;
 import repositories.RepositorioUsuarios;
 import usuarios.Usuario;
 
@@ -48,6 +47,10 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         Usuario usuario1 = new Usuario("Julian Simaro", "TPscala2020");
         Usuario usuario2 = new Usuario("Agustin Cragno", "TPruby2020");
 
+        List<Entidad> entidades = new ArrayList<>();
+        Organizacion org = new Organizacion(entidades, "RUBY ONG");
+        Organizacion org2 = new Organizacion(entidades, "SCALA ONG");
+
         withTransaction(() -> {
             RepositorioCategoriaEntidad.getInstance().agregarRegla(regla1);
             RepositorioCategoriaEntidad.getInstance().agregarRegla(regla2);
@@ -62,6 +65,9 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
 
             RepositorioUsuarios.getInstance().agregarUsuario(usuario1);
             RepositorioUsuarios.getInstance().agregarUsuario(usuario2);
+
+            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org);
+            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org2);
 
         });
     }

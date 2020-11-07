@@ -15,7 +15,7 @@ public class RequisitoLongitud implements RequisitoContrasena {
     @Override
     public void validar(String contrasena) {
         if(contrasena.length() < 8){
-            throw new ContrasenaCortaException("No se cumple con la condicion: " + descripcion());
+            throw new ContrasenaInvalida("No se cumple con la condicion: " + descripcion());
         }
     }
 }

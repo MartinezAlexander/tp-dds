@@ -20,7 +20,7 @@ public class RequisitoTopPeores implements RequisitoContrasena {
     @Override
     public void validar(String contrasena) {
         if(perteneceTop10000(contrasena)){
-            throw new ContrasenaComunException("Contrasena no valida: se encuentra dentro de las 10000 peores contrasenas");
+            throw new ContrasenaInvalida("Contrasena no valida: se encuentra dentro de las 10000 peores contrasenas");
         }
     }
 

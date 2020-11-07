@@ -57,7 +57,7 @@ public class Runner {
         List<Entidad> entidades = new ArrayList<>();
         entidades.add(entidad);
 
-        Organizacion organizacion = new Organizacion(entidades);
+        Organizacion organizacion = new Organizacion(entidades, "SCALA");
 
         List<ItemOperacion> items = new ArrayList<ItemOperacion>();
         itemUno = new ItemOperacion("item_uno");

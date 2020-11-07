@@ -10,7 +10,7 @@
         <p> <br> Categoria </p>
         <select class="form-control form-control" id="sel-categoria" name="categoria"> <!-- onchange="this.form.submit()" para que filtre sin boton -->
 
-            <option value="0"> seleccione una categoria </option>
+            <option value="0"> Seleccione una categoria </option>
 
             {{#each categorias}}
                 <option value={{ id }}>{{ nombre }}</option>
@@ -22,12 +22,21 @@
 
         <p> <br> Organizacion </p>
         <select class="form-control form-control" id="sel-organizacion" name="organizacion">
-            <option> Una Organizacion </option>
+            <option value="0"> Seleccione una Organizacion </option>
+
+            {{#each organizaciones}}
+                <option value={{ id }}>{{ nombre }}</option>
+            {{/each}}
+
         </select>
 
         <p> <br> Entidad Juridica Asociada </p>
         <select class="form-control form-control" id="sel-ent-juridica" name="entidad-juridica">
-            <option> Una Entidad Juridica </option>
+            <option value="0"> Seleccione una Entidad Juridica </option>
+
+            {{#each entidadesJuridicas}}
+                <option value={{ id }}>{{ razonSocial }}</option>
+            {{/each}}
         </select>
 
         <button type="submit" class="btn btn-primary">Cargar</button>

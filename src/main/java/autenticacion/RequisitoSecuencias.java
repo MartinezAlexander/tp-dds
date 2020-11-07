@@ -14,7 +14,7 @@ public class RequisitoSecuencias implements RequisitoContrasena {
     @Override
     public void validar(String contrasena) {
         if (esSecuencia(contrasena)){
-            throw new ContrasenaSecuenciaException("No se cumlpe con la condicion: " + descripcion());
+            throw new ContrasenaInvalida("No se cumlpe con la condicion: " + descripcion());
         }
     }
 

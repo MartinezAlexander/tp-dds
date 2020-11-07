@@ -5,6 +5,7 @@ import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import organizaciones.Entidad;
 import organizaciones.EntidadBase;
 import organizaciones.EntidadJuridica;
+import organizaciones.Organizacion;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 
 import java.util.List;
@@ -45,11 +46,18 @@ public class RepositorioEntidades implements WithGlobalEntityManager {
                 .getResultList();
     }
 
-//    public List<EntidadJuridica> getEntidadesJuridicas(){
-//        return entityManager()
-//                .createQuery("from EntidadJuridica")
-//                .getResultList();
-//    }
+    public List<EntidadJuridica> getEntidadesJuridicas(){
+        return entityManager()
+                .createQuery("from EntidadJuridica")
+                .getResultList();
+    }
+
+    public Entidad getEntidadJuridica(int id) {
+        return (Entidad) entityManager()
+                .createQuery("from EntidadJuridica where id = :id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 //
 //    public List<EntidadBase> getEntidadesBase(){
 //        return entityManager()

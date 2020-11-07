@@ -14,7 +14,7 @@ public class RequisitoUnicoCaracter implements RequisitoContrasena {
     @Override
     public void validar(String contrasena) {
         if (unicoCaracter(contrasena)){
-            throw new ContrasenaIgualException("No se cumlpe con la condicion: " + descripcion());
+            throw new ContrasenaInvalida("No se cumlpe con la condicion: " + descripcion());
         }
     }
 
