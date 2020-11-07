@@ -73,4 +73,8 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
         return null;
     }
 
+
+    public ModelAndView cargaEntidadJuridica(Request req, Response res){
+        return new ModelAndView(null, "carga_entidad_juridica.hbs");
+    }
 }
