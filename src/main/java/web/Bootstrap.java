@@ -12,6 +12,8 @@ import organizaciones.reglasEntidades.ReglaNuevaEntidadBase;
 import organizaciones.reglasEntidades.ReglaNuevoEgreso;
 import repositories.RepositorioCategoriaEntidad;
 import repositories.RepositorioEntidades;
+import repositories.RepositorioUsuarios;
+import usuarios.Usuario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -43,6 +45,9 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         EntidadBase entidadBase = new EntidadBase("E. Base",
                 unaCategoriaParaEntidadBase, "una entidad base");
 
+        Usuario usuario1 = new Usuario("Julian Simaro", "TPscala2020");
+        Usuario usuario2 = new Usuario("Agustin Cragno", "TPruby2020");
+
         withTransaction(() -> {
             RepositorioCategoriaEntidad.getInstance().agregarRegla(regla1);
             RepositorioCategoriaEntidad.getInstance().agregarRegla(regla2);
@@ -54,6 +59,10 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
             RepositorioCategoriaEntidad.getInstance().agregarCategoriaEntidad(unaCategoriaParaEntidadBase);
 
             RepositorioEntidades.getInstance().agregarEntidad(entidadBase);
+
+            RepositorioUsuarios.getInstance().agregarUsuario(usuario1);
+            RepositorioUsuarios.getInstance().agregarUsuario(usuario2);
+
         });
     }
 }

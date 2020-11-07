@@ -25,9 +25,9 @@ public class Usuario extends EntidadPersistente{
     
     public Usuario(){}
 
-    public Usuario(String nombre, String contrasena, TipoUsuario tipo) {
+    public Usuario(String nombre, String contrasena) {
         this.nombre = nombre;
-        this.tipo = tipo;
+        this.tipo = TipoUsuario.USUARIO;
 
         Autenticador.getInstance().validarContrasena(contrasena);
         this.contrasena = contrasena;

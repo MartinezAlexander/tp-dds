@@ -6,10 +6,13 @@ import organizaciones.EntidadBase;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 import repositories.RepositorioCategoriaEntidad;
 import repositories.RepositorioEntidades;
+import repositories.RepositorioUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+import usuarios.Usuario;
 
+import javax.persistence.NoResultException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,6 +26,26 @@ public class HomeController {
     }
 
     public static ModelAndView login(Request req, Response res){
+        String nombre = req.queryParams("fullname");
+        String contraseña = req.queryParams("password");
+
+        try {
+            Usuario usuario = RepositorioUsuarios.getInstance().getUsuario(nombre);
+            if(usuario.getPassword().equals(contraseña)){
+                res.redirect("/home");
+            }else{
+                res.redirect("/login");
+            }
+            return null;
+        }
+        catch(NoResultException e) {
+            res.redirect("/login");
+            return null;
+        }
+    }
+
+    public static ModelAndView show(Request req, Response res){
+
         return new ModelAndView(null, "login.hbs");
     }
 
