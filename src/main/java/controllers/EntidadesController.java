@@ -2,10 +2,7 @@ package controllers;
 
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
-import organizaciones.Entidad;
-import organizaciones.EntidadBase;
-import organizaciones.EntidadJuridica;
-import organizaciones.Organizacion;
+import organizaciones.*;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 import repositories.RepositorioCategoriaEntidad;
 import repositories.RepositorioEntidades;
@@ -14,6 +11,7 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -89,6 +87,42 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
 
 
     public ModelAndView cargaEntidadJuridica(Request req, Response res){
-        return new ModelAndView(null, "carga_entidad_juridica.hbs");
+        List<CategoriaEntidad> categorias = RepositorioCategoriaEntidad.getInstance().getCategoriasEntidades();
+        List<Organizacion> organizaciones = RepositorioOrganizaciones.getInstance().getOrganizaciones();
+        List<CategoriaEntidadJuridica> tiposEntidadJuridica = Arrays.asList(CategoriaEntidadJuridica.values());
+
+        HashMap<String, Object> viewModel = new HashMap<>();
+        viewModel.put("categorias", categorias);
+        viewModel.put("organizaciones", organizaciones);
+        viewModel.put("categorias_entidad_juridica", tiposEntidadJuridica);
+
+        return new ModelAndView(viewModel, "carga_entidad_juridica.hbs");
+    }
+
+    public Void crearEntidadJuridica(Request req, Response res){
+        //TODO: Atrapar error cuando no me pasan todos los datos.
+        String nombre = req.queryParams("nombre_ficticio");
+        String razonSocial = req.queryParams("razon_social");
+        int id_categoria = Integer.valueOf(req.queryParams("categoria"));
+        int id_organizacion = Integer.valueOf(req.queryParams("organizacion"));
+        CategoriaEntidadJuridica tipoJuridica = CategoriaEntidadJuridica.valueOf(req.queryParams("categoria-ent-juridica"));
+        int cuit = Integer.valueOf(req.queryParams("cuit"));
+        String direccionPostal = req.queryParams("direccion_postal");
+        int codigoInscripcion = Integer.valueOf(req.queryParams("codigo_inscripcion"));
+
+        CategoriaEntidad categoria = RepositorioCategoriaEntidad.getInstance().getCategoria(id_categoria);
+        Organizacion organizacion = RepositorioOrganizaciones.getInstance().getOrganizacion(id_organizacion);
+
+        EntidadJuridica entidad = new EntidadJuridica(nombre, categoria, razonSocial, cuit, direccionPostal, codigoInscripcion, tipoJuridica);
+
+        //TODO: Hace falta esto???!
+        organizacion.agregarEntidad(entidad);
+
+        withTransaction(() -> {
+            RepositorioEntidades.getInstance().agregarEntidad(entidad);
+        });
+
+        res.redirect("/carga_entidad_juridica");
+        return null;
     }
 }

@@ -17,8 +17,8 @@ public class Router {
         HomeController homeController = new HomeController();
 
         Spark.get("/login", HomeController::show, transformer);
-        Spark.post("/login", HomeController::login, transformer);
-        Spark.post("/signup", homeController::signup, transformer);
+        Spark.post("/login", HomeController::login);
+        Spark.post("/signup", homeController::signup);
         Spark.get("/home", HomeController::home, transformer);
 
         Spark.get("/carga_operacion", HomeController::cargaOperacion, transformer);
@@ -28,6 +28,7 @@ public class Router {
         Spark.get("/carga_entidad_base", entidadesController::cargaEntidadBase, transformer);
         Spark.post("/carga_entidad_base", entidadesController::crearEntidadBase);
         Spark.get("/carga_entidad_juridica", entidadesController::cargaEntidadJuridica, transformer);
+        Spark.post("/carga_entidad_juridica", entidadesController::crearEntidadJuridica);
 
     }
 }

@@ -5,5 +5,7 @@ public enum CategoriaEntidadJuridica {
 	EMPRESA_MICRO,
 	EMPRESA_PEQUENA,
 	EMPRESA_MEDIANA_TRAMO_1,
-	EMPRESA_MEDIA_TRAMO_2
+	EMPRESA_MEDIA_TRAMO_2;
+
+	public String getNombre(){ return this.name(); }
 }

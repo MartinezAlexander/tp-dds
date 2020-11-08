@@ -31,15 +31,19 @@
 
         <p> <br> Organizacion </p>
         <select class="form-control form-control" id="sel-organizacion" name="organizacion">
-            <option> Una Organizacion </option>
+            <option value="0"> Seleccione una Organizacion </option>
+
+            {{#each organizaciones}}
+                <option value={{ id }}>{{ nombre }}</option>
+            {{/each}}
         </select>
 
         <p> <br> Tipo de Entidad Juridica </p>
         <select class="form-control form-control" id="sel-categoria-ent-juridica" name="categoria-ent-juridica">
-            <option> seleccione una categoria </option>
+            <option> Seleccione una Categoria </option>
 
             {{#each categorias_entidad_juridica}}
-                <option value={{ id }}>{{ nombre }}</option>
+                <option value={{ nombre }}>{{ nombre }}</option>
             {{/each}}
         </select>
 
