@@ -4,6 +4,7 @@ import controllers.EntidadesController;
 import controllers.HomeController;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+import spark.utils.StringUtils;
 
 
 public class Router {
@@ -15,6 +16,14 @@ public class Router {
 
         EntidadesController entidadesController = new EntidadesController();
         HomeController homeController = new HomeController();
+
+        Spark.before(((request, response) -> {
+            if(!request.pathInfo().equals("/login")){
+                if (StringUtils.isEmpty(request.session().attribute("usuario-logueado"))){
+                    response.redirect("/login");
+                }
+            }
+        }));
 
         Spark.get("/login", HomeController::show, transformer);
         Spark.post("/login", HomeController::login);

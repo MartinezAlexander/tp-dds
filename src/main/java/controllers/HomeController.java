@@ -32,7 +32,7 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
         try {
             Usuario usuario = RepositorioUsuarios.getInstance().getUsuario(nombre);
             if(usuario.getPassword().equals(contrasenia)){
-                req.session().attribute(nombre, contrasenia);
+                req.session().attribute("usuario-logueado", nombre);
                 res.redirect("/home");
             }else{
                 res.redirect("/login");
@@ -49,9 +49,15 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
         String nombre = req.queryParams("newfullname");
         String contrasenia = req.queryParams("newpassword");
         String recontrasenia = req.queryParams("repassword");
-        List<Usuario> usuarios = RepositorioUsuarios.getInstance().getUsuarios();
 
-        if(!contrasenia.equals(recontrasenia) || usuarios.stream().map(Usuario::getUserName).collect(Collectors.toList()).contains(nombre) ) {
+        try {
+            RepositorioUsuarios.getInstance().getUsuario(nombre).getUserName();
+        }
+        catch(NoResultException e){
+            res.redirect("/login");
+            return null;
+        }
+        if(!contrasenia.equals(recontrasenia)) {
             res.redirect("/login");
             return null;
         }
@@ -63,6 +69,7 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
                 RepositorioUsuarios.getInstance().agregarUsuario(usuario);
             });
 
+            req.session().attribute("usuario-logueado", nombre);
             res.redirect("/home");
             return null;
         }
