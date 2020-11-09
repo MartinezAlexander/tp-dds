@@ -52,31 +52,33 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
 
         try {
             RepositorioUsuarios.getInstance().getUsuario(nombre).getUserName();
+            res.redirect("/login");
+            return null;
         }
         catch(NoResultException e){
-            res.redirect("/login");
-            return null;
-        }
-        if(!contrasenia.equals(recontrasenia)) {
-            res.redirect("/login");
-            return null;
+            if(!contrasenia.equals(recontrasenia)) {
+                res.redirect("/login");
+                return null;
+            }
+
+            try {
+                Usuario usuario = new Usuario(nombre, contrasenia);
+
+                withTransaction(() -> {
+                    RepositorioUsuarios.getInstance().agregarUsuario(usuario);
+                });
+
+                req.session().attribute("usuario-logueado", nombre);
+                res.redirect("/home");
+                return null;
+            }
+            catch(ContrasenaInvalida c) {
+                res.redirect("/login");
+                return null;
+            }
+
         }
 
-        try {
-            Usuario usuario = new Usuario(nombre, contrasenia);
-
-            withTransaction(() -> {
-                RepositorioUsuarios.getInstance().agregarUsuario(usuario);
-            });
-
-            req.session().attribute("usuario-logueado", nombre);
-            res.redirect("/home");
-            return null;
-        }
-        catch(ContrasenaInvalida e) {
-            res.redirect("/login");
-            return null;
-        }
     }
 
     public static ModelAndView show(Request req, Response res){
