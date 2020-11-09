@@ -3,6 +3,7 @@ package organizaciones;
 import operaciones.OperacionDeEgreso;
 import repositories.RepositorioOperaciones;
 import organizaciones.reglasEntidades.CategoriaEntidad;
+import repositories.RepositorioOrganizaciones;
 
 import javax.persistence.*;
 
@@ -42,9 +43,11 @@ public abstract class Entidad {
         return nombreFicticio;
     }
 
+    public String getNombreCategoria() { return categoria.getNombre();}
 
     public int getId() {
         return id;
     }
 
+    public String getNombreOrganizacion(){ return RepositorioOrganizaciones.getInstance().getOrganizacionDeEntidad(this).getNombre(); }
 }
