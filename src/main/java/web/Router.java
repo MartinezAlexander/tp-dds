@@ -18,7 +18,7 @@ public class Router {
         HomeController homeController = new HomeController();
 
         Spark.before(((request, response) -> {
-            if(!request.pathInfo().equals("/login")){
+            if(!(request.pathInfo().equals("/login") || request.pathInfo().equals("/signup"))){
                 if (StringUtils.isEmpty(request.session().attribute("usuario-logueado"))){
                     response.redirect("/login");
                 }
