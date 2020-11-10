@@ -34,4 +34,6 @@ public class Organizacion {
 	public int getId() {
 		return id;
 	}
+
+	public List<Entidad> getEntidades(){ return entidades;}
 }

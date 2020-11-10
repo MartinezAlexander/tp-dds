@@ -11,9 +11,11 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 
+import javax.persistence.NoResultException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EntidadesController implements WithGlobalEntityManager, TransactionalOps {
 
@@ -21,7 +23,7 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
         List<CategoriaEntidad> categorias = RepositorioCategoriaEntidad.getInstance().getCategoriasEntidades();
         List<EntidadJuridica> entidadesJuridicas = RepositorioEntidades.getInstance().getEntidadesJuridicas();
         List<Organizacion> organizaciones = RepositorioOrganizaciones.getInstance().getOrganizaciones();
-
+        
         HashMap<String, Object> viewModel = new HashMap<>();
         viewModel.put("categorias",categorias);
         viewModel.put("entidadesJuridicas",entidadesJuridicas);
@@ -124,5 +126,47 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
 
         res.redirect("/carga_entidad_juridica");
         return null;
+    }
+
+    public ModelAndView detalleEntidades(Request request, Response response) {
+        String id_param = request.params("id");
+        int id = Integer.valueOf(id_param);
+
+        Entidad entidad;
+        EntidadBase base;
+        EntidadJuridica juridica;
+
+        String nombreVista;
+
+        Map<String,Object> modelo = new HashMap<>();
+
+        try{
+            entidad = RepositorioEntidades.getInstance().getEntidad(id);
+            modelo.put("entidad",entidad);
+        }catch(NoResultException e){
+        }
+
+        try{
+            juridica = RepositorioEntidades.getInstance().getEntidadJuridica(id);
+        }catch(NoResultException e){
+            juridica = null;
+        }
+
+        try{
+            base = RepositorioEntidades.getInstance().getEntidadBase(id);
+        }catch(NoResultException e){
+            base = null;
+        }
+
+
+        if(base == null){
+            modelo.put("entidad-detalle",juridica);
+            nombreVista = "detalle_entidad_juridica.hbs";
+        }else{
+            modelo.put("entidad-detalle",base);
+            nombreVista = "detalle_entidad_base.hbs";
+        }
+
+        return new ModelAndView(modelo,nombreVista);
     }
 }

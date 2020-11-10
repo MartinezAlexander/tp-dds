@@ -52,9 +52,23 @@ public class RepositorioEntidades implements WithGlobalEntityManager {
                 .getResultList();
     }
 
-    public Entidad getEntidadJuridica(int id) {
+    public Entidad getEntidad(int id){
         return (Entidad) entityManager()
+                .createQuery("from Entidad where id = :id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
+    public EntidadJuridica getEntidadJuridica(int id) {
+        return (EntidadJuridica) entityManager()
                 .createQuery("from EntidadJuridica where id = :id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
+
+    public EntidadBase getEntidadBase(int id) {
+        return (EntidadBase) entityManager()
+                .createQuery("from EntidadBase where id = :id")
                 .setParameter("id", id)
                 .getSingleResult();
     }

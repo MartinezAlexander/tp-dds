@@ -1,6 +1,7 @@
 package repositories;
 
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
+import organizaciones.Entidad;
 import organizaciones.Organizacion;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 
@@ -30,5 +31,9 @@ public class RepositorioOrganizaciones implements WithGlobalEntityManager {
                 .createQuery("from Organizacion where id = :id")
                 .setParameter("id", id)
                 .getSingleResult();
+    }
+
+    public Organizacion getOrganizacionDeEntidad(Entidad entidad){
+        return this.getOrganizaciones().stream().filter(organizacion -> organizacion.getEntidades().contains(entidad)).findFirst().get();
     }
 }
