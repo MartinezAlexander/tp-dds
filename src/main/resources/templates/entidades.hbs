@@ -1,4 +1,5 @@
 {{#partial "contenido"}}
+    <br/>
     <form action="/entidades" method="get" class="form-inline">
         <div class="input-group mb-2 mr-sm-2">
             <select class="form-control form-control" id="seleccionar" name="categoria"> <!-- onchange="this.form.submit()" para que filtre sin boton -->
@@ -19,6 +20,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Organizacion</th>
+                <th scope="col"></th>
             </tr>
         </thead>
 
@@ -28,6 +30,7 @@
                 <td>{{nombreFicticio}}</td>
                 <td>{{NombreCategoria}}</td>
                 <td>{{NombreOrganizacion}}</td>
+                <td> <a class="btn btn-info" href="/entidades/{{id}}"> Ver </a> </td>
             </tr>
             {{/each}}
         </tbody>

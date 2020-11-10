@@ -1,0 +1,19 @@
+{{#partial "contenido"}}
+    {{#with entidad}}
+        <h1> Información de la entidad </h1>
+        {{ descripcion }} <br/>
+        {{ entidadJuridica.razonSocial }} <br/>
+        {{ entidadJuridica.cuit }} <br/>
+        {{ entidadJuridica.direccionPostal }} <br/>
+        {{ entidadJuridica.codigoInscripcionIGJ }} <br/>
+        {{ entidadJuridica.categoriaEntidadJuridica }} <br/>
+        {{ razonSocial }} <br/>
+        {{ cuit }} <br/>
+        {{ direccionPostal }} <br/>
+        {{ codigoInscripcionIGJ }} <br/>
+        {{ categoriaEntidadJuridica }} <br/>
+    {{/with}}
+    <a class="btn btn-primary" href="/entidades">Volver</a>
+{{/partial}}
+
+{{>layout.hbs}}
