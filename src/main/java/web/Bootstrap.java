@@ -68,8 +68,11 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
 
         //ORGANIZACIONES
         List<Entidad> entidades = new ArrayList<>();
+        entidades.add(entidadBase);
         Organizacion org = new Organizacion(entidades, "RUBY ONG");
-        Organizacion org2 = new Organizacion(entidades, "SCALA ONG");
+        List<Entidad> entidades2 = new ArrayList<>();
+        entidades2.add(entidadJuridica);
+        Organizacion org2 = new Organizacion(entidades2, "SCALA ONG");
 
         //OPERACIONES
         OperacionDeEgreso operacion1 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org, entidadBase);
