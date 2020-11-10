@@ -129,29 +129,44 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
     }
 
     public ModelAndView detalleEntidades(Request request, Response response) {
-        String id = request.params("id");
+        String id_param = request.params("id");
+        int id = Integer.valueOf(id_param);
+
+        Entidad entidad;
         EntidadBase base;
         EntidadJuridica juridica;
 
+        String nombreVista;
+
+        Map<String,Object> modelo = new HashMap<>();
+
         try{
-            juridica = RepositorioEntidades.getInstance().getEntidadJuridica(Integer.valueOf(id));
+            entidad = RepositorioEntidades.getInstance().getEntidad(id);
+            modelo.put("entidad",entidad);
+        }catch(NoResultException e){
+        }
+
+        try{
+            juridica = RepositorioEntidades.getInstance().getEntidadJuridica(id);
         }catch(NoResultException e){
             juridica = null;
         }
 
         try{
-            base = RepositorioEntidades.getInstance().getEntidadBase(Integer.valueOf(id));
+            base = RepositorioEntidades.getInstance().getEntidadBase(id);
         }catch(NoResultException e){
             base = null;
         }
 
-        Map<String,Object> modelo = new HashMap<>();
+
         if(base == null){
-            modelo.put("entidad",juridica);
+            modelo.put("entidad-detalle",juridica);
+            nombreVista = "detalle_entidad_juridica.hbs";
         }else{
-            modelo.put("entidad",base);
+            modelo.put("entidad-detalle",base);
+            nombreVista = "detalle_entidad_base.hbs";
         }
 
-        return new ModelAndView(modelo,"detalle_entidades.hbs");
+        return new ModelAndView(modelo,nombreVista);
     }
 }
