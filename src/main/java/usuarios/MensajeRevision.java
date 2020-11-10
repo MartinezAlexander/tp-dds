@@ -24,8 +24,11 @@ public class MensajeRevision extends EntidadPersistente{
 	public OperacionDeEgreso getOperacion() {
 		return operacion;
 	}
-	public boolean esValido() {
-		return resultadoValidacion;
+//	public boolean getResultadoValidacion() {
+//		return resultadoValidacion;
+//	}
+	public String getResultadoValidacion() {
+		return resultadoValidacion ? "Validada" : "No Validada";
 	}
 	
 }

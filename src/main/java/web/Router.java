@@ -2,6 +2,7 @@ package web;
 
 import controllers.EntidadesController;
 import controllers.HomeController;
+import controllers.UsuarioController;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import spark.utils.StringUtils;
@@ -31,7 +32,7 @@ public class Router {
         Spark.get("/home", HomeController::home, transformer);
 
         Spark.get("/carga_operacion", HomeController::cargaOperacion, transformer);
-        Spark.get("/usuario", HomeController::usuario, transformer);
+        Spark.get("/usuario", UsuarioController::usuario, transformer);
 
         Spark.get("/entidades", entidadesController::entidades, transformer);
         Spark.get("/carga_entidad_base", entidadesController::cargaEntidadBase, transformer);

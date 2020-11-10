@@ -23,16 +23,16 @@ import java.math.BigDecimal;
 @Entity
 public class OperacionDeEgreso extends EntidadPersistente {
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private DocumentoComercial documentoComercial;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Proveedor proveedor;
 	
 	@Column
 	private LocalDate fecha;
 	
-	@OneToOne //TODO: puede ser many to one
+	@OneToOne(cascade = CascadeType.PERSIST) //TODO: puede ser many to one
 	private MedioDePago medioDePago;
 	
 	@Column
@@ -44,24 +44,24 @@ public class OperacionDeEgreso extends EntidadPersistente {
 	@ManyToOne
 	private Entidad entidad;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="op_egreso_id")
 	private List<ItemOperacion> items;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="op_egreso_id")
 	private List<Presupuesto> presupuestos;
 	
 	@Column
 	private int presupuestosNecesarios;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private Presupuesto presupuestoElegido;
 	
 	@Enumerated(EnumType.STRING)
 	private CriterioDeSeleccion criterioDeSeleccionDePresupuesto;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="UsuarioRevisor")
 	private List<Usuario> usuariosRevisores;
 	
@@ -131,7 +131,14 @@ public class OperacionDeEgreso extends EntidadPersistente {
 			throw new PresupuestoNoExistenteException("El presupuesto a eliminar no existe en la lista de presupuestos");
 		}
 	}
-	
+
+	public List<ItemOperacion> getItems() {
+		return items;
+	}
+
+	//TODO: los items no me los trae por algun motivo?
+	public int getCantidadDeItems(){ return presupuestoElegido.getItems().size(); }
+
 	public DocumentoComercial getDocumentoComercial() {
 		return documentoComercial;
 	}

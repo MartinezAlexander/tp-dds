@@ -38,11 +38,15 @@ public class Usuario extends EntidadPersistente{
         this.bandejaMensajes.add(mensajeOperacion);
     }
     
-    public String getUserName(){
+    public String getNombre(){
     	return nombre;
     }
     
     public String getPassword(){
     	return contrasena;
+    }
+
+    public List<MensajeRevision> getBandejaMensajes() {
+        return bandejaMensajes;
     }
 }

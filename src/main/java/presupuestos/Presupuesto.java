@@ -17,12 +17,12 @@ import operaciones.ItemOperacion;
 @Entity
 public class Presupuesto extends EntidadPersistente {
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Proveedor proveedor;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "presupuesto_id")
 	private List<ItemPresupuesto> items;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private DocumentoComercial documentoComercial;
 	@Column
 	private LocalDate fecha;

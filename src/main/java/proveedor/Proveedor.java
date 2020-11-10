@@ -1,5 +1,6 @@
 package proveedor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -8,7 +9,7 @@ import persistencia.EntidadPersistente;
 
 @Entity
 public class Proveedor extends EntidadPersistente {
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	private DireccionPostal direccionPostal;
 	private String razonSocial;
 	private int cuitCuil;

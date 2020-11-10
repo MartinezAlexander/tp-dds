@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 @Entity
 public class ItemPresupuesto extends EntidadPersistente{
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private ItemOperacion item;
     private BigDecimal valor;
     private String currencyId;

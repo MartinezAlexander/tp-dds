@@ -16,6 +16,7 @@ import spark.Response;
 import usuarios.Usuario;
 
 import javax.persistence.NoResultException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,7 +52,7 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
         String recontrasenia = req.queryParams("repassword");
 
         try {
-            RepositorioUsuarios.getInstance().getUsuario(nombre).getUserName();
+            RepositorioUsuarios.getInstance().getUsuario(nombre).getNombre();
         }
         catch(NoResultException e){
             res.redirect("/login");
@@ -81,10 +82,6 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
 
     public static ModelAndView show(Request req, Response res){
         return new ModelAndView(null, "login.hbs");
-    }
-
-    public static ModelAndView usuario(Request req, Response res){
-        return new ModelAndView(null, "usuario.hbs");
     }
 
     public static ModelAndView cargaOperacion(Request req, Response res){

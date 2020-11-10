@@ -1,12 +1,17 @@
 {{#partial "contenido"}}
 
-    <h1> Usuario </h1>
+    <h1> Usuario: {{usuario.nombre}} </h1>
+
     <h3> Bandeja de Mensajes </h3>
 
     <table class="table table-stripped">
         <thead class="thead-dark">
         <tr>
             <th scope="col">Operacion</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Items</th>
+            <th scope="col">Total</th>
             <th scope="col">Resultado Validacion</th>
         </tr>
         </thead>
@@ -14,7 +19,11 @@
         <tbody>
         {{#each mensajes}}
             <tr>
-                <td>{{operacion}}</td>
+                <td>{{operacion.id}}</td>
+                <td>{{operacion.fecha}}</td>
+                <td>{{operacion.proveedor.nombreYApellido}}</td>
+                <td>{{operacion.cantidadDeItems}}</td>
+                <td>{{operacion.valorTotal}}</td>
                 <td>{{resultadoValidacion}}</td>
             </tr>
         {{/each}}

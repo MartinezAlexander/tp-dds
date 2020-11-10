@@ -15,8 +15,9 @@ public class DireccionPostal extends EntidadPersistente{
 	private int piso;
 	@Column
 	private String departamento;
-	@ManyToOne(cascade = {CascadeType.ALL})
-	private UbicacionML ubicacionML;
+
+//	@ManyToOne(cascade = {CascadeType.ALL})
+//	private UbicacionML ubicacionML;
 	
 	public DireccionPostal(){}
 	
@@ -25,7 +26,9 @@ public class DireccionPostal extends EntidadPersistente{
 		this.altura = altura;
 		this.piso = piso;
 		this.departamento = departamento;
-		this.ubicacionML = ApiMercadoLibre.getInstance().obtenerUbicacionML(codigoPostal);
+		//TODO: Nota => Creo que cambiaron algo desde la api de mercadolibre y rompia por eso. lo comento por ahora
+		// total no es prioridad que ande esto.
+//		this.ubicacionML = ApiMercadoLibre.getInstance().obtenerUbicacionML(codigoPostal);
 	}
 
 	public String getCalle() {
@@ -44,15 +47,15 @@ public class DireccionPostal extends EntidadPersistente{
 		return departamento;
 	}
 	
-	public String getProvincia() {
-		return ubicacionML.getState().getName();
-	}
-	
-	public String getPais() {
-		return ubicacionML.getCountry().getName();
-	}
-	
-	public String getCodigoPostal() {
-		return ubicacionML.getZipCode();
-	}
+//	public String getProvincia() {
+//		return ubicacionML.getState().getName();
+//	}
+//
+//	public String getPais() {
+//		return ubicacionML.getCountry().getName();
+//	}
+//
+//	public String getCodigoPostal() {
+//		return ubicacionML.getZipCode();
+//	}
 }
