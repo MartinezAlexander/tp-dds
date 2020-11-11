@@ -16,12 +16,18 @@
 <main>
     <div id="gesoc"> <img src="img/gesoc.png" alt="gestion de proyectos sociales"> </div>
     <form action="/login" method="POST">
+        {{#if error }}
+            <p style="background-color:tomato;"> Usuario o contraseña inválidos </p>
+        {{/if}}
         <input type="text" name="fullname" placeholder="Usuario" class="entradas">
         <input type="password" name="password" placeholder="Contraseña">
         <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
     </form>
     O bien, registrate <br>
     <form action="/signup" method="POST">
+        {{#if errorS }}
+            <p style="background-color:tomato;"> Usuario o contraseña inválidos </p>
+        {{/if}}
         <input type="text" name="newfullname" placeholder="Usuario" class="entradas">
         <input type="password" name="newpassword" placeholder="Contraseña">
         <input type="password" name="repassword" placeholder="Reingrese Contraseña">
@@ -35,4 +41,13 @@
 
 </body>
 
+<script>
+    function algo(){
+        var error = {{ error }};
+        if(!error.isEmpty()){
+            alert(error);
+        }
+    }
+    algo();
+</script>
 </html>

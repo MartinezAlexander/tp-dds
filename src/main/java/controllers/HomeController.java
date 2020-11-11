@@ -1,24 +1,17 @@
 package controllers;
 
 import autenticacion.ContrasenaInvalida;
-import com.google.common.base.Optional;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
-import organizaciones.Entidad;
-import organizaciones.EntidadBase;
-import organizaciones.reglasEntidades.CategoriaEntidad;
-import repositories.RepositorioCategoriaEntidad;
-import repositories.RepositorioEntidades;
 import repositories.RepositorioUsuarios;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+import spark.utils.StringUtils;
 import usuarios.Usuario;
 
 import javax.persistence.NoResultException;
 import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class HomeController implements WithGlobalEntityManager, TransactionalOps {
 
@@ -36,12 +29,12 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
                 req.session().attribute("usuario-logueado", nombre);
                 res.redirect("/home");
             }else{
-                res.redirect("/login");
+                res.redirect("/login?error=true");
             }
             return null;
         }
         catch(NoResultException e) {
-            res.redirect("/login");
+            res.redirect("/login?error=true");
             return null;
         }
     }
@@ -53,12 +46,12 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
 
         try {
             RepositorioUsuarios.getInstance().getUsuario(nombre).getNombre();
-            res.redirect("/login");
+            res.redirect("/login?errorS=true");
             return null;
         }
         catch(NoResultException e){
             if(!contrasenia.equals(recontrasenia)) {
-                res.redirect("/login");
+                res.redirect("/login?errorS=true");
                 return null;
             }
 
@@ -83,7 +76,14 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
     }
 
     public static ModelAndView show(Request req, Response res){
-        return new ModelAndView(null, "login.hbs");
+        String errorLogIn = req.queryParams("error");
+        String errorSignUp = req.queryParams("errorS");
+
+        HashMap<String, Object> model = new HashMap<>();
+        model.put("error", errorLogIn);
+        model.put("errorS", errorSignUp);
+
+        return new ModelAndView(model, "login.hbs");
     }
 
 }
