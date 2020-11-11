@@ -9,10 +9,17 @@ import javax.persistence.Entity;
 @DiscriminatorValue("DineroEnCuenta")
 public class DineroEnCuenta extends MedioDePago {
 
-	public DineroEnCuenta(){}
+	public DineroEnCuenta(){
+		super(TiposMedioDePago.DINERO_EN_CUENTA);
+	}
 	
 	@Column
 	private int numeroDeCuenta;
+
+	public DineroEnCuenta(int numeroDeCuenta) {
+		this();
+		this.numeroDeCuenta = numeroDeCuenta;
+	}
 
 	@Override
 	public void realizarPago() {

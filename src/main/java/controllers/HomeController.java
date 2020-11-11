@@ -86,7 +86,4 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
         return new ModelAndView(null, "login.hbs");
     }
 
-    public static ModelAndView cargaOperacion(Request req, Response res){
-        return new ModelAndView(null, "carga_operacion.hbs");
-    }
 }

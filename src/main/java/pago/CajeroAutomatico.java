@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 @DiscriminatorValue("CajeroAutomatico")
 public class CajeroAutomatico extends MedioDePago{
 
-	public CajeroAutomatico() {}
+	public CajeroAutomatico() {
+		super(TiposMedioDePago.CAJERO_AUTOMATICO);
+	}
 	
 	@Override
 	public void realizarPago() {

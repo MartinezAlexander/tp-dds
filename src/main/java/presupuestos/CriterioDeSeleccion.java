@@ -14,4 +14,5 @@ public enum CriterioDeSeleccion {
 	public Presupuesto elegirPresupuesto(List<Presupuesto> presupuestos){
 		return null;
 	}
+	public String getNombre(){ return this.name(); }
 }

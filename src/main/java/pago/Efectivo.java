@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Efectivo")
 public class Efectivo extends MedioDePago{
 
-	public Efectivo(){}
+	public Efectivo(){
+		super(TiposMedioDePago.EFECTIVO);
+	}
 	
 	@Override
 	public void realizarPago() {
