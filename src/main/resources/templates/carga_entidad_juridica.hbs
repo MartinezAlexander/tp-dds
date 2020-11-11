@@ -5,12 +5,12 @@
     <form action="carga_entidad_juridica" method="post">
 
         <p> <br> Nombre Ficticio </p>
-        <input type="text" name="nombre_ficticio" placeholder="Nombre Ficticio" class="entradas">
+        <input type="text" name="nombre_ficticio" placeholder="Nombre Ficticio" class="entradas" required>
 
         <p> <br> Categoria </p>
-        <select class="form-control form-control" id="sel-categoria" name="categoria"> <!-- onchange="this.form.submit()" para que filtre sin boton -->
+        <select class="form-control form-control" id="sel-categoria" name="categoria" required> <!-- onchange="this.form.submit()" para que filtre sin boton -->
 
-            <option value="0"> seleccione una categoria </option>
+            <option disabled value="" hidden selected> seleccione una categoria </option>
 
             {{#each categorias}}
                 <option value={{ id }}>{{ nombre }}</option>
@@ -18,20 +18,20 @@
         </select>
 
         <p> <br> Razon Social </p>
-        <input type="text" name="razon_social" placeholder="Razon Social" class="entradas">
+        <input type="text" name="razon_social" placeholder="Razon Social" class="entradas" required>
 
         <p> <br> CUIT </p>
-        <input type="number" name="cuit" placeholder="CUIT" class="entradas">
+        <input type="number" min="0" name="cuit" placeholder="CUIT" class="entradas" required>
 
         <p> <br> Direccion Postal </p>
-        <input type="text" name="direccion_postal" placeholder="Direccion Postal" class="entradas">
+        <input type="text" name="direccion_postal" placeholder="Direccion Postal" class="entradas" required>
 
         <p> <br> Codigo de Inscripcion IGJ </p>
-        <input type="number" name="codigo_inscripcion" placeholder="Codigo IGJ" class="entradas">
+        <input type="number" min="0" name="codigo_inscripcion" placeholder="Codigo IGJ" class="entradas" required>
 
         <p> <br> Organizacion </p>
-        <select class="form-control form-control" id="sel-organizacion" name="organizacion">
-            <option value="0"> Seleccione una Organizacion </option>
+        <select class="form-control form-control" id="sel-organizacion" name="organizacion" required>
+            <option disabled value="" hidden selected> Seleccione una Organizacion </option>
 
             {{#each organizaciones}}
                 <option value={{ id }}>{{ nombre }}</option>
@@ -39,8 +39,8 @@
         </select>
 
         <p> <br> Tipo de Entidad Juridica </p>
-        <select class="form-control form-control" id="sel-categoria-ent-juridica" name="categoria-ent-juridica">
-            <option> Seleccione una Categoria </option>
+        <select class="form-control form-control" id="sel-categoria-ent-juridica" name="categoria-ent-juridica" required>
+            <option disabled value="" hidden selected> Seleccione una Categoria </option>
 
             {{#each categorias_entidad_juridica}}
                 <option value={{ nombre }}>{{ nombre }}</option>
