@@ -5,12 +5,11 @@
     <form action="carga_entidad_base" method="post">
         <p> <br> Nombre Ficticio </p>
 
-        <input type="text" name="nombre_ficticio" placeholder="Nombre Ficticio" class="entradas">
+        <input type="text" name="nombre_ficticio" placeholder="Nombre Ficticio" class="entradas" required>
 
         <p> <br> Categoria </p>
-        <select class="form-control form-control" id="sel-categoria" name="categoria"> <!-- onchange="this.form.submit()" para que filtre sin boton -->
-
-            <option value="0"> Seleccione una categoria </option>
+        <select class="form-control form-control" id="sel-categoria" name="categoria" required> <!-- onchange="this.form.submit()" para que filtre sin boton -->
+            <option disabled value="" hidden selected> Seleccione una categoria </option>
 
             {{#each categorias}}
                 <option value={{ id }}>{{ nombre }}</option>
@@ -18,11 +17,11 @@
         </select>
 
         <p> <br> Descripcion </p>
-        <input type="text" name="descripcion" placeholder="Descripcion" class="entradas">
+        <input type="text" name="descripcion" placeholder="Descripcion" class="entradas" required>
 
         <p> <br> Organizacion </p>
-        <select class="form-control form-control" id="sel-organizacion" name="organizacion">
-            <option value="0"> Seleccione una Organizacion </option>
+        <select class="form-control form-control" id="sel-organizacion" name="organizacion" required>
+            <option disabled value="" hidden selected> Seleccione una Organizacion </option>
 
             {{#each organizaciones}}
                 <option value={{ id }}>{{ nombre }}</option>
@@ -31,8 +30,8 @@
         </select>
 
         <p> <br> Entidad Juridica Asociada </p>
-        <select class="form-control form-control" id="sel-ent-juridica" name="entidad-juridica">
-            <option value="0"> Seleccione una Entidad Juridica </option>
+        <select class="form-control form-control" id="sel-ent-juridica" name="entidad-juridica" required>
+            <option disabled value="" hidden selected> Seleccione una Entidad Juridica </option>
 
             {{#each entidadesJuridicas}}
                 <option value={{ id }}>{{ razonSocial }}</option>
