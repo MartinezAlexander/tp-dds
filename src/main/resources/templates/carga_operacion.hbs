@@ -1,115 +1,275 @@
-{{#partial "contenido"}}
+<!--{{#partial "contenido"}}-->
 
-    <h1> Nueva Operacion de Egreso </h1>
+<!--    <h1 xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"> Nueva Operacion de Egreso </h1>-->
 
-    <form action="carga_operacion" method="post">
+<!--    <form id="formulario" action="carga_operacion" method="post">-->
 
-        <p> <br> Documento Comercial </p>
-        <select class="form-control form-control" id="sel-documento" name="doc-comercial">
-            <option value="0">Seleccione un documento </option>
+<!--        <p> <br> Documento Comercial </p>-->
+<!--        <select class="form-control form-control" id="sel-documento" name="doc-comercial">-->
+<!--            <option value="0">Seleccione un documento </option>-->
 
-            {{#each documentos}}
-                <option value={{ nombre }}> {{ nombre }} </option>
-            {{/each}}
+<!--            {{#each documentos}}-->
+<!--                <option value={{ nombre }}> {{ nombre }} </option>-->
+<!--            {{/each}}-->
 
-        </select>
+<!--        </select>-->
 
-        <p> <br> Número Documento Comercial</p>
-        <input type="number" name="num_documento" placeholder="Numero Documento">
+<!--        <p> <br> Número Documento Comercial</p>-->
+<!--        <input type="number" name="num-documento" placeholder="Numero Documento">-->
 
 
-        <p> <br> Proveedor </p>
-        <select class="form-control form-control" id="sel-proveedor" name="proveedor">
-            <option value="0">Seleccione un proveedor </option>
+<!--        <p> <br> Proveedor </p>-->
+<!--        <select class="form-control form-control" id="sel-proveedor" name="proveedor">-->
+<!--            <option value="0">Seleccione un proveedor </option>-->
 
-            {{#each proveedores}}
-                <option value={{ id }}> {{ nombreYApellido }} {{ razonSocial }} </option>
-            {{/each}}
+<!--            {{#each proveedores}}-->
+<!--                <option value={{ id }}> {{ nombreYApellido }} {{ razonSocial }} </option>-->
+<!--            {{/each}}-->
 
-        </select>
+<!--        </select>-->
 
-        <p> <br> Fecha </p>
-        <input type="date" id="input-fecha" name="fecha">
+<!--        <p> <br> Fecha </p>-->
+<!--        <input type="date" id="input-fecha" name="fecha">-->
 
-        <p> <br> Medio de Pago </p>
-        <select class="form-control form-control" id="sel-medio-pago" name="medio-pago">
-            <option value="0">Seleccione un medio de pago </option>
+<!--        <p> <br> Medio de Pago </p>-->
+<!--        <select class="form-control form-control" id="sel-medio-pago" name="medio-pago">-->
+<!--            <option value="0">Seleccione un medio de pago </option>-->
 
-            {{#each mediosPago}}
-                <option value={{ nombre }}>{{ nombre }}</option>
-            {{/each}}
-        </select>
+<!--            {{#each mediosPago}}-->
+<!--                <option value={{ nombre }}>{{ nombre }}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
 
-        <p> <br> Número medio de pago </p>
-        <input type="number" name="num_medio_de_pago" placeholder="Numero medio de pago">
+<!--        <p> <br> Número medio de pago </p>-->
+<!--        <input type="number" name="num-medio-de-pago" placeholder="Numero medio de pago">-->
 
-        <p> <br> Organizacion </p>
-        <select class="form-control form-control" id="sel-organizacion" name="organizacion">
-            <option value="0">Seleccione una Organizacion </option>
+<!--        <p> <br> Organizacion </p>-->
+<!--        <select class="form-control form-control" id="sel-organizacion" name="organizacion">-->
+<!--            <option value="0">Seleccione una Organizacion </option>-->
 
-            {{#each organizaciones}}
-                <option value={{ id }}>{{ nombre }}</option>
-            {{/each}}
-        </select>
+<!--            {{#each organizaciones}}-->
+<!--                <option value={{ id }}>{{ nombre }}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
 
-        <p> <br> Entidad </p>
-        <select class="form-control form-control" id="sel-entidad" name="entidad">
-            <option value="0">Seleccione una Entidad </option>
+<!--        <p> <br> Entidad </p>-->
+<!--        <select class="form-control form-control" id="sel-entidad" name="entidad">-->
+<!--            <option value="0">Seleccione una Entidad </option>-->
 
-            {{#each entidades}}
-                <option value={{ id }}>{{ nombreFicticio }}</option>
-            {{/each}}
-        </select>
+<!--            {{#each entidades}}-->
+<!--                <option value={{ id }}>{{ nombreFicticio }}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
 
-        <p> <br> Criterio de seleccion </p>
-        <select class="form-control form-control" id="sel-criterio" name="criterioSeleccion">
-            <option value="0">Seleccione un criterio </option>
+<!--        <p> <br> Criterio de seleccion </p>-->
+<!--        <select class="form-control form-control" id="sel-criterio" name="criterio-seleccion">-->
+<!--            <option value="0">Seleccione un criterio </option>-->
 
-            {{#each criterios}}
-                <option value={{ nombre }}>{{ nombre }}</option>
-            {{/each}}
-        </select>
+<!--            {{#each criterios}}-->
+<!--                <option value={{ nombre }}>{{ nombre }}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
 
-        <!--
+<!--        &lt;!&ndash;-->
 
-        TODO: Presupuestos Necesarios??
-               Presupuesto Elegido
-               Criterio de Seleccion
-               Items
-               Usuarios Revisores
-               Etiquetas
+<!--        TODO: Presupuestos Necesarios??-->
+<!--               Presupuesto Elegido-->
+<!--               Criterio de Seleccion-->
+<!--               Items-->
+<!--               Usuarios Revisores-->
+<!--               Etiquetas-->
 
-        -->
+<!--        &ndash;&gt;-->
 
-        <div id="categorias">
+<!--&lt;!&ndash;        <div id="categorias">&ndash;&gt;-->
 
-            <br>
-            <input type="text" name="nuevaCategoria" id="nuevaCategoria" placeholder="Nueva categoria..." v-model="nombreCategoria">
-            <button v-on:click="agregarCategoria" type="button" class="btn btn-primary"> Agregar </button>
+<!--&lt;!&ndash;            <br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="text" name="nuevaCategoria" id="nuevaCategoria" placeholder="Nueva categoria..." v-model="nombreCategoria">&ndash;&gt;-->
+<!--&lt;!&ndash;            <button v-on:click="agregarCategoria" type="button" class="btn btn-primary"> Agregar </button>&ndash;&gt;-->
 
-            <div class="row" v-for="item in lista">
-                <div class="col-md-2 mt-3">
-                    <div class="alert alert-success alert-dismissible">
-                        <strong v-text="item"></strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span v-on:click="quitarCategoria(item)">&times;</span>
-                        </button>
-                    </div>
+<!--&lt;!&ndash;            <div class="row" v-for="item in lista">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col-md-2 mt-3">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="alert alert-success alert-dismissible">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <strong v-text="item"></strong>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <span v-on:click="quitarCategoria(item)">&times;</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </button>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--        <button type="submit" class="btn btn-primary">Cargar</button>-->
+<!--    </form>-->
+
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
+
+
+<!--    <script src="https://code.jquery.com/jquery-migrate-3.3.1.min.js" integrity="sha256-APllMc0V4lf/Rb5Cz4idWUCYlBDG3b0EcN1Ushd3hpE=" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>-->
+
+<!--    <script src="js/categoria.js"></script>-->
+<!--{{/partial}}-->
+
+<!--{{>layout.hbs}}-->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Gesoc</title>
+</head>
+
+<body>
+
+<h1 xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"> Nueva Operacion de Egreso </h1>
+
+<form id="formulario" action="carga_operacion" method="post">
+
+    <p> <br> Documento Comercial </p>
+    <select class="form-control form-control" id="sel-documento" name="doc-comercial">
+        <option value="0">Seleccione un documento </option>
+
+        {{#each documentos}}
+            <option value={{ nombre }}> {{ nombre }} </option>
+        {{/each}}
+
+    </select>
+
+    <p> <br> Número Documento Comercial</p>
+    <input type="number" name="num-documento" placeholder="Numero Documento">
+
+
+    <p> <br> Proveedor </p>
+    <select class="form-control form-control" id="sel-proveedor" name="proveedor">
+        <option value="0">Seleccione un proveedor </option>
+
+        {{#each proveedores}}
+            <option value={{ id }}> {{ nombreYApellido }} {{ razonSocial }} </option>
+        {{/each}}
+
+    </select>
+
+    <p> <br> Fecha </p>
+    <input type="date" id="input-fecha" name="fecha">
+
+    <p> <br> Medio de Pago </p>
+    <select class="form-control form-control" id="sel-medio-pago" name="medio-pago">
+        <option value="0">Seleccione un medio de pago </option>
+
+        {{#each mediosPago}}
+            <option value={{ nombre }}>{{ nombre }}</option>
+        {{/each}}
+    </select>
+
+    <p> <br> Número medio de pago </p>
+    <input type="number" name="num-medio-de-pago" placeholder="Numero medio de pago">
+
+    <p> <br> Organizacion </p>
+    <select class="form-control form-control" id="sel-organizacion" name="organizacion">
+        <option value="0">Seleccione una Organizacion </option>
+
+        {{#each organizaciones}}
+            <option value={{ id }}>{{ nombre }}</option>
+        {{/each}}
+    </select>
+
+    <p> <br> Entidad </p>
+    <select class="form-control form-control" id="sel-entidad" name="entidad">
+        <option value="0">Seleccione una Entidad </option>
+
+        {{#each entidades}}
+            <option value={{ id }}>{{ nombreFicticio }}</option>
+        {{/each}}
+    </select>
+
+    <p> <br> Criterio de seleccion </p>
+    <select class="form-control form-control" id="sel-criterio" name="criterio-seleccion">
+        <option value="0">Seleccione un criterio </option>
+
+        {{#each criterios}}
+            <option value={{ nombre }}>{{ nombre }}</option>
+        {{/each}}
+    </select>
+
+
+    <br><br>
+    <div id="etiquetas">
+
+        <br>
+        <p> Ingrese las etiquetas que desea asignar a la operacion </p>
+        <input type="text" name="nuevaCategoria" id="nuevaCategoria" placeholder="Nueva categoria..." v-model="nombreCategoria">
+        <button v-on:click="agregarCategoria" type="button" class="btn btn-primary"> Agregar </button>
+        
+        <div class="row" v-for="item in lista">
+            <div class="col-md-2 mt-3">
+                <div class="alert alert-success alert-dismissible">
+                    <strong v-text="item"></strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span v-on:click="quitarCategoria(item)">&times;</span>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <button type="submit" class="btn btn-primary">Cargar</button>
-    </form>
+    <br>
+    <hr>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <div id="presupuestos">
 
-    <script src="js/categoria.js"></script>
-{{/partial}}
+        <br>
+        <p> Elija los presupuestos que desea asignar </p>
+        <select name="nuevoPresupuesto" id="nuevoPresupuesto" v-model="nombrePresupuesto">
+            <option value="0">Seleccione un Presupuesto </option>
 
-{{>layout.hbs}}
+            {{#each presupuestos}}
+                <option value={{ id }}>{{ id }}</option>
+            {{/each}}
 
+        </select>
+        <button v-on:click="agregarPresupuesto" type="button" class="btn btn-primary"> Agregar </button>
+
+        <div class="row" v-for="item in lista">
+            <div class="col-md-2 mt-3">
+                <div class="alert alert-success alert-dismissible">
+                    <strong v-text="item"></strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span v-on:click="quitarPresupuesto(item)">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <button type="submit" class="btn btn-primary">Cargar</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<!--<script src="https://code.jquery.com/jquery-migrate-3.3.1.min.js" integrity="sha256-APllMc0V4lf/Rb5Cz4idWUCYlBDG3b0EcN1Ushd3hpE=" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/categoria.js"></script>
+
+</body>
+
+</html>
