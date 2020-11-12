@@ -50,6 +50,31 @@ const presupuestos = new  Vue({
     }
 );
 
+const items = new  Vue({
+        el: "#items",
+        data: {
+            lista: [],
+            nombreItem: '',
+            candidatoAQuitar:''
+        },
+        methods: {
+            agregarItem: function(){
+                if(this.nombreItem != '' && !this.lista.includes(this.nombreItem)){
+                    this.lista.push(this.nombreItem)
+                    this.nombreItem=''
+                }
+
+                else
+                    alert("Ingrese un item válido!")
+            },
+            quitarItem: function(candidatoAQuitarr){
+                console.log(candidatoAQuitarr);
+                console.log(this.lista);
+                this.lista = this.lista.filter(function(x){ return x!=candidatoAQuitarr;});
+            }
+        }
+    }
+);
 
 $(document).ready(function(){
 
@@ -60,22 +85,21 @@ $(document).ready(function(){
         var info = form.serializeArray();
         info.push(
             {name: 'etiquetas', value: JSON.stringify(categorias.lista)},
-            {name: 'presupuestos', value: JSON.stringify(presupuestos.lista)}
+            {name: 'presupuestos', value: JSON.stringify(presupuestos.lista)},
+            {name: 'items', value: JSON.stringify(items.lista)}
         )
 
         console.log(info);
 
-//        $.ajax({
-//            type: form.attr('method'),
-//            url: form.attr('action'),
-//            data: info
-//          }).success(function(response){
-//            console.log("Success");
-//          });
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: info
+          });
 
-        $.post($(this).attr("action"),info, function(response){
-            console.log("Success");
-        });
+//        $.post($(this).attr("action"),info, function(response){
+//            console.log("Success");
+//        });
 //        return false;
     });
 });

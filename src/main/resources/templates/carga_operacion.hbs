@@ -140,7 +140,7 @@
 
 <form id="formulario" action="carga_operacion" method="post">
 
-    <p> <br> Documento Comercial </p>-->
+    <p> <br> Documento Comercial </p>
     <select class="form-control form-control" id="sel-documento" name="doc-comercial" required>
         <option disabled value="" hidden selected>Seleccione un documento </option>
 
@@ -151,7 +151,7 @@
     </select>
 
     <p> <br> Número Documento Comercial</p>
-    <input type="number" min="0" name="num_documento" placeholder="Numero Documento" required>
+    <input type="number" min="0" name="num-documento" placeholder="Numero Documento" required>
 
 
     <p> <br> Proveedor </p>
@@ -177,7 +177,7 @@
     </select>
 
     <p> <br> Número medio de pago </p>
-    <input type="number" min="0" name="num_medio_de_pago" placeholder="Numero medio de pago">
+    <input type="number" min="0" name="num-medio-de-pago" placeholder="Numero medio de pago">
 
     <p> <br> Organizacion </p>
     <select class="form-control form-control" id="sel-organizacion" name="organizacion" required>
@@ -250,6 +250,36 @@
                     <strong v-text="item"></strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span v-on:click="quitarPresupuesto(item)">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+
+
+    <div id="items">
+
+        <br>
+        <p> Elija los items que desea asignar </p>
+        <select name="nuevoItem" id="nuevoItem" v-model="nombreItem">
+            <option value="0">Seleccione un Item </option>
+
+            {{#each items}}
+                <option value={{ id }}>{{ id }}</option>
+            {{/each}}
+
+        </select>
+        <button v-on:click="agregarItem" type="button" class="btn btn-primary"> Agregar </button>
+
+        <div class="row" v-for="item in lista">
+            <div class="col-md-2 mt-3">
+                <div class="alert alert-success alert-dismissible">
+                    <strong v-text="item"></strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span v-on:click="quitarItem(item)">&times;</span>
                     </button>
                 </div>
             </div>

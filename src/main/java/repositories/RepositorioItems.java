@@ -3,6 +3,9 @@ package repositories;
 import operaciones.ItemOperacion;
 import operaciones.OperacionDeEgreso;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
+import presupuestos.Presupuesto;
+
+import java.util.List;
 
 public class RepositorioItems implements WithGlobalEntityManager {
     private static RepositorioItems instance = null;
@@ -16,9 +19,16 @@ public class RepositorioItems implements WithGlobalEntityManager {
         entityManager().persist(item);
     }
 
-//    public void quitarItem(ItemOperacion item){
-//        entityManager()
-//                .createQuery("delete from OperacionDeEgreso where id = :id")
-//                .setParameter("id", operacionDeEgreso.getId());
-//    }
+    public List<ItemOperacion> getItems(){
+        return entityManager()
+                .createQuery("from ItemOperacion")
+                .getResultList();
+    }
+
+    public ItemOperacion getItem(int id) {
+        return (ItemOperacion) entityManager()
+                .createQuery("from ItemOperacion where id = :id")
+                .setParameter("id", id)
+                .getSingleResult();
+    }
 }
