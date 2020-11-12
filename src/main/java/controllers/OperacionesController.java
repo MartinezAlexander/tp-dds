@@ -109,11 +109,14 @@ public class OperacionesController implements WithGlobalEntityManager, Transacti
         }
 
         //TODO: Falta elegir el presupuesto
-        Presupuesto presupuestoElegido = listaPresupuestos.get(0);
+        int idPresupuesto = Integer.valueOf(req.queryParams("presupuesto-elegido"));
+        Presupuesto presupuestoElegido = RepositorioPresupuestos.getInstance().getPresupuesto(idPresupuesto);
+
+        int numeroPresupuestos = Integer.valueOf(req.queryParams("num-presupuestos"));
 
         OperacionDeEgreso operacionDeEgreso = new OperacionDeEgreso(documentoComercial,
                 proveedor, fecha, medioDePago, new BigDecimal(1000), org, entidad, items,
-                listaPresupuestos, 231, presupuestoElegido, CriterioDeSeleccion.MENOR_VALOR);
+                listaPresupuestos, numeroPresupuestos, presupuestoElegido, CriterioDeSeleccion.MENOR_VALOR);
 
         for (String etiqueta : etiquetas){
             operacionDeEgreso.agregarEtiqueta(etiqueta);
