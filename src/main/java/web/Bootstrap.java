@@ -85,14 +85,14 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
 
         //OPERACIONES
         OperacionDeEgreso operacion1 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica, "Roberto","Sanchez","Juan","Perez","Elsa","Muray","Zapatos","Calzoncillos","Campera");
-        OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Alicia","Estevez","El Chapo","Guzman","La Mirtha","Legrand","Chancletas","Crocs","Ojotas");
-        OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Tita","Perez","Ramiro","Lopez","Jose","Bruzzoni","Tanga","Corpiño","Body");
+        OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica, "Roberto","Sanchez","Juan","Perez","Elsa","Muray","Sandalias","Calzoncillos","Campera");
+        OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Alicia","Estevez","El Chapo","Guzman","La Mirtha","Legrand","Chancletas","Crocs","Zapatilla");
+        OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Tita","Perez","Ramiro","Lopez","Lionel","Vangioni","Tanga","Corpiño","Body");
         OperacionDeEgreso operacion5 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Pity","Martinez","Enzo","Perez","Leonardo","Ponzio","Lapiz","Ojota","Lentes");
         OperacionDeEgreso operacion6 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Daniel","Pasarella","Mario Alberto","Kempes","Juan","Roman","Cinturon","Silla","Computadora");
         OperacionDeEgreso operacion7 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Jose","Bruzzoni","Jorge","Burruchaga","Oscar","Ruggeri","Telefono","Plato","Mesa");
         OperacionDeEgreso operacion8 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Agustin","Cragno","Julian","Simaro","Alexander","Martinez","Zapato","Reloj","Corbata");
-        
+
         operacion1.agregarRevisor(usuario1);
         operacion2.agregarRevisor(usuario2);
         operacion3.agregarRevisor(usuario1);
@@ -151,10 +151,14 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
     private List<Presupuesto> cargarPresupuestos(String nombreUno, String apellidoUno, String nombreDos, String apellidoDos, String nombreTres, String apellidoTres, String itemUno, String itemDos, String itemTres){
         List<Presupuesto> presupuestos = new ArrayList<>();
 
+        ItemOperacion item1 = new ItemOperacion(itemUno);
+        ItemOperacion item2 = new ItemOperacion(itemDos);
+        ItemOperacion item3 = new ItemOperacion(itemTres);
+
         List<ItemPresupuesto> itemsPresupuestoUno = new ArrayList<>();
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion(itemUno), new BigDecimal(20), "ARS"));
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion(itemDos), new BigDecimal(20), "ARS"));
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion(itemTres), new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(item1, new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(item2, new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(item3, new BigDecimal(20), "ARS"));
 
         Proveedor proveedorUno = new Proveedor(new DireccionPostal("Av. Brasil", 1520, 5, "A", "5000"), nombreUno, apellidoUno, 22451886);
         DocumentoComercial documentoComercialUno = new DocumentoComercial(TipoDocumento.COTIZACION, 14654564);
@@ -163,9 +167,9 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         Presupuesto presupuestoUno = new Presupuesto(proveedorUno, itemsPresupuestoUno, documentoComercialUno, fechaUno);
 
         List<ItemPresupuesto> itemsPresupuestoDos = new ArrayList<>();
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion(itemUno), new BigDecimal(60), "ARS"));
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion(itemDos), new BigDecimal(20), "ARS"));
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion(itemTres), new BigDecimal(140), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(item1, new BigDecimal(60), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(item2, new BigDecimal(20), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(item3, new BigDecimal(140), "ARS"));
 
         Proveedor proveedorDos = new Proveedor(new DireccionPostal("Av 9 de Julio", 2075, 1, "A", "1478"), nombreDos, apellidoDos, 2475239);
         DocumentoComercial documentoComercialDos = new DocumentoComercial(TipoDocumento.COTIZACION, 26456451);
@@ -174,9 +178,9 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         Presupuesto presupuestoDos = new Presupuesto(proveedorDos, itemsPresupuestoDos, documentoComercialDos, fechaDos);
 
         List<ItemPresupuesto> itemsPresupuestoTres = new ArrayList<>();
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion(itemUno), new BigDecimal(30), "ARS"));
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion(itemDos), new BigDecimal(30), "ARS"));
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion(itemTres), new BigDecimal(10), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(item1, new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(item2, new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(item3, new BigDecimal(10), "ARS"));
 
         Proveedor proveedorTres = new Proveedor(new DireccionPostal("Av Libertador", 1032, 15, "C", "2116"), nombreTres, apellidoTres, 3415728);
         DocumentoComercial documentoComercialTres = new DocumentoComercial(TipoDocumento.COTIZACION, 36456432);
