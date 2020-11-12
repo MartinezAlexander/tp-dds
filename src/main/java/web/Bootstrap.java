@@ -84,14 +84,14 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
 
 
         //OPERACIONES
-        OperacionDeEgreso operacion1 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org, entidadBase);
-        OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica);
-        OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase);
-        OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase);
-        OperacionDeEgreso operacion5 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
-        OperacionDeEgreso operacion6 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
-        OperacionDeEgreso operacion7 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
-        OperacionDeEgreso operacion8 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
+        OperacionDeEgreso operacion1 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion5 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion6 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion7 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion8 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
 
         operacion1.agregarRevisor(usuario1);
         operacion2.agregarRevisor(usuario2);
@@ -148,37 +148,37 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         });
     }
 
-    private List<Presupuesto> cargarPresupuestos(){
+    private List<Presupuesto> cargarPresupuestos(String nombreUno, String apellidoUno, String nombreDos, String apellidoDos, String nombreTres, String apellidoTres, String itemUno, String itemDos, String itemTres){
         List<Presupuesto> presupuestos = new ArrayList<>();
 
         List<ItemPresupuesto> itemsPresupuestoUno = new ArrayList<>();
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Pantalon"), new BigDecimal(20), "ARS"));
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Remera"), new BigDecimal(20), "ARS"));
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Saco"), new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion(itemUno), new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion(itemDos), new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion(itemTres), new BigDecimal(20), "ARS"));
 
-        Proveedor proveedorUno = new Proveedor(new DireccionPostal("Av. Brasil", 1520, 5, "A", "5000"), "Juan", "Perez", 22451886);
+        Proveedor proveedorUno = new Proveedor(new DireccionPostal("Av. Brasil", 1520, 5, "A", "5000"), nombreUno, apellidoUno, 22451886);
         DocumentoComercial documentoComercialUno = new DocumentoComercial(TipoDocumento.COTIZACION, 14654564);
         LocalDate fechaUno = LocalDate.of(2019, 6, 20);
 
         Presupuesto presupuestoUno = new Presupuesto(proveedorUno, itemsPresupuestoUno, documentoComercialUno, fechaUno);
 
         List<ItemPresupuesto> itemsPresupuestoDos = new ArrayList<>();
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Pantalon"), new BigDecimal(60), "ARS"));
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Remera"), new BigDecimal(20), "ARS"));
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Saco"), new BigDecimal(140), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion(itemUno), new BigDecimal(60), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion(itemDos), new BigDecimal(20), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion(itemTres), new BigDecimal(140), "ARS"));
 
-        Proveedor proveedorDos = new Proveedor(new DireccionPostal("Av 9 de Julio", 2075, 1, "A", "1478"), "Esteban", "Quito", 2475239);
+        Proveedor proveedorDos = new Proveedor(new DireccionPostal("Av 9 de Julio", 2075, 1, "A", "1478"), nombreDos, apellidoDos, 2475239);
         DocumentoComercial documentoComercialDos = new DocumentoComercial(TipoDocumento.COTIZACION, 26456451);
         LocalDate fechaDos = LocalDate.of(2019, 6, 21);
 
         Presupuesto presupuestoDos = new Presupuesto(proveedorDos, itemsPresupuestoDos, documentoComercialDos, fechaDos);
 
         List<ItemPresupuesto> itemsPresupuestoTres = new ArrayList<>();
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Pantalon"), new BigDecimal(30), "ARS"));
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Remera"), new BigDecimal(30), "ARS"));
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Saco"), new BigDecimal(10), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion(itemUno), new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion(itemDos), new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion(itemTres), new BigDecimal(10), "ARS"));
 
-        Proveedor proveedorTres = new Proveedor(new DireccionPostal("Av Libertador", 1032, 15, "C", "2116"), "Elber", "Galarga", 3415728);
+        Proveedor proveedorTres = new Proveedor(new DireccionPostal("Av Libertador", 1032, 15, "C", "2116"), nombreTres, apellidoTres, 3415728);
         DocumentoComercial documentoComercialTres = new DocumentoComercial(TipoDocumento.COTIZACION, 36456432);
         LocalDate fechaTres = LocalDate.of(2015, 1, 5);
 
@@ -191,8 +191,8 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         return presupuestos;
     }
 
-    private OperacionDeEgreso cargarOperacion(CriterioDeSeleccion criterioDeSeleccion, Organizacion organizacion, Entidad entidad){
-        List<Presupuesto> presupuestos = cargarPresupuestos();
+    private OperacionDeEgreso cargarOperacion(CriterioDeSeleccion criterioDeSeleccion, Organizacion organizacion, Entidad entidad, String nombreUno, String apellidoUno, String nombreDos, String apellidoDos, String nombreTres, String apellidoTres, String itemUno, String itemDos, String itemTres){
+        List<Presupuesto> presupuestos = cargarPresupuestos(nombreUno,apellidoUno,nombreDos,apellidoDos,nombreTres,apellidoTres,itemUno,itemDos,itemTres);
         //TODO: Persistir todo esto
         //TODO: buscar si hay forma de que hibernate te lo haga todo de una al cargar la operacion, que seria mas facil.
         int cantidadPresupuestos = 3;
