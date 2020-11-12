@@ -85,9 +85,9 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
 
         //OPERACIONES
         OperacionDeEgreso operacion1 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica, "Roberto","Sanchez","Juan","Perez","Elsa","Muray","Zapatos","Calzoncillos","Campera");
+        OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Alicia","Estevez","El Chapo","Guzman","La Mirtha","Legrand","Chancletas","Crocs","Ojotas");
+        OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Tita","Perez","Ramiro","Lopez","Jose","Bruzzoni","Tanga","Corpiño","Body");
         OperacionDeEgreso operacion5 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
         OperacionDeEgreso operacion6 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
         OperacionDeEgreso operacion7 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
