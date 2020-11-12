@@ -88,10 +88,10 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
         OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
         OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion5 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion6 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion7 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
-        OperacionDeEgreso operacion8 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
+        OperacionDeEgreso operacion5 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Pity","Martinez","Enzo","Perez","Leonardo","Ponzio","Lapiz","Ojota","Lentes");
+        OperacionDeEgreso operacion6 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Daniel","Pasarella","Mario Alberto","Kempes","Juan","Roman","Cinturon","Silla","Computadora");
+        OperacionDeEgreso operacion7 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Jose","Bruzzoni","Jorge","Burruchaga","Oscar","Ruggeri","Telefono","Plato","Mesa");
+        OperacionDeEgreso operacion8 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase, "Agustin","Cragno","Julian","Simaro","Alexander","Martinez","Zapato","Reloj","Corbata");
 
         operacion1.agregarRevisor(usuario1);
         operacion2.agregarRevisor(usuario2);
