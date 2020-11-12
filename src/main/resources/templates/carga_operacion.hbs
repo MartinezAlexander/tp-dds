@@ -1,142 +1,6 @@
-<!--{{#partial "contenido"}}-->
+{{#partial "contenido"}}
 
-<!--    <h1> Nueva Operacion de Egreso </h1>-->
-
-<!--    <form action="carga_operacion" method="post">-->
-
-<!--        <p> <br> Documento Comercial </p>-->
-<!--        <select class="form-control form-control" id="sel-documento" name="doc-comercial" required>-->
-<!--            <option disabled value="" hidden selected>Seleccione un documento </option>-->
-
-<!--            {{#each documentos}}-->
-<!--                <option value={{ nombre }}> {{ nombre }} </option>-->
-<!--            {{/each}}-->
-
-<!--        </select>-->
-
-<!--        <p> <br> Número Documento Comercial</p>-->
-<!--        <input type="number" min="0" name="num_documento" placeholder="Numero Documento" required>-->
-
-
-<!--        <p> <br> Proveedor </p>-->
-<!--        <select class="form-control form-control" id="sel-proveedor" name="proveedor" required>-->
-<!--            <option disabled value="" hidden selected>Seleccione un proveedor </option>-->
-
-<!--            {{#each proveedores}}-->
-<!--                <option value={{ id }}> {{ nombreYApellido }} {{ razonSocial }} </option>-->
-<!--            {{/each}}-->
-
-<!--        </select>-->
-
-<!--        <p> <br> Fecha </p>-->
-<!--        <input type="date" id="input-fecha" name="fecha" required>-->
-
-<!--        <p> <br> Medio de Pago </p>-->
-<!--        <select class="form-control form-control" id="sel-medio-pago" name="medio-pago" required>-->
-<!--            <option disabled value="" hidden selected>Seleccione un medio de pago </option>-->
-
-<!--            {{#each mediosPago}}-->
-<!--                <option value={{ nombre }}>{{ nombre }}</option>-->
-<!--            {{/each}}-->
-<!--        </select>-->
-
-<!--        <p> <br> Número medio de pago </p>-->
-<!--        <input type="number" min="0" name="num_medio_de_pago" placeholder="Numero medio de pago">-->
-
-<!--        <p> <br> Organizacion </p>-->
-<!--        <select class="form-control form-control" id="sel-organizacion" name="organizacion" required>-->
-<!--            <option disabled value="" hidden selected>Seleccione una Organizacion </option>-->
-
-<!--            {{#each organizaciones}}-->
-<!--                <option value={{ id }}>{{ nombre }}</option>-->
-<!--            {{/each}}-->
-<!--        </select>-->
-
-<!--        <p> <br> Entidad </p>-->
-<!--        <select class="form-control form-control" id="sel-entidad" name="entidad" required>-->
-<!--            <option disabled value="" hidden selected>Seleccione una Entidad </option>-->
-
-<!--            {{#each entidades}}-->
-<!--                <option value={{ id }}>{{ nombreFicticio }}</option>-->
-<!--            {{/each}}-->
-<!--        </select>-->
-
-<!--        <p> <br> Criterio de seleccion </p>-->
-<!--        <select class="form-control form-control" id="sel-criterio" name="criterio-seleccion" required>-->
-<!--            <option disabled value="" hidden selected>Seleccione un criterio </option>-->
-
-<!--            {{#each criterios}}-->
-<!--                <option value={{ nombre }}>{{ nombre }}</option>-->
-<!--            {{/each}}-->
-<!--        </select>-->
-
-<!--        &lt;!&ndash;-->
-<!--        TODO: Presupuestos Necesarios??-->
-<!--               Presupuesto Elegido-->
-<!--               Criterio de Seleccion-->
-<!--               Items-->
-<!--               Usuarios Revisores-->
-<!--               Etiquetas-->
-<!--        &ndash;&gt;-->
-
-<!--        <div id="categorias">-->
-
-<!--            <br>-->
-<!--            <input type="text" name="nuevaCategoria" id="nuevaCategoria" placeholder="Nueva categoria..." v-model="nombreCategoria">-->
-<!--            <button v-on:click="agregarCategoria" type="button" class="btn btn-primary"> Agregar </button>-->
-
-<!--            <div class="row" v-for="item in lista">-->
-<!--                <div class="col-md-2 mt-3">-->
-<!--                    <div class="alert alert-success alert-dismissible">-->
-<!--                        <strong v-text="item"></strong>-->
-<!--                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--                            <span v-on:click="quitarCategoria(item)">&times;</span>-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <button type="submit" class="btn btn-primary">Cargar</button>-->
-<!--    </form>-->
-
-<!--    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>-->
-
-<!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>-->
-
-<!--    <script src="js/categoria.js"></script>-->
-<!--{{/partial}}-->
-
-<!--{{>layout.hbs}}-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Gesoc</title>
-</head>
-
-<body>
-
-<h1 xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"> Nueva Operacion de Egreso </h1>
+<h1 style="text-align: center" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"> Nueva Operacion de Egreso </h1>
 
 <form id="formulario" action="carga_operacion" method="post">
 
@@ -254,6 +118,13 @@
                 </div>
             </div>
         </div>
+
+<!--        <select name="presupuestoElegido" id="presupuestoElegido" v-model="presupuestoElegido">-->
+<!--            <div class="row" v-for="item in lista">-->
+<!--                    <option v-bind:value={{item}}></option>-->
+<!--            </div>-->
+<!--        </select>-->
+
     </div>
 
     <br>
@@ -292,14 +163,9 @@
 </form>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-
-<!--<script src="https://code.jquery.com/jquery-migrate-3.3.1.min.js" integrity="sha256-APllMc0V4lf/Rb5Cz4idWUCYlBDG3b0EcN1Ushd3hpE=" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>-->
-
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="js/categoria.js"></script>
 
-</body>
+{{/partial}}
 
-</html>
+{{>layout.hbs}}

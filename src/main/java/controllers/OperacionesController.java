@@ -39,6 +39,7 @@ public class OperacionesController implements WithGlobalEntityManager, Transacti
         List<TiposMedioDePago> mediosPago = Arrays.asList(TiposMedioDePago.values());
         List<CriterioDeSeleccion> criterios = Arrays.asList(CriterioDeSeleccion.values());
         List<Presupuesto> presupuestos = RepositorioPresupuestos.getInstance().getPresupuestos();
+
         List<ItemOperacion> items = RepositorioItems.getInstance().getItems();
 
         HashMap<String, Object> viewModel = new HashMap<>();
@@ -99,8 +100,8 @@ public class OperacionesController implements WithGlobalEntityManager, Transacti
         for (int id : presupuestos_id){
             Presupuesto presupuesto = RepositorioPresupuestos.getInstance().getPresupuesto(id);
             listaPresupuestos.add(presupuesto);
-
         }
+
         List<ItemOperacion> items = new ArrayList<>();
         for (int id : items_id){
             ItemOperacion itemOperacion = RepositorioItems.getInstance().getItem(id);
