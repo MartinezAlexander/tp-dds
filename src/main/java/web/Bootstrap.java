@@ -124,34 +124,34 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         List<Presupuesto> presupuestos = new ArrayList<>();
 
         List<ItemPresupuesto> itemsPresupuestoUno = new ArrayList<>();
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(20), "ARS"));
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(20), "ARS"));
-        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Pantalon"), new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Remera"), new BigDecimal(20), "ARS"));
+        itemsPresupuestoUno.add(new ItemPresupuesto(new ItemOperacion("Saco"), new BigDecimal(20), "ARS"));
 
-        Proveedor proveedorUno = new Proveedor(new DireccionPostal("Calle", 1520, 5, "A", "5000"), "Nombre", "Apellido", 1);
-        DocumentoComercial documentoComercialUno = new DocumentoComercial(TipoDocumento.COTIZACION, 1);
+        Proveedor proveedorUno = new Proveedor(new DireccionPostal("Av. Brasil", 1520, 5, "A", "5000"), "Juan", "Perez", 22451886);
+        DocumentoComercial documentoComercialUno = new DocumentoComercial(TipoDocumento.COTIZACION, 14654564);
         LocalDate fechaUno = LocalDate.of(2019, 6, 20);
 
         Presupuesto presupuestoUno = new Presupuesto(proveedorUno, itemsPresupuestoUno, documentoComercialUno, fechaUno);
 
         List<ItemPresupuesto> itemsPresupuestoDos = new ArrayList<>();
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(60), "ARS"));
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(20), "ARS"));
-        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(140), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Pantalon"), new BigDecimal(60), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Remera"), new BigDecimal(20), "ARS"));
+        itemsPresupuestoDos.add(new ItemPresupuesto(new ItemOperacion("Saco"), new BigDecimal(140), "ARS"));
 
-        Proveedor proveedorDos = new Proveedor(new DireccionPostal("Calle", 2075, 1, "A", "1478"), "Nombre", "Apellido", 2);
-        DocumentoComercial documentoComercialDos = new DocumentoComercial(TipoDocumento.COTIZACION, 2);
+        Proveedor proveedorDos = new Proveedor(new DireccionPostal("Av 9 de Julio", 2075, 1, "A", "1478"), "Esteban", "Quito", 2475239);
+        DocumentoComercial documentoComercialDos = new DocumentoComercial(TipoDocumento.COTIZACION, 26456451);
         LocalDate fechaDos = LocalDate.of(2019, 6, 21);
 
         Presupuesto presupuestoDos = new Presupuesto(proveedorDos, itemsPresupuestoDos, documentoComercialDos, fechaDos);
 
         List<ItemPresupuesto> itemsPresupuestoTres = new ArrayList<>();
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(30), "ARS"));
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(30), "ARS"));
-        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Descripcion"), new BigDecimal(10), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Pantalon"), new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Remera"), new BigDecimal(30), "ARS"));
+        itemsPresupuestoTres.add(new ItemPresupuesto(new ItemOperacion("Saco"), new BigDecimal(10), "ARS"));
 
-        Proveedor proveedorTres = new Proveedor(new DireccionPostal("Calle", 1032, 15, "C", "2116"), "Nombre", "Apellido", 3);
-        DocumentoComercial documentoComercialTres = new DocumentoComercial(TipoDocumento.COTIZACION, 3);
+        Proveedor proveedorTres = new Proveedor(new DireccionPostal("Av Libertador", 1032, 15, "C", "2116"), "Elber", "Galarga", 3415728);
+        DocumentoComercial documentoComercialTres = new DocumentoComercial(TipoDocumento.COTIZACION, 36456432);
         LocalDate fechaTres = LocalDate.of(2015, 1, 5);
 
         Presupuesto presupuestoTres = new Presupuesto(proveedorTres, itemsPresupuestoTres, documentoComercialTres, fechaTres);
