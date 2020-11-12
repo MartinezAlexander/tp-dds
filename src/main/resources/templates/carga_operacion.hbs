@@ -93,6 +93,8 @@
     <br>
     <hr>
 
+    <p> <br> Número de presupuestos a utilizar </p>
+    <input type="number" min="0" name="num-presupuestos" placeholder="Numero de presupuestos">
 
     <div id="presupuestos">
 
@@ -102,7 +104,7 @@
             <option value="0">Seleccione un Presupuesto </option>
 
             {{#each presupuestos}}
-                <option value={{ id }}>{{ id }}</option>
+                <option value={{ id }}>Presupuesto de {{ proveedor.nombreYApellido }} - {{ fecha }}</option>
             {{/each}}
 
         </select>
@@ -118,28 +120,29 @@
                 </div>
             </div>
         </div>
-
-<!--        <select name="presupuestoElegido" id="presupuestoElegido" v-model="presupuestoElegido">-->
-<!--            <div class="row" v-for="item in lista">-->
-<!--                    <option v-bind:value={{item}}></option>-->
-<!--            </div>-->
-<!--        </select>-->
-
     </div>
 
+
+    <p> <br> Presupuesto a Utilizar </p>
+    <select class="form-control form-control" id="presupuesto-elegido" name="presupuesto-elegido" required>
+        <option disabled value="" hidden selected>Seleccione un presupuesto </option>
+
+        {{#each presupuestos}}
+            <option value={{ id }}>Presupuesto de {{ proveedor.nombreYApellido }} - {{ fecha }}</option>
+        {{/each}}
+    </select>
     <br>
     <hr>
 
 
     <div id="items">
-
         <br>
         <p> Elija los items que desea asignar </p>
         <select name="nuevoItem" id="nuevoItem" v-model="nombreItem">
             <option value="0">Seleccione un Item </option>
 
             {{#each items}}
-                <option value={{ id }}>{{ id }}</option>
+                <option value={{ id }}>{{ descripcion }}</option>
             {{/each}}
 
         </select>

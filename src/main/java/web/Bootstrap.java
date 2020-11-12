@@ -61,6 +61,10 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         //ENTIDAD
         EntidadBase entidadBase = new EntidadBase("E. Base",
                 unaCategoriaParaEntidadBase, "una entidad base");
+        EntidadBase otraEntidadBase = new EntidadBase("Otra Entidad Base",
+                unaCategoriaParaEntidadBase, "una entidad base mas");
+        EntidadBase ultimaEntidadBase = new EntidadBase("La Ultima Entidad Base",
+                unaCategoriaParaEntidadBase, "basta de entidades base");
 
         //USUARIOS
         Usuario usuario1 = new Usuario("Julian Simaro", "TPscala2020");
@@ -73,23 +77,40 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         List<Entidad> entidades2 = new ArrayList<>();
         entidades2.add(entidadJuridica);
         Organizacion org2 = new Organizacion(entidades2, "SCALA ONG");
+        List<Entidad> entidades3 = new ArrayList<>();
+        entidades3.add(otraEntidadBase);
+        entidades3.add(ultimaEntidadBase);
+        Organizacion org3 = new Organizacion(entidades3, "JAVA ONG");
+
 
         //OPERACIONES
         OperacionDeEgreso operacion1 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org, entidadBase);
         OperacionDeEgreso operacion2 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadJuridica);
         OperacionDeEgreso operacion3 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase);
         OperacionDeEgreso operacion4 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org2, entidadBase);
+        OperacionDeEgreso operacion5 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
+        OperacionDeEgreso operacion6 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
+        OperacionDeEgreso operacion7 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
+        OperacionDeEgreso operacion8 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org3, otraEntidadBase);
 
         operacion1.agregarRevisor(usuario1);
         operacion2.agregarRevisor(usuario2);
         operacion3.agregarRevisor(usuario1);
         operacion4.agregarRevisor(usuario1);
+        operacion5.agregarRevisor(usuario1);
+        operacion6.agregarRevisor(usuario1);
+        operacion7.agregarRevisor(usuario1);
+        operacion8.agregarRevisor(usuario1);
 
         //MENSAJES
         operacion1.realizarValidacion();
         operacion2.realizarValidacion();
         operacion3.realizarValidacion();
         operacion4.realizarValidacion();
+        operacion5.realizarValidacion();
+        operacion6.realizarValidacion();
+        operacion7.realizarValidacion();
+        operacion8.realizarValidacion();
 
         withTransaction(() -> {
             RepositorioCategoriaEntidad.getInstance().agregarRegla(regla1);
@@ -102,6 +123,8 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
             RepositorioCategoriaEntidad.getInstance().agregarCategoriaEntidad(unaCategoriaParaEntidadBase);
 
             RepositorioEntidades.getInstance().agregarEntidad(entidadBase);
+            RepositorioEntidades.getInstance().agregarEntidad(otraEntidadBase);
+            RepositorioEntidades.getInstance().agregarEntidad(ultimaEntidadBase);
 
             RepositorioUsuarios.getInstance().agregarUsuario(usuario1);
             RepositorioUsuarios.getInstance().agregarUsuario(usuario2);
@@ -110,12 +133,17 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
             RepositorioOperaciones.getInstance().agregarOperacion(operacion2);
             RepositorioOperaciones.getInstance().agregarOperacion(operacion3);
             RepositorioOperaciones.getInstance().agregarOperacion(operacion4);
+            RepositorioOperaciones.getInstance().agregarOperacion(operacion5);
+            RepositorioOperaciones.getInstance().agregarOperacion(operacion6);
+            RepositorioOperaciones.getInstance().agregarOperacion(operacion7);
+            RepositorioOperaciones.getInstance().agregarOperacion(operacion8);
 
             usuario1.getBandejaMensajes().forEach(mensajeRevision -> entityManager().persist(mensajeRevision));
             usuario2.getBandejaMensajes().forEach(mensajeRevision -> entityManager().persist(mensajeRevision));
 
             RepositorioOrganizaciones.getInstance().agregarOrganizacion(org);
             RepositorioOrganizaciones.getInstance().agregarOrganizacion(org2);
+            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org3);
 
         });
     }
