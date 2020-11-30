@@ -1,6 +1,7 @@
 package controllers;
 
 import autenticacion.ContrasenaInvalida;
+import autenticacion.PasswordHasher;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
 import repositories.RepositorioUsuarios;
@@ -21,7 +22,7 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
 
     public static ModelAndView login(Request req, Response res){
         String nombre = req.queryParams("fullname");
-        String contrasenia = req.queryParams("password");
+        String contrasenia = PasswordHasher.getSecurePassword(req.queryParams("password"));
 
         try {
             Usuario usuario = RepositorioUsuarios.getInstance().getUsuario(nombre);
@@ -44,6 +45,7 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
         String contrasenia = req.queryParams("newpassword");
         String recontrasenia = req.queryParams("repassword");
 
+
         try {
             RepositorioUsuarios.getInstance().getUsuario(nombre).getNombre();
             res.redirect("/login?errorS=true");
@@ -56,7 +58,7 @@ public class HomeController implements WithGlobalEntityManager, TransactionalOps
             }
 
             try {
-                Usuario usuario = new Usuario(nombre, contrasenia);
+                Usuario usuario = new Usuario(nombre, PasswordHasher.getSecurePassword(contrasenia));
 
                 withTransaction(() -> {
                     RepositorioUsuarios.getInstance().agregarUsuario(usuario);

@@ -1,5 +1,6 @@
 package web;
 
+import autenticacion.PasswordHasher;
 import direcciones.DireccionPostal;
 import operaciones.DocumentoComercial;
 import operaciones.ItemOperacion;
@@ -67,8 +68,8 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
                 unaCategoriaParaEntidadBase, "basta de entidades base");
 
         //USUARIOS
-        Usuario usuario1 = new Usuario("Julian Simaro", "TPscala2020");
-        Usuario usuario2 = new Usuario("Agustin Cragno", "TPruby2020");
+        Usuario usuario1 = new Usuario("Julian Simaro", PasswordHasher.getSecurePassword("TPscala2020"));
+        Usuario usuario2 = new Usuario("Agustin Cragno", PasswordHasher.getSecurePassword("TPruby2020"));
 
         //ORGANIZACIONES
         List<Entidad> entidades = new ArrayList<>();
