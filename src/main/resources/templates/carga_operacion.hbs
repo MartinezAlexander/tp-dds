@@ -104,7 +104,9 @@
             <option value="0">Seleccione un Presupuesto </option>
 
             {{#each presupuestos}}
-                <option value={{ id }}>Presupuesto de {{ proveedor.nombreYApellido }} - {{ fecha }}</option>
+                <option value="{{ id }}/Presupuesto de {{ proveedor.nombreYApellido }} el {{ fecha }}">
+                Presupuesto de {{ proveedor.nombreYApellido }} - {{ fecha }}
+                </option>
             {{/each}}
 
         </select>
@@ -142,7 +144,7 @@
             <option value="0">Seleccione un Item </option>
 
             {{#each items}}
-                <option value={{ id }}>{{ descripcion }}</option>
+                <option value={{ id }}/{{ descripcion }}>{{ descripcion }}</option>
             {{/each}}
 
         </select>
@@ -167,7 +169,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="js/categoria.js"></script>
+<script src="../../js/categoria.js"></script>
 
 {{/partial}}
 

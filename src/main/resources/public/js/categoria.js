@@ -28,14 +28,23 @@ const presupuestos = new  Vue({
         el: "#presupuestos",
         data: {
             lista: [],
+            lista_ids: [],
             nombrePresupuesto: '',
             candidatoAQuitar:''
         },
         methods: {
             agregarPresupuesto: function(){
-                if(this.nombrePresupuesto != '' && !this.lista.includes(this.nombrePresupuesto)){
-                    this.lista.push(this.nombrePresupuesto)
+                var id_descripcion = this.nombrePresupuesto.split("/")
+                var id = id_descripcion[0]
+                var descripcion = id_descripcion[1]
+
+                if(descripcion != '' && !this.lista.includes(descripcion)){
+                    this.lista.push(descripcion)
+                    this.lista_ids.push(id)
                     this.nombrePresupuesto=''
+
+                    console.log(this.lista_ids);
+                    console.log(this.lista);
                 }
 
                 else
@@ -43,8 +52,13 @@ const presupuestos = new  Vue({
             },
             quitarPresupuesto: function(candidatoAQuitarr){
                 console.log(candidatoAQuitarr);
+                var index = this.lista.indexOf(candidatoAQuitarr);
+
+                this.lista.splice(index, 1);
+                this.lista_ids.splice(index, 1);
+
+                console.log(this.lista_ids);
                 console.log(this.lista);
-                this.lista = this.lista.filter(function(x){ return x!=candidatoAQuitarr;});
             }
         }
     }
@@ -54,14 +68,23 @@ const items = new  Vue({
         el: "#items",
         data: {
             lista: [],
+            lista_ids: [],
             nombreItem: '',
             candidatoAQuitar:''
         },
         methods: {
             agregarItem: function(){
-                if(this.nombreItem != '' && !this.lista.includes(this.nombreItem)){
-                    this.lista.push(this.nombreItem)
+                var id_descripcion = this.nombreItem.split("/")
+                var id = id_descripcion[0]
+                var descripcion = id_descripcion[1]
+
+                if(descripcion != '' && !this.lista.includes(descripcion)){
+                    this.lista.push(descripcion)
+                    this.lista_ids.push(id)
                     this.nombreItem=''
+
+                    console.log(this.lista_ids);
+                    console.log(this.lista);
                 }
 
                 else
@@ -69,8 +92,13 @@ const items = new  Vue({
             },
             quitarItem: function(candidatoAQuitarr){
                 console.log(candidatoAQuitarr);
+                var index = this.lista.indexOf(candidatoAQuitarr);
+
+                this.lista.splice(index, 1);
+                this.lista_ids.splice(index, 1);
+
+                console.log(this.lista_ids);
                 console.log(this.lista);
-                this.lista = this.lista.filter(function(x){ return x!=candidatoAQuitarr;});
             }
         }
     }
@@ -85,8 +113,8 @@ $(document).ready(function(){
         var info = form.serializeArray();
         info.push(
             {name: 'etiquetas', value: JSON.stringify(categorias.lista)},
-            {name: 'presupuestos', value: JSON.stringify(presupuestos.lista)},
-            {name: 'items', value: JSON.stringify(items.lista)}
+            {name: 'presupuestos', value: JSON.stringify(presupuestos.lista_ids)},
+            {name: 'items', value: JSON.stringify(items.lista_ids)}
         )
 
         console.log(info);
