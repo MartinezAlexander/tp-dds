@@ -18,8 +18,11 @@ public class ValidadorDeOperaciones {
 		timerTask = new TimerTask() {
 			@Override
 			public void run() {
+				System.out.println("-------------Realizando Validaciones de Operaciones Pendientes...");
 				RepositorioOperaciones.getInstance().obtenerOperacionesPendientesDeValidacion()
 						.forEach(OperacionDeEgreso::realizarValidacion);
+
+				System.out.println("-------------Finalizaron las Validaciones");
 			}
 		};
 	}
