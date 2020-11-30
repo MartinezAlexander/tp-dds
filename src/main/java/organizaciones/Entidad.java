@@ -17,6 +17,10 @@ public abstract class Entidad {
     //Como estoy usando TABLE_PER_CLASS, tengo que ponerle la strategry TABLE para que
     //cada tabla tenga su propio id
 
+    @ManyToOne
+    @JoinColumn(name = "organizacion_id")
+    private Organizacion organizacion;
+
     @Column
     protected String nombreFicticio;
     @ManyToOne
@@ -24,9 +28,10 @@ public abstract class Entidad {
     
     public Entidad(){}
 
-    public Entidad(String nombreFicticio, CategoriaEntidad categoria) {
+    public Entidad(String nombreFicticio, CategoriaEntidad categoria, Organizacion organizacion) {
         this.nombreFicticio = nombreFicticio;
         this.categoria = categoria;
+        this.organizacion = organizacion;
     }
 
     public void aceptarNuevoEgreso(OperacionDeEgreso operacionDeEgreso){
@@ -49,5 +54,9 @@ public abstract class Entidad {
         return id;
     }
 
-    public String getNombreOrganizacion(){ return RepositorioOrganizaciones.getInstance().getOrganizacionDeEntidad(this).getNombre(); }
+    public Organizacion getOrganizacion() {
+        return organizacion;
+    }
+
+    public String getNombreOrganizacion(){ return organizacion.getNombre(); }
 }

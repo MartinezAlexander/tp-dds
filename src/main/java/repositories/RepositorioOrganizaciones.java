@@ -33,7 +33,4 @@ public class RepositorioOrganizaciones implements WithGlobalEntityManager {
                 .getSingleResult();
     }
 
-    public Organizacion getOrganizacionDeEntidad(Entidad entidad){
-        return this.getOrganizaciones().stream().filter(organizacion -> organizacion.getEntidades().contains(entidad)).findFirst().get();
-    }
 }

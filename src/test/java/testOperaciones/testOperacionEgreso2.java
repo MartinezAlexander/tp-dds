@@ -56,13 +56,12 @@ public class testOperacionEgreso2
 		MedioDePago medioPago = new TarjetaDeCredito(456789321);
 		BigDecimal valorTotal = new BigDecimal(5000);
 		CategoriaEntidad categoria = new CategoriaEntidad("cateee");
-		Entidad entidad = new EntidadBase("nombre_ficticio",categoria,"soy_una_descripcion");
-		
-		List<Entidad> entidades = new ArrayList<>();
-		entidades.add(entidad);
+		Organizacion organizacion = new Organizacion("JAVA");
+		Entidad entidad = new EntidadBase("nombre_ficticio",categoria,"soy_una_descripcion", organizacion);
 
-		Organizacion organizacion = new Organizacion(entidades, "JAVA");
-		
+		organizacion.agregarEntidad(entidad);
+
+
 		List<ItemOperacion> items = new ArrayList<>();
 		itemUno = new ItemOperacion("item_uno");
 		itemDos = new ItemOperacion("item_dos");

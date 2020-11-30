@@ -75,7 +75,7 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
         String descripcion = req.queryParams("descripcion");
 
 
-        EntidadBase entidadBase = new EntidadBase(nombre, categoria, descripcion, entidadJuridica);
+        EntidadBase entidadBase = new EntidadBase(nombre, categoria, descripcion, organizacion, entidadJuridica);
 
         organizacion.agregarEntidad(entidadBase);
 
@@ -115,9 +115,8 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
         CategoriaEntidad categoria = RepositorioCategoriaEntidad.getInstance().getCategoria(id_categoria);
         Organizacion organizacion = RepositorioOrganizaciones.getInstance().getOrganizacion(id_organizacion);
 
-        EntidadJuridica entidad = new EntidadJuridica(nombre, categoria, razonSocial, cuit, direccionPostal, codigoInscripcion, tipoJuridica);
+        EntidadJuridica entidad = new EntidadJuridica(nombre, categoria, razonSocial, cuit, direccionPostal, codigoInscripcion, tipoJuridica, organizacion);
 
-        //TODO: Hace falta esto???!
         organizacion.agregarEntidad(entidad);
 
         withTransaction(() -> {

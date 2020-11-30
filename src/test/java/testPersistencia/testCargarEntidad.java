@@ -7,6 +7,7 @@ import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import organizaciones.CategoriaEntidadJuridica;
 import organizaciones.EntidadBase;
 import organizaciones.EntidadJuridica;
+import organizaciones.Organizacion;
 import organizaciones.reglasEntidades.CategoriaEntidad;
 import organizaciones.reglasEntidades.ReglaAsignacionAEntidadJuridica;
 import organizaciones.reglasEntidades.ReglaNuevaEntidadBase;
@@ -25,6 +26,8 @@ public class testCargarEntidad implements WithGlobalEntityManager {
 
     @Test
     public void testCargarEntidades(){
+        Organizacion organizacion = new Organizacion("ORG");
+
         ReglaNuevaEntidadBase regla1 = new ReglaNuevaEntidadBase(false);
         ReglaNuevoEgreso regla2 = new ReglaNuevoEgreso(new BigDecimal(1000));
 
@@ -35,7 +38,7 @@ public class testCargarEntidad implements WithGlobalEntityManager {
 
         EntidadJuridica entidadJuridica = new EntidadJuridica("Una Entidad Juridica",
                 otraCategoriaParaEntidadJuridica, "Una Razon Social", 123456,
-                "La direccion", CategoriaEntidadJuridica.EMPRESA_MICRO);
+                "La direccion", CategoriaEntidadJuridica.EMPRESA_MICRO, organizacion);
 
         List<EntidadJuridica> entidadesProhibidas = new ArrayList<>();
         entidadesProhibidas.add(entidadJuridica);
@@ -46,7 +49,10 @@ public class testCargarEntidad implements WithGlobalEntityManager {
         unaCategoriaParaEntidadBase.agregarNuevaRegla(regla2);
 
         EntidadBase entidadBase = new EntidadBase("LA Entidad Base",
-                unaCategoriaParaEntidadBase, "Somos LA entidad base");
+                unaCategoriaParaEntidadBase, "Somos LA entidad base", organizacion);
+
+        organizacion.agregarEntidad(entidadJuridica);
+        organizacion.agregarEntidad(entidadBase);
 
         EntityTransaction transaction = entityManager().getTransaction();
         transaction.begin();

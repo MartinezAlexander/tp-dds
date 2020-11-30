@@ -23,8 +23,8 @@ public class EntidadJuridica extends Entidad {
 	public EntidadJuridica(){}
 	
 	public EntidadJuridica(String nombreFicticio, CategoriaEntidad categoria, String razonSocial, int cuit, String direccionPostal,
-						   CategoriaEntidadJuridica categoriaEntidadJuridica) {
-		super(nombreFicticio, categoria);
+						   CategoriaEntidadJuridica categoriaEntidadJuridica, Organizacion organizacion) {
+		super(nombreFicticio, categoria, organizacion);
 		this.razonSocial = razonSocial;
 		this.cuit = cuit;
 		this.direccionPostal = direccionPostal;
@@ -32,8 +32,8 @@ public class EntidadJuridica extends Entidad {
 	}
 
 	public EntidadJuridica(String nombreFicticio, CategoriaEntidad categoria, String razonSocial, int cuit, String direccionPostal,
-						   int codigoInscripcionIGJ, CategoriaEntidadJuridica categoriaEntidadJuridica) {
-		this(nombreFicticio, categoria, razonSocial, cuit, direccionPostal, categoriaEntidadJuridica);
+						   int codigoInscripcionIGJ, CategoriaEntidadJuridica categoriaEntidadJuridica, Organizacion organizacion) {
+		this(nombreFicticio, categoria, razonSocial, cuit, direccionPostal, categoriaEntidadJuridica, organizacion);
 		this.codigoInscripcionIGJ = codigoInscripcionIGJ;
 	}
 

@@ -35,6 +35,12 @@ import java.util.Random;
 
 public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, TransactionalOps {
     public void init(){
+
+        //ORGANIZACIONES
+        Organizacion org = new Organizacion("RUBY ONG");
+        Organizacion org2 = new Organizacion("SCALA ONG");
+        Organizacion org3 = new Organizacion("JAVA ONG");
+
         //REGLAS CATEGORIAS
         ReglaNuevaEntidadBase regla1 = new ReglaNuevaEntidadBase(false);
         ReglaNuevoEgreso regla2 = new ReglaNuevoEgreso(new BigDecimal(1000));
@@ -47,7 +53,7 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         //ENTIDAD
         EntidadJuridica entidadJuridica = new EntidadJuridica("Entidad Juridica 1234",
                 otraCategoriaParaEntidadJuridica, "La Razon Social", 965841,
-                "Una Direccion", CategoriaEntidadJuridica.EMPRESA_MEDIA_TRAMO_2);
+                "Una Direccion", CategoriaEntidadJuridica.EMPRESA_MEDIA_TRAMO_2, org2);
 
         //REGLA DE CATEGORIA
         List<EntidadJuridica> entidadesProhibidas = new ArrayList<>();
@@ -61,28 +67,20 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
 
         //ENTIDAD
         EntidadBase entidadBase = new EntidadBase("E. Base",
-                unaCategoriaParaEntidadBase, "una entidad base");
+                unaCategoriaParaEntidadBase, "una entidad base", org);
         EntidadBase otraEntidadBase = new EntidadBase("Otra Entidad Base",
-                unaCategoriaParaEntidadBase, "una entidad base mas");
+                unaCategoriaParaEntidadBase, "una entidad base mas", org3);
         EntidadBase ultimaEntidadBase = new EntidadBase("La Ultima Entidad Base",
-                unaCategoriaParaEntidadBase, "basta de entidades base");
+                unaCategoriaParaEntidadBase, "basta de entidades base", org3);
 
         //USUARIOS
         Usuario usuario1 = new Usuario("Julian Simaro", PasswordHasher.getSecurePassword("TPscala2020"));
         Usuario usuario2 = new Usuario("Agustin Cragno", PasswordHasher.getSecurePassword("TPruby2020"));
 
-        //ORGANIZACIONES
-        List<Entidad> entidades = new ArrayList<>();
-        entidades.add(entidadBase);
-        Organizacion org = new Organizacion(entidades, "RUBY ONG");
-        List<Entidad> entidades2 = new ArrayList<>();
-        entidades2.add(entidadJuridica);
-        Organizacion org2 = new Organizacion(entidades2, "SCALA ONG");
-        List<Entidad> entidades3 = new ArrayList<>();
-        entidades3.add(otraEntidadBase);
-        entidades3.add(ultimaEntidadBase);
-        Organizacion org3 = new Organizacion(entidades3, "JAVA ONG");
-
+        org.agregarEntidad(entidadBase);
+        org2.agregarEntidad(entidadJuridica);
+        org3.agregarEntidad(otraEntidadBase);
+        org3.agregarEntidad(ultimaEntidadBase);
 
         //OPERACIONES
         OperacionDeEgreso operacion1 = cargarOperacion(CriterioDeSeleccion.MENOR_VALOR, org, entidadBase, "Esteban","Quito","Lali","Bertadores","Elver","Galarga","Pantalon","Remera","Camisa");
@@ -114,6 +112,10 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
         operacion8.realizarValidacion();
 
         withTransaction(() -> {
+            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org);
+            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org2);
+            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org3);
+
             RepositorioCategoriaEntidad.getInstance().agregarRegla(regla1);
             RepositorioCategoriaEntidad.getInstance().agregarRegla(regla2);
             RepositorioCategoriaEntidad.getInstance().agregarCategoriaEntidad(otraCategoriaParaEntidadJuridica);
@@ -141,11 +143,6 @@ public class Bootstrap implements WithGlobalEntityManager, EntityManagerOps, Tra
 
             usuario1.getBandejaMensajes().forEach(mensajeRevision -> entityManager().persist(mensajeRevision));
             usuario2.getBandejaMensajes().forEach(mensajeRevision -> entityManager().persist(mensajeRevision));
-
-            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org);
-            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org2);
-            RepositorioOrganizaciones.getInstance().agregarOrganizacion(org3);
-
         });
     }
 

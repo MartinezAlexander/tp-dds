@@ -1,6 +1,7 @@
 package organizaciones;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,14 +11,18 @@ public class Organizacion {
 	@GeneratedValue
 	private int id;
 
-	@OneToMany
-	@JoinColumn(name = "organizacion_id")
+	@OneToMany(mappedBy = "organizacion")
 	private List<Entidad> entidades;
 
 	private String nombre;
 	
 	public Organizacion(){}
-	
+
+	public Organizacion(String nombre) {
+		this.nombre = nombre;
+		this.entidades = new ArrayList<>();
+	}
+
 	public Organizacion(List<Entidad> entidades, String nombre) {
 		this.nombre = nombre;
 		this.entidades = entidades;

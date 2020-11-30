@@ -13,13 +13,13 @@ public class EntidadBase extends Entidad {
 
 	public EntidadBase(){}
 	
-	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion) {
-		super(nombreFicticio, categoria);
+	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion, Organizacion organizacion) {
+		super(nombreFicticio, categoria, organizacion);
 		this.descripcion = descripcion;
 	}
 
-	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion, EntidadJuridica entidadJuridica) {
-		this(nombreFicticio, categoria, descripcion);
+	public EntidadBase(String nombreFicticio, CategoriaEntidad categoria, String descripcion, Organizacion organizacion, EntidadJuridica entidadJuridica) {
+		this(nombreFicticio, categoria, descripcion, organizacion);
 		this.entidadJuridica = entidadJuridica;
 	}
 
