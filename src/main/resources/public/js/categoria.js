@@ -98,7 +98,7 @@ $(document).ready(function(){
 //          });
 
         $.post($(this).attr("action"),info, function(response){
-            window.location = "/carga_operacion";
+            window.location = "/operaciones/new";
         });
 //        return false;
     });

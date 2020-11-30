@@ -83,7 +83,7 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
             RepositorioEntidades.getInstance().agregarEntidadBase(entidadBase);
         });
 
-        res.redirect("/carga_entidad_base");
+        res.redirect("/entidades");
         return null;
     }
 
@@ -124,7 +124,7 @@ public class EntidadesController implements WithGlobalEntityManager, Transaction
             RepositorioEntidades.getInstance().agregarEntidad(entidad);
         });
 
-        res.redirect("/carga_entidad_juridica");
+        res.redirect("/entidades");
         return null;
     }
 
