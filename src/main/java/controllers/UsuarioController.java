@@ -19,4 +19,11 @@ public class UsuarioController {
 
         return new ModelAndView(model, "usuario.hbs");
     }
+
+    public static Void cerrarSesion(Request req, Response res){
+        req.session().removeAttribute("usuario-logueado");
+
+        res.redirect("/login");
+        return null;
+    }
 }

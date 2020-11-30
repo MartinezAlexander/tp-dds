@@ -40,6 +40,7 @@ public class Router {
         Spark.get("/home", HomeController::home, transformer);
 
         Spark.get("/usuario", UsuarioController::usuario, transformer);
+        Spark.get("/usuario/logout", UsuarioController::cerrarSesion);
 
         Spark.get("/entidades", entidadesController::entidades, transformer);
         Spark.get("/entidades/:id",entidadesController::detalleEntidades, transformer);
