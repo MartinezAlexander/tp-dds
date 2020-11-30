@@ -91,15 +91,15 @@ $(document).ready(function(){
 
         console.log(info);
 
-        $.ajax({
-            type: form.attr('method'),
-            url: form.attr('action'),
-            data: info
-          });
+//        $.ajax({
+//            type: form.attr('method'),
+//            url: form.attr('action'),
+//            data: info
+//          });
 
-//        $.post($(this).attr("action"),info, function(response){
-//            console.log("Success");
-//        });
+        $.post($(this).attr("action"),info, function(response){
+            window.location = "/carga_operacion";
+        });
 //        return false;
     });
 });

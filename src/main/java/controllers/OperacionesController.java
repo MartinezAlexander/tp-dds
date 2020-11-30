@@ -127,7 +127,7 @@ public class OperacionesController implements WithGlobalEntityManager, Transacti
             System.out.println("############################################################# Despues de 15 años pudimos cargar una operacion ##########################################");
         });
 
-        res.redirect("/carga_operacion");
+//        res.redirect("/carga_operacion");
         return null;
     }
 }
