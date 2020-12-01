@@ -14,11 +14,19 @@ public class Server {
         Bootstrap boot = new Bootstrap();
 //        boot.init();
 
-        Spark.port(9000);
+        Spark.port(getHerokuAssignedPort());
         DebugScreen.enableDebugScreen();
         Router.configure();
 
         int segundosValidacion = 60;
         ValidadorDeOperaciones.getInstance().programarValidacionOperacionesPendientes(new Date(), segundosValidacion*1000);
+    }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 9000; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 }
