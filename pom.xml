@@ -29,7 +29,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>main</mainClass>
+							<mainClass>web.Server</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
