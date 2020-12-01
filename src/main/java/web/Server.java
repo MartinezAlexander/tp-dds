@@ -2,15 +2,29 @@ package web;
 
 import autenticacion.PasswordHasher;
 import operaciones.ValidadorDeOperaciones;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import spark.Spark;
 import spark.debug.DebugScreen;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Server {
     public static void main(String[] args) {
+//        Map<String,String> jdbcUrlSettings = new HashMap<>();
+//        String jdbcDbUrl = System.getenv("JDBC_DATABASE_URL");
+//        if (null != jdbcDbUrl) {
+//            jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
+//        }
+//
+//        new StandardServiceRegistryBuilder().
+//                configure("persistence.xml").
+//                applySettings(jdbcUrlSettings).
+//                build();
+
         Bootstrap boot = new Bootstrap();
 //        boot.init();
 
