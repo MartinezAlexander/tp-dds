@@ -14,19 +14,19 @@ import java.util.Map;
 
 public class Server {
     public static void main(String[] args) {
-//        Map<String,String> jdbcUrlSettings = new HashMap<>();
-//        String jdbcDbUrl = System.getenv("JDBC_DATABASE_URL");
-//        if (null != jdbcDbUrl) {
-//            jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
-//        }
-//
-//        new StandardServiceRegistryBuilder().
-//                configure("persistence.xml").
-//                applySettings(jdbcUrlSettings).
-//                build();
+        Map<String,String> jdbcUrlSettings = new HashMap<>();
+        String jdbcDbUrl = System.getenv("JDBC_DATABASE_URL");
+        if (null != jdbcDbUrl) {
+            jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
+        }
+
+        new StandardServiceRegistryBuilder().
+                configure("persistence.xml").
+                applySettings(jdbcUrlSettings).
+                build();
 
         Bootstrap boot = new Bootstrap();
-//        boot.init();
+        boot.init();
 
         Spark.port(getHerokuAssignedPort());
         DebugScreen.enableDebugScreen();
