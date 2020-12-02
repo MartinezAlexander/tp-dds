@@ -14,17 +14,6 @@ import java.util.Map;
 
 public class Server {
     public static void main(String[] args) {
-//        Map<String,String> jdbcUrlSettings = new HashMap<>();
-//        String jdbcDbUrl = System.getenv("JDBC_DATABASE_URL");
-//        if (null != jdbcDbUrl) {
-//            jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
-//        }
-//
-//        new StandardServiceRegistryBuilder().
-//                configure("persistence.xml").
-//                applySettings(jdbcUrlSettings).
-//                build();
-
         Bootstrap boot = new Bootstrap();
 //        boot.init();
 
@@ -32,8 +21,8 @@ public class Server {
         DebugScreen.enableDebugScreen();
         Router.configure();
 
-        int segundosValidacion = 60;
-        ValidadorDeOperaciones.getInstance().programarValidacionOperacionesPendientes(new Date(), segundosValidacion*1000);
+//        int segundosValidacion = 60;
+//        ValidadorDeOperaciones.getInstance().programarValidacionOperacionesPendientes(new Date(), segundosValidacion*1000);
     }
 
     static int getHerokuAssignedPort() {
