@@ -80,12 +80,12 @@
 				<groupId>org.uqbar-project</groupId>
 				<artifactId>jpa-java8-extras</artifactId>
 				<version>1.0-alpha-1</version>
-				<exclusions>
-					<exclusion>
-						<artifactId>javassist</artifactId>
-						<groupId>org.javassist</groupId>
-					</exclusion>
-				</exclusions>
+<!--				<exclusions>-->
+<!--					<exclusion>-->
+<!--						<artifactId>javassist</artifactId>-->
+<!--						<groupId>org.javassist</groupId>-->
+<!--					</exclusion>-->
+<!--				</exclusions>-->
    	 		</dependency>
 
 			<dependency>
