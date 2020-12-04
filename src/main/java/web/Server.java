@@ -21,8 +21,8 @@ public class Server {
         DebugScreen.enableDebugScreen();
         Router.configure();
 
-//        int segundosValidacion = 60;
-//        ValidadorDeOperaciones.getInstance().programarValidacionOperacionesPendientes(new Date(), segundosValidacion*1000);
+        int segundosValidacion = 60;
+        ValidadorDeOperaciones.getInstance().programarValidacionOperacionesPendientes(new Date(), segundosValidacion*1000);
     }
 
     static int getHerokuAssignedPort() {
