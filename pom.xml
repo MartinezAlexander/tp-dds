@@ -34,21 +34,21 @@
 					</archive>
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>com.heroku.sdk</groupId>-->
-<!--				<artifactId>heroku-maven-plugin</artifactId>-->
-<!--				<version>0.4.4</version>-->
-<!--				<configuration>-->
-<!--					<jdkVersion>1.8</jdkVersion>-->
-<!--					&lt;!&ndash; Use your own application name &ndash;&gt;-->
-<!--					<appName>spark-heroku-example</appName>-->
-<!--					<processTypes>-->
-<!--						&lt;!&ndash; Tell Heroku how to launch your application &ndash;&gt;-->
-<!--						&lt;!&ndash; You might have to remove the ./ in front   &ndash;&gt;-->
-<!--						<web>java -jar ./target/my-app-1.0-jar-with-dependencies.jar</web>-->
-<!--					</processTypes>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>0.4.4</version>
+				<configuration>
+					<jdkVersion>1.8</jdkVersion>
+					<!-- Use your own application name -->
+					<appName>heroku-test</appName>
+					<processTypes>
+						<!-- Tell Heroku how to launch your application -->
+						<!-- You might have to remove the ./ in front   -->
+						<web>java -jar target/gesoc-1.0-jar-with-dependencies.jar</web>
+					</processTypes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
