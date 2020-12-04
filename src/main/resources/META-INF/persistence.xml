@@ -64,17 +64,18 @@
             <property name="hibernate.connection.password" value="" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" /-->
 
+            <property name="javax.persistence.query.timeout" value="999999999"/>
 
-            <property name="connection_pool_size" value="1"/>
+            <property name="connection_pool_size" value="2"/>
             <property name="hibernate.show_sql" value="true" /> 
             <property name="hibernate.format_sql" value="true" /> 
             <property name="use_sql_comments" value="true" /> 
             <property name="hibernate.hbm2ddl.auto" value="update" />
 
-            <property name="hibernate.c3p0.min_size" value="5"/>
-            <property name="hibernate.c3p0.max_size" value="20"/>
-            <property name="hibernate.c3p0.acquire_increment" value="5"/>
-            <property name="hibernate.c3p0.timeout" value="1800"/>
+<!--            <property name="hibernate.c3p0.min_size" value="5"/>-->
+<!--            <property name="hibernate.c3p0.max_size" value="20"/>-->
+<!--            <property name="hibernate.c3p0.acquire_increment" value="5"/>-->
+<!--            <property name="hibernate.c3p0.timeout" value="1800"/>-->
         </properties>
           
     </persistence-unit> 
