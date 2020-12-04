@@ -9,6 +9,9 @@ https://app.lucidchart.com/invitations/accept/7b6843b8-b62a-4a8e-ae0d-4bc86e0e08
 Wireframe:
 https://lucid.app/invitations/accept/eff72eec-0435-4d5e-b859-83c88fab51f3
 
+Arquitectura:
+https://lucid.app/lucidchart/invitations/accept/ce425aa2-9c21-4a2a-abd9-a5f26914b795
+
 Enunciado Parte 1:
 https://drive.google.com/file/d/19Sxl0lQzNHfpQoWqvuYzOl_YQdCwZXy4/view?usp=sharing
 
