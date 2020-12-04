@@ -29,10 +29,10 @@ public class Router {
             }
         }));
 
-//        Spark.after((request, response) -> {
-//            PerThreadEntityManagers.getEntityManager();
-//            PerThreadEntityManagers.closeEntityManager();
-//        });
+        Spark.after((request, response) -> {
+            PerThreadEntityManagers.getEntityManager();
+            PerThreadEntityManagers.closeEntityManager();
+        });
 
         Spark.get("/login", HomeController::show, transformer);
         Spark.post("/login", HomeController::login);
