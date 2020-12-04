@@ -17,7 +17,7 @@ public class Server {
         Bootstrap boot = new Bootstrap();
 //        boot.init();
 
-        Spark.port(getHerokuAssignedPort());
+        Spark.port( getHerokuAssignedPort());
         DebugScreen.enableDebugScreen();
         Router.configure();
 
